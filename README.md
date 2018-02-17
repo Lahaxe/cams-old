@@ -1,2 +1,2 @@
-# cams-old
-previous version in c++
+# cams
+Collection Archiving and Managment System
