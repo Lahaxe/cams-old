@@ -3,16 +3,14 @@
 #include <iostream>
 #include <sstream>
 
-// Include Rompp files
-#include <rompp/logger/Logger.h>
+// Include
+#include "common/logger/Logger.h"
 
 int main(int argc, char *argv[])
 {
     auto logger = Logger::instance();
     try
     {
-        logger.initialize_default("DEBUG");
-
         std::stringstream message;
         message << "Begin " << std::string(argv[0]);
         logger.info(message.str());

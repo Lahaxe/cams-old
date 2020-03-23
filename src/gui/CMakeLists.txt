@@ -22,12 +22,11 @@ GroupFiles(Forms_Files)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}/../lib
-                    ${CMAKE_SOURCE_DIR}/../rompp/src/
                     ${Boost_INCLUDE_DIRS}
                     ${CMAKE_CURRENT_BINARY_DIR})
 
 add_library(libcamsgui SHARED ${Source_Files} ${Header_Files} ${Forms_Files})
-set_target_properties(libcamsgui PROPERTIES OUTPUT_NAME dicomifiergui)
+set_target_properties(libcamsgui PROPERTIES OUTPUT_NAME libcams-gui)
 
 target_link_libraries(libcamsgui ${Boost_LIBRARIES})
 

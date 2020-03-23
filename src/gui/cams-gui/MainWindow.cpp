@@ -1,11 +1,9 @@
 
-// Include Rompp files
-#include <rompp/logger/Logger.h>
-
 // Include Qt files
 #include <qdesktopwidget.h>
 
 // Include Project files
+#include "common/logger/Logger.h"
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 

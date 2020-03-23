@@ -6,10 +6,8 @@
 // Include Qt files
 #include <QApplication>
 
-// Include Rompp files
-#include <rompp/logger/Logger.h>
-
 // Include Project files
+#include "common/logger/Logger.h"
 #include "cams-gui/MainWindow.h"
 
 int main(int argc, char *argv[])
@@ -18,8 +16,6 @@ int main(int argc, char *argv[])
     int status = EXIT_FAILURE;
     try
     {
-        logger.initialize_default("DEBUG");
-
         std::stringstream message;
         message << "Begin " << std::string(argv[0]);
         logger.info(message.str());
