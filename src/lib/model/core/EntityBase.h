@@ -4,20 +4,39 @@
 // Include Standard files
 #include <string>
 
+/**
+ * @brief Base class for all entity
+ */
 class EntityBase
 {
 public:
+    /**
+     * @brief Create an instance of EntityBase
+     * @param id: The entity Identifier
+     */
     EntityBase(std::string const & id = "");
 
+    /**
+     * @brief Destructor
+     */
     virtual ~EntityBase();
 
+    /**
+     * @brief Get the Entity identifier
+     * @return Return the entity identifier
+     */
     std::string get_id() const;
 
+    /**
+     * @brief Set the Entity identifier
+     * @param id: The entity identifier
+     */
     void set_id(std::string const & id);
 
 protected:
 
 private:
+    /// Identifier
     std::string _id;
 
 };
