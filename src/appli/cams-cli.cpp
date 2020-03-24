@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[])
 {
-    auto logger = Logger::instance();
+    auto logger = libcams::Logger::instance();
     try
     {
         std::stringstream message;

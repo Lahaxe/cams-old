@@ -4,6 +4,9 @@
 // Include Project files
 #include "model/core/EntityBase.h"
 
+namespace libcams
+{
+
 /**
  * @brief The User class
  */
@@ -41,5 +44,7 @@ private:
     std::string _name;
 
 };
+
+} // namespace libcams
 
 #endif // _785f3a4a_bd4b_4116_a2f2_5bbd9c2fb9fc

@@ -1,6 +1,9 @@
 // Include Project files
 #include "model/core/EntityBase.h"
 
+namespace libcams
+{
+
 EntityBase
 ::EntityBase(std::string const & id):
     _id(id)
@@ -27,3 +30,5 @@ EntityBase
 {
     this->_id = id;
 }
+
+} // namespace libcams

@@ -4,6 +4,9 @@
 // Include Standard library
 #include <string>
 
+namespace libcams
+{
+
 class Logger
 {
 public:
@@ -33,5 +36,7 @@ private:
     void write(std::string const & message, std::string const & level);
 
 };
+
+} // namespace libcams
 
 #endif // _730ac144_2efe_44ba_a248_2e48b183a75a

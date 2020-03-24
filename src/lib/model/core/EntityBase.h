@@ -4,6 +4,9 @@
 // Include Standard files
 #include <string>
 
+namespace libcams
+{
+
 /**
  * @brief Base class for all entity
  */
@@ -40,5 +43,7 @@ private:
     std::string _id;
 
 };
+
+} // namespace libcams
 
 #endif // _d9cb6f7b_3646_4fa3_92ec_afdc25443782
