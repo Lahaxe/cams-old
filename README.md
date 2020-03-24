@@ -26,3 +26,12 @@ chmod +x qt-opensource-linux-x64-5.14.1.run
 ## Generer un GUID
 
 echo _`uuidgen -r | tr - _`
+
+
+## Compiler et exécuter les tests
+
+cd build
+cmake -GNinja -DBUILD_TESTS=ON ..
+ninja
+../run_tests.sh
+
