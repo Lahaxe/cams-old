@@ -7,6 +7,9 @@
 namespace libcams
 {
 
+namespace model
+{
+
 /**
  * @brief The User class
  */
@@ -44,6 +47,8 @@ private:
     std::string _name;
 
 };
+
+} // namespace model
 
 } // namespace libcams
 

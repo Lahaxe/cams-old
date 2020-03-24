@@ -7,6 +7,9 @@
 namespace libcams
 {
 
+namespace model
+{
+
 /**
  * @brief Base class for all entity
  */
@@ -43,6 +46,8 @@ private:
     std::string _id;
 
 };
+
+} // namespace model
 
 } // namespace libcams
 

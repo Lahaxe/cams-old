@@ -4,6 +4,9 @@
 namespace libcams
 {
 
+namespace model
+{
+
 User
 ::User(std::string const & id, std::string const & name):
     EntityBase(id), _name(name)
@@ -30,5 +33,7 @@ User
 {
     this->_name = name;
 }
+
+} // namespace model
 
 } // namespace libcams

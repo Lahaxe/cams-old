@@ -4,6 +4,9 @@
 namespace libcams
 {
 
+namespace model
+{
+
 EntityBase
 ::EntityBase(std::string const & id):
     _id(id)
@@ -30,5 +33,7 @@ EntityBase
 {
     this->_id = id;
 }
+
+} // namespace model
 
 } // namespace libcams
