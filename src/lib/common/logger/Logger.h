@@ -7,6 +7,9 @@
 namespace libcams
 {
 
+namespace common
+{
+
 class Logger
 {
 public:
@@ -36,6 +39,8 @@ private:
     void write(std::string const & message, std::string const & level);
 
 };
+
+} // namespace common
 
 } // namespace libcams
 

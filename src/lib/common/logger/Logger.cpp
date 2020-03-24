@@ -10,6 +10,9 @@
 namespace libcams
 {
 
+namespace common
+{
+
 Logger* Logger::_instance = nullptr;
 
 Logger&
@@ -82,5 +85,7 @@ void Logger::write(const std::string &message, const std::string &level)
 
     std::cout << stream.str() << std::endl;
 }
+
+} // namespace common
 
 } // namespace libcams

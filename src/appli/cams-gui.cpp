@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[])
 {
-    auto logger = libcams::Logger::instance();
+    auto logger = libcams::common::Logger::instance();
     int status = EXIT_FAILURE;
     try
     {

@@ -8,6 +8,9 @@
 namespace libcams
 {
 
+namespace common
+{
+
 /**
  * @brief The CamsException class
  */
@@ -37,6 +40,8 @@ protected:
 
 private:
 };
+
+} // namespace common
 
 } // namespace libcams
 
