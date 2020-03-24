@@ -1,11 +1,17 @@
-//
+// Include standard files
 #include <sstream>
 
-//
+// Include boost files
 #include <boost/date_time/posix_time/posix_time.hpp>
 
 // Include Project files
 #include "common/logger/Logger.h"
+
+namespace libcams
+{
+
+namespace common
+{
 
 Logger* Logger::_instance = nullptr;
 
@@ -79,3 +85,7 @@ void Logger::write(const std::string &message, const std::string &level)
 
     std::cout << stream.str() << std::endl;
 }
+
+} // namespace common
+
+} // namespace libcams

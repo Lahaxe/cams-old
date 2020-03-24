@@ -5,6 +5,12 @@
 #include <exception>
 #include <string>
 
+namespace libcams
+{
+
+namespace common
+{
+
 /**
  * @brief The CamsException class
  */
@@ -34,5 +40,9 @@ protected:
 
 private:
 };
+
+} // namespace common
+
+} // namespace libcams
 
 #endif // _aea06ea4_e689_4029_bf14_ab86d3f59139

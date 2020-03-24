@@ -1,6 +1,12 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
+namespace libcams
+{
+
+namespace common
+{
+
 CamsException
 ::CamsException(std::string const & message):
     _message(message)
@@ -20,3 +26,7 @@ CamsException
 {
     return this->_message.c_str();
 }
+
+} // namespace common
+
+} // namespace libcams
