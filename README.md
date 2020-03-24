@@ -4,17 +4,23 @@ Collection Archiving and Managment System
 ## Linux compilation
 
 sudo apt-get install git git-gui
+
 sudo apt-get install cmake build-essential ninja-build libboost1.65-all-dev qtbase5-dev qtcreator
 
 git config --global user.name "<your name>"
+  
 git config --global user.email "<your email>"
 
 git clone https://github.com/lahaxe/cams-old.git
 
 cd cams-old
+
 mkdir build
+
 cd build
+
 cmake -GNinja ..
+
 ninja
 
 ## si besoin, installer Qt5
