@@ -1,4 +1,4 @@
-find_package(Boost REQUIRED COMPONENTS filesystem system)
+find_package(Boost COMPONENTS filesystem system REQUIRED)
 
 file(GLOB_RECURSE Header_Files "*.h")
 file(GLOB_RECURSE Source_Files "*.cpp")
