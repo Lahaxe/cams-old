@@ -1,6 +1,6 @@
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(Boost COMPONENTS unit_test_framework date_time REQUIRED)
 
-file(GLOB headers code/*.h)
+file(GLOB_RECURSE headers code/*.h)
 file(GLOB_RECURSE tests code/*.cpp)
 
 include_directories(${CMAKE_SOURCE_DIR}/src/
