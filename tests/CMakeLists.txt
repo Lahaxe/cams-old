@@ -28,7 +28,7 @@ foreach(test_file ${tests})
     string(REGEX MATCHALL ${pattern} cases ${content})
 
     foreach(case ${cases})
-        string(REGEX REPLACE ${pattern} "\\2" case ${cases})
+        string(REGEX REPLACE ${pattern} "\\2" case ${case})
         if(NOT ${case} MATCHES "##")
             add_test("${test}_${case}" "${test}" "--run_test=${case}")
         endif()
