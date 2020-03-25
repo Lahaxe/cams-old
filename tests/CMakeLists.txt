@@ -4,6 +4,7 @@ file(GLOB_RECURSE headers code/*.h)
 file(GLOB_RECURSE tests code/*.cpp)
 
 include_directories(${CMAKE_SOURCE_DIR}/src/
+                    ${CMAKE_SOURCE_DIR}/src/lib/
                     ${CMAKE_SOURCE_DIR}/tests/code/
                     ${Boost_INCLUDE_DIRS})
 
