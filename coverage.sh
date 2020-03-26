@@ -5,7 +5,7 @@ export WORKSPACE=$PWD
 cd build
 
 # Generate Makefile
-cmake -G Ninja -D BUILD_TESTING=ON -D CMAKE_CXX_FLAGS="-std=c++0x --coverage" ../
+cmake -G Ninja -D BUILD_TESTING=ON -D CMAKE_CXX_FLAGS="-std=c++0x --coverage" -D CMAKE_EXPORT_COMPILE_COMMANDS=ON ../
 
 # Delete coverage data
 lcov -z -d .
@@ -26,5 +26,5 @@ lcov -r cams.info '/*/tests/code/*' -d . -o cams.info
 # Generate a web page
 genhtml -o lcov cams.info
 
-cppcheck -q --xml --xml-version=2 --enable=all --inconclusive -i ${WORKSPACE}/src/ ${WORKSPACE}/tests/ 2> ${WORKSPACE}/build/cppcheck.xml
+cppcheck -q --xml --xml-version=2 --enable=all --inconclusive --project=compile_commands.json -i ${WORKSPACE} 2> ${WORKSPACE}/cppcheck.xml
 
