@@ -39,6 +39,7 @@ protected:
     std::string _message;
 
 private:
+
 };
 
 } // namespace common

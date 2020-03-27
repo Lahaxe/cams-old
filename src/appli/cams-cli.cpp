@@ -31,10 +31,10 @@ int main(int argc, char *argv[])
         }
         else
         {
-
             std::stringstream message;
             message << "Trying to " << arguments.get_action() << " " << arguments.get_controller();
             logger.info(message.str());
+
 
         }
     }

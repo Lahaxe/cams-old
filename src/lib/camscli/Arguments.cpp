@@ -1,6 +1,7 @@
 // Include Project files
 #include "camscli/Arguments.h"
-#include "common/exception/CamsException.h"
+#include "camscli/MissingArgumentException.h"
+#include "camscli/UnknownArgumentException.h"
 
 namespace libcams
 {
@@ -173,7 +174,7 @@ void Arguments::parse(int argc, char *argv[])
         {
             if (argc < current_arg + 2)
             {
-                throw common::CamsException("Missing some arguments");
+                throw MissingArgumentException("User");
             }
 
             ++current_arg;
@@ -184,7 +185,7 @@ void Arguments::parse(int argc, char *argv[])
         {
             if (argc < current_arg + 2)
             {
-                throw common::CamsException("Missing some arguments");
+                throw MissingArgumentException("Password");
             }
 
             ++current_arg;
@@ -195,7 +196,7 @@ void Arguments::parse(int argc, char *argv[])
         {
             if (argc < current_arg + 2)
             {
-                throw common::CamsException("Missing some arguments");
+                throw MissingArgumentException("Token");
             }
 
             ++current_arg;
@@ -206,7 +207,7 @@ void Arguments::parse(int argc, char *argv[])
         {
             if (argc < current_arg + 2)
             {
-                throw common::CamsException("Missing some arguments");
+                throw MissingArgumentException("Jsonfile");
             }
 
             ++current_arg;
@@ -217,7 +218,7 @@ void Arguments::parse(int argc, char *argv[])
         {
             if (argc < current_arg + 2)
             {
-                throw common::CamsException("Missing some arguments");
+                throw MissingArgumentException("Json");
             }
 
             ++current_arg;
@@ -228,7 +229,7 @@ void Arguments::parse(int argc, char *argv[])
         {
             if (argc < current_arg + 2)
             {
-                throw common::CamsException("Missing some arguments");
+                throw MissingArgumentException("Ressource");
             }
 
             ++current_arg;
@@ -236,7 +237,7 @@ void Arguments::parse(int argc, char *argv[])
         }
         else
         {
-            throw common::CamsException("Unknwon argument");
+            throw UnknownArgumentException("Unknwon argument");
         }
     }
 
@@ -245,9 +246,14 @@ void Arguments::parse(int argc, char *argv[])
         return;
     }
 
-    if (argc < 3)
+    if (this->get_action().empty())
     {
-        throw common::CamsException("Missing some arguments");
+        throw MissingArgumentException("Action");
+    }
+
+    if (this->get_controller().empty())
+    {
+        throw MissingArgumentException("Controller");
     }
 }
 
