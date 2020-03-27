@@ -53,8 +53,6 @@ public:
 
     void set_ressource_path(std::string const & ressource_path);
 
-    void parse(int argc, char *argv[]);
-
 protected:
 
 private:
@@ -75,6 +73,8 @@ private:
     std::string _json_string;
 
     std::string _ressource_path;
+
+    void _parse(int argc, char *argv[]);
 
 };
 

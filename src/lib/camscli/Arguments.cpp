@@ -15,7 +15,7 @@ Arguments
     _user(""), _password(""), _token(""),
     _json_file(""), _json_string(""), _ressource_path("")
 {
-    this->parse(argc, argv);
+    this->_parse(argc, argv);
 }
 
 Arguments
@@ -150,7 +150,7 @@ Arguments
     this->_ressource_path = ressource_path;
 }
 
-void Arguments::parse(int argc, char *argv[])
+void Arguments::_parse(int argc, char *argv[])
 {
     for (int current_arg = 1; current_arg < argc; ++current_arg)
     {
@@ -237,7 +237,7 @@ void Arguments::parse(int argc, char *argv[])
         }
         else
         {
-            throw UnknownArgumentException("Unknwon argument");
+            throw UnknownArgumentException(std::string(argv[current_arg]));
         }
     }
 
