@@ -66,6 +66,6 @@ private:
 
 } // namespace libcams
 
-#include "BaseFactory.txx"
+#include "common/factory/BaseFactory.txx"
 
 #endif // _aa1c930a_a05a_45d4_85ce_952c1bd78b37

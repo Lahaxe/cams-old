@@ -6,6 +6,8 @@
 // Include
 #include "common/logger/Logger.h"
 #include "common/exception/CamsException.h"
+#include "controller/ControllerFactory.h"
+#include "controller/UnknownControllerException.h"
 #include "camscli/Arguments.h"
 
 int main(int argc, char *argv[])
@@ -35,7 +37,14 @@ int main(int argc, char *argv[])
             message << "Trying to " << arguments.get_action() << " " << arguments.get_controller();
             logger.info(message.str());
 
+            if (!libcams::controller::ControllerFactory::instance().can_create(arguments.get_controller()))
+            {
+                throw libcams::controller::UnknownControllerException(arguments.get_controller());
+            }
 
+            auto controller = libcams::controller::ControllerFactory::instance().create(arguments.get_controller());
+
+            // TODO
         }
     }
     catch (std::exception & exc)
@@ -46,6 +55,8 @@ int main(int argc, char *argv[])
         message << exc.what();
         logger.fatal(message.str());
     }
+
+    libcams::controller::ControllerFactory::delete_instance();
 
     std::stringstream message;
     message << "End " << std::string(argv[0]);
