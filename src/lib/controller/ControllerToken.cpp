@@ -34,6 +34,13 @@ ControllerToken
     return std::string("token");
 }
 
+void
+ControllerToken
+::execute_get()
+{
+    // to be implemented
+}
+
 }
 
 }

@@ -7,6 +7,7 @@
 #include "common/logger/Logger.h"
 #include "common/exception/CamsException.h"
 #include "controller/ControllerFactory.h"
+#include "controller/UnknownActionException.h"
 #include "controller/UnknownControllerException.h"
 #include "camscli/Arguments.h"
 
@@ -21,15 +22,12 @@ int main(int argc, char *argv[])
         message << "Begin " << std::string(argv[0]);
         logger.info(message.str());
 
-        std::stringstream syntax;
-        syntax << std::string(argv[0]) << " action controller [options]";
-
         libcams::camscli::Arguments arguments(argc, argv);
 
         if (arguments.get_display_help() == true)
         {
             // Display help
-            std::cout << "Syntax: " << syntax.str() << std::endl;
+            std::cout << "Syntax: " << std::string(argv[0]) << " action controller [options]" << std::endl;
         }
         else
         {
@@ -37,14 +35,23 @@ int main(int argc, char *argv[])
             message << "Trying to " << arguments.get_action() << " " << arguments.get_controller();
             logger.info(message.str());
 
+            // Check the controller
             if (!libcams::controller::ControllerFactory::instance().can_create(arguments.get_controller()))
             {
                 throw libcams::controller::UnknownControllerException(arguments.get_controller());
             }
 
+            // Create the controller
             auto controller = libcams::controller::ControllerFactory::instance().create(arguments.get_controller());
 
-            // TODO
+            // Check the action
+            if (!controller->exists_action(arguments.get_action()))
+            {
+                throw libcams::controller::UnknownActionException(arguments.get_action());
+            }
+
+            // Execute the action
+            controller->execute(arguments.get_action());
         }
     }
     catch (std::exception & exc)

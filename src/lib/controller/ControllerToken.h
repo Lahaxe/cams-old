@@ -24,6 +24,7 @@ public:
     static std::string class_name();
 
 protected:
+    virtual void execute_get();
 
 private:
     ControllerToken();

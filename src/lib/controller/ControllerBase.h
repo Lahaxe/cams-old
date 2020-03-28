@@ -21,7 +21,17 @@ public:
 
     virtual ~ControllerBase();
 
+    bool exists_action(std::string const & action) const;
+
+    void execute(std::string const & action);
+
 protected:
+    virtual void execute_get();
+    virtual void execute_post();
+    virtual void execute_put();
+    virtual void execute_patch();
+    virtual void execute_delete();
+    virtual void execute_options();
 
 private:
     ControllerBase(ControllerBase const & other);
