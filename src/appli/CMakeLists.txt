@@ -1,4 +1,3 @@
-
 find_package(Boost COMPONENTS filesystem system date_time REQUIRED)
 find_package(Qt5Core REQUIRED)
 
