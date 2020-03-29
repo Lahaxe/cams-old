@@ -36,7 +36,7 @@ ControllerToken
 
 void
 ControllerToken
-::execute_get()
+::execute_post()
 {
     // to be implemented
 }

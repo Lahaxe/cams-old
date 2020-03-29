@@ -53,11 +53,13 @@ public:
 protected:
 
 private:
+    /// @brief The creator type
     typedef std::function<std::shared_ptr<T>()> Creator;
 
+    /// @brief The map creator type
     typedef std::map<std::string, Creator> CreatorMap;
 
-    /// Creators map
+    /// @brief Creators map
     CreatorMap _creators;
 
 };
@@ -66,6 +68,7 @@ private:
 
 } // namespace libcams
 
+// Include template implementation
 #include "common/factory/BaseFactory.txx"
 
 #endif // _aa1c930a_a05a_45d4_85ce_952c1bd78b37

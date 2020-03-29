@@ -10,11 +10,21 @@ namespace libcams
 namespace controller
 {
 
+/**
+ * @brief The NotImplementedActionException class
+ */
 class NotImplementedActionException : public common::CamsException
 {
 public:
+    /**
+     * @brief Create an instance of NotImplementedActionException
+     * @param action: Name of the action
+     */
     NotImplementedActionException(std::string const & action);
 
+    /**
+     * @brief Destructor
+     */
     virtual ~NotImplementedActionException() noexcept;
 
 protected:

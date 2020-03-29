@@ -10,11 +10,21 @@ namespace libcams
 namespace controller
 {
 
+/**
+ * @brief The UnknownActionException class
+ */
 class UnknownActionException : public common::CamsException
 {
 public:
+    /**
+     * @brief Create an isntance of UnknownActionException
+     * @param action: Name of the action
+     */
     UnknownActionException(std::string const & action);
 
+    /**
+     * @brief Destructor
+     */
     virtual ~UnknownActionException() noexcept;
 
 protected:

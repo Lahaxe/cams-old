@@ -26,7 +26,9 @@ BaseFactory<T>
 }
 
 template<class T> template<typename TClass>
-void BaseFactory<T>::register_()
+void
+BaseFactory<T>
+::register_()
 {
     // If class not already registered
     if (this->_creators.find(TClass::class_name()) == this->_creators.end())
