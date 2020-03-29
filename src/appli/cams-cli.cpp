@@ -50,6 +50,10 @@ int main(int argc, char *argv[])
                 throw libcams::controller::UnknownActionException(arguments.get_action());
             }
 
+            // Add identity to the controller
+            controller->set_identity(libcams::controller::Identity::New(
+                        arguments.get_user(), arguments.get_password(), arguments.get_token()));
+
             // Execute the action
             controller->execute(arguments.get_action());
         }
