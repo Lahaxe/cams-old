@@ -26,7 +26,7 @@ public:
      * @brief Create pointer to a new instance of ControllerToken
      * @return Return Pointer to new instance of ControllerToken
      */
-    static Pointer New();
+    static Pointer New(Identity::Pointer identity = nullptr);
 
     /**
      * @brief Destructor
@@ -49,7 +49,7 @@ private:
     /**
      * @brief Create an instance of ControllerToken
      */
-    ControllerToken();
+    ControllerToken(Identity::Pointer identity = nullptr);
 
     /**
      * @brief Copy constructor: purposely not implemented

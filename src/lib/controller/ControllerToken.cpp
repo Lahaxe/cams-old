@@ -9,14 +9,14 @@ namespace controller
 
 ControllerToken::Pointer
 ControllerToken
-::New()
+::New(Identity::Pointer identity)
 {
-    return Pointer(new ControllerToken());
+    return Pointer(new ControllerToken(identity));
 }
 
 ControllerToken
-::ControllerToken():
-    ControllerBase()
+::ControllerToken(Identity::Pointer identity):
+    ControllerBase(identity)
 {
     // Nothing to do
 }

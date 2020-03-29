@@ -4,6 +4,9 @@
 // Include Standard library
 #include <memory>
 
+// Include Project files
+#include "controller/Identity.h"
+
 namespace libcams
 {
 
@@ -32,7 +35,7 @@ public:
     /**
      * @brief Create an instance of ControllerBase
      */
-    ControllerBase();
+    ControllerBase(Identity::Pointer identity = nullptr);
 
     /**
      * @brief Destructor
@@ -53,6 +56,8 @@ public:
     void execute(std::string const & action);
 
 protected:
+    Identity::Pointer _identity;
+
     /**
      * @brief Execute the GET action
      */

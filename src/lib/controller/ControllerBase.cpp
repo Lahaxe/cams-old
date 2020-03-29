@@ -18,7 +18,8 @@ namespace controller
 {
 
 ControllerBase
-::ControllerBase()
+::ControllerBase(Identity::Pointer identity):
+    _identity(identity)
 {
     // Nothing to do
 }
