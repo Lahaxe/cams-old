@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(Constructor)
 /**
  * @brief Nominal test case: Throw CamsException
  */
-BOOST_AUTO_TEST_CASE(ThrowCamsException)
+BOOST_AUTO_TEST_CASE(ThrowMissingArgumentException)
 {
     BOOST_CHECK_EXCEPTION(throw libcams::camscli::MissingArgumentException("Argument"),
                           libcams::camscli::MissingArgumentException,
