@@ -35,3 +35,9 @@ Collection Archiving and Managment System
 ## Couverture de code
 
     ./coverage.sh
+
+## Générer la documentation
+
+    sudo apt-get install doxygen graphviz
+    doxygen Doxyfile
+
