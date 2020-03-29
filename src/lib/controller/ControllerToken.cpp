@@ -1,5 +1,7 @@
 // Include Project files
 #include "controller/ControllerToken.h"
+#include "controller/MissingIdentityException.h"
+#include "controller/RefusedIdentityException.h"
 
 namespace libcams
 {
@@ -38,7 +40,18 @@ void
 ControllerToken
 ::execute_post()
 {
-    // to be implemented
+    if (this->_identity->get_login() == "" || this->_identity->get_password() == "")
+    {
+        throw MissingIdentityException();
+    }
+
+    // Test l'authentification
+    if (this->_identity->get_login() != "romain" || this->_identity->get_password() != "defaultpassword")
+    {
+        throw RefusedIdentityException();
+    }
+
+    // Authentication OK
 }
 
 }

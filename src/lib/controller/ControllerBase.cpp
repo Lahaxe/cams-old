@@ -18,7 +18,8 @@ namespace controller
 {
 
 ControllerBase
-::ControllerBase()
+::ControllerBase():
+    _identity(nullptr)
 {
     // Nothing to do
 }
@@ -27,6 +28,20 @@ ControllerBase
 ::~ControllerBase()
 {
     // Nothing to do
+}
+
+Identity::Pointer
+ControllerBase
+::get_identity() const
+{
+    return this->_identity;
+}
+
+void
+ControllerBase
+::set_identity(Identity::Pointer identity)
+{
+    this->_identity = identity;
 }
 
 bool

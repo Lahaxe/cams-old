@@ -4,6 +4,9 @@
 // Include Standard library
 #include <memory>
 
+// Include Project files
+#include "controller/Identity.h"
+
 namespace libcams
 {
 
@@ -40,6 +43,18 @@ public:
     virtual ~ControllerBase();
 
     /**
+     * @brief Get identity member
+     * @return Return value of identity
+     */
+    Identity::Pointer get_identity() const;
+
+    /**
+     * @brief Set identity member
+     * @param password: New value of identity
+     */
+    void set_identity(Identity::Pointer identity);
+
+    /**
      * @brief Indicate if a given action exists
      * @param action: The given action name
      * @return Return true if the given action exists
@@ -53,6 +68,9 @@ public:
     void execute(std::string const & action);
 
 protected:
+    /// @brief The identity data
+    Identity::Pointer _identity;
+
     /**
      * @brief Execute the GET action
      */
