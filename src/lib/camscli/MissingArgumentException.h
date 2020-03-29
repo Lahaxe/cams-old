@@ -18,7 +18,7 @@ class MissingArgumentException : public common::CamsException
 public:
     /**
      * @brief Constructor
-     * @param argument: Unknown argument
+     * @param argument: The missing argument
      */
     MissingArgumentException(std::string const & argument);
 

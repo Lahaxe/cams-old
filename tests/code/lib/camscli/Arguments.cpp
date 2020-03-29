@@ -201,7 +201,7 @@ BOOST_AUTO_TEST_CASE(ErrorMissingController)
 
 /******************************** TEST Error **********************************/
 /**
- * @brief Error test case: Missing 'Controller' argument
+ * @brief Error test case: Unknown argument
  */
 BOOST_AUTO_TEST_CASE(ErrorUnknownArgument)
 {
@@ -234,3 +234,212 @@ BOOST_AUTO_TEST_CASE(ErrorUnknownArgument)
                                 });
 }
 
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Missing argument User
+ */
+BOOST_AUTO_TEST_CASE(ErrorMissingArgumentUser)
+{
+    int const count = 4;
+    char* args[count];
+
+    int current_count = 0;
+    char program[] = "program";
+    args[current_count] = program;
+    ++current_count;
+
+    char action[] = "action";
+    args[current_count] = action;
+    ++current_count;
+
+    char controller[] = "controller";
+    args[current_count] = controller;
+    ++current_count;
+
+    char unknown[] = "-u";
+    args[current_count] = unknown;
+    ++current_count;
+
+    BOOST_CHECK_EXCEPTION(libcams::camscli::Arguments(count, args),
+                          libcams::camscli::MissingArgumentException,
+                          [](libcams::camscli::MissingArgumentException const & exc)
+                                {
+                                    return std::string(exc.what()) ==
+                                            std::string("At least one argument is missing: User");
+                                });
+}
+
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Missing argument Password
+ */
+BOOST_AUTO_TEST_CASE(ErrorMissingArgumentPassword)
+{
+    int const count = 4;
+    char* args[count];
+
+    int current_count = 0;
+    char program[] = "program";
+    args[current_count] = program;
+    ++current_count;
+
+    char action[] = "action";
+    args[current_count] = action;
+    ++current_count;
+
+    char controller[] = "controller";
+    args[current_count] = controller;
+    ++current_count;
+
+    char unknown[] = "-p";
+    args[current_count] = unknown;
+    ++current_count;
+
+    BOOST_CHECK_EXCEPTION(libcams::camscli::Arguments(count, args),
+                          libcams::camscli::MissingArgumentException,
+                          [](libcams::camscli::MissingArgumentException const & exc)
+                                {
+                                    return std::string(exc.what()) ==
+                                            std::string("At least one argument is missing: Password");
+                                });
+}
+
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Missing argument Token
+ */
+BOOST_AUTO_TEST_CASE(ErrorMissingArgumentToken)
+{
+    int const count = 4;
+    char* args[count];
+
+    int current_count = 0;
+    char program[] = "program";
+    args[current_count] = program;
+    ++current_count;
+
+    char action[] = "action";
+    args[current_count] = action;
+    ++current_count;
+
+    char controller[] = "controller";
+    args[current_count] = controller;
+    ++current_count;
+
+    char unknown[] = "-t";
+    args[current_count] = unknown;
+    ++current_count;
+
+    BOOST_CHECK_EXCEPTION(libcams::camscli::Arguments(count, args),
+                          libcams::camscli::MissingArgumentException,
+                          [](libcams::camscli::MissingArgumentException const & exc)
+                                {
+                                    return std::string(exc.what()) ==
+                                            std::string("At least one argument is missing: Token");
+                                });
+}
+
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Missing argument JsonFile
+ */
+BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonFile)
+{
+    int const count = 4;
+    char* args[count];
+
+    int current_count = 0;
+    char program[] = "program";
+    args[current_count] = program;
+    ++current_count;
+
+    char action[] = "action";
+    args[current_count] = action;
+    ++current_count;
+
+    char controller[] = "controller";
+    args[current_count] = controller;
+    ++current_count;
+
+    char unknown[] = "-f";
+    args[current_count] = unknown;
+    ++current_count;
+
+    BOOST_CHECK_EXCEPTION(libcams::camscli::Arguments(count, args),
+                          libcams::camscli::MissingArgumentException,
+                          [](libcams::camscli::MissingArgumentException const & exc)
+                                {
+                                    return std::string(exc.what()) ==
+                                            std::string("At least one argument is missing: Jsonfile");
+                                });
+}
+
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Missing argument JsonString
+ */
+BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonString)
+{
+    int const count = 4;
+    char* args[count];
+
+    int current_count = 0;
+    char program[] = "program";
+    args[current_count] = program;
+    ++current_count;
+
+    char action[] = "action";
+    args[current_count] = action;
+    ++current_count;
+
+    char controller[] = "controller";
+    args[current_count] = controller;
+    ++current_count;
+
+    char unknown[] = "-j";
+    args[current_count] = unknown;
+    ++current_count;
+
+    BOOST_CHECK_EXCEPTION(libcams::camscli::Arguments(count, args),
+                          libcams::camscli::MissingArgumentException,
+                          [](libcams::camscli::MissingArgumentException const & exc)
+                                {
+                                    return std::string(exc.what()) ==
+                                            std::string("At least one argument is missing: Json");
+                                });
+}
+
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Missing argument Ressource
+ */
+BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonJsonRessource)
+{
+    int const count = 4;
+    char* args[count];
+
+    int current_count = 0;
+    char program[] = "program";
+    args[current_count] = program;
+    ++current_count;
+
+    char action[] = "action";
+    args[current_count] = action;
+    ++current_count;
+
+    char controller[] = "controller";
+    args[current_count] = controller;
+    ++current_count;
+
+    char unknown[] = "-r";
+    args[current_count] = unknown;
+    ++current_count;
+
+    BOOST_CHECK_EXCEPTION(libcams::camscli::Arguments(count, args),
+                          libcams::camscli::MissingArgumentException,
+                          [](libcams::camscli::MissingArgumentException const & exc)
+                                {
+                                    return std::string(exc.what()) ==
+                                            std::string("At least one argument is missing: Ressource");
+                                });
+}
