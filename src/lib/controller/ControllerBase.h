@@ -17,6 +17,9 @@ const std::string ACTION_PATCH = "PATCH";
 const std::string ACTION_DELETE = "DELETE";
 const std::string ACTION_OPTIONS = "OPTIONS";
 
+/**
+ * @brief The ControllerBase class
+ */
 class ControllerBase
 {
 public:

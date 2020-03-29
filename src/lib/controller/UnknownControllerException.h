@@ -10,11 +10,21 @@ namespace libcams
 namespace controller
 {
 
+/**
+ * @brief The UnknownControllerException class
+ */
 class UnknownControllerException : public common::CamsException
 {
 public:
+    /**
+     * @brief Create an instance of UnknownControllerException
+     * @param controller: Name of the controller
+     */
     UnknownControllerException(std::string const & controller);
 
+    /**
+     * @brief Destructor
+     */
     virtual ~UnknownControllerException() noexcept;
 
 protected:
