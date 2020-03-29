@@ -10,6 +10,13 @@ namespace libcams
 namespace controller
 {
 
+const std::string ACTION_GET = "GET";
+const std::string ACTION_POST = "POST";
+const std::string ACTION_PUT = "PUT";
+const std::string ACTION_PATCH = "PATCH";
+const std::string ACTION_DELETE = "DELETE";
+const std::string ACTION_OPTIONS = "OPTIONS";
+
 class ControllerBase
 {
 public:

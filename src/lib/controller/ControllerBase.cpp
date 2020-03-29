@@ -37,7 +37,10 @@ ControllerBase
     boost::to_upper(action_uppercase);
 
     bool action_exist = false;
-    std::vector<std::string> actions = { "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS" };
+    std::vector<std::string> actions = {
+        ACTION_GET, ACTION_POST, ACTION_PUT,
+        ACTION_PATCH, ACTION_DELETE, ACTION_OPTIONS
+    };
     for (auto iter = actions.begin(); iter != actions.end(); ++iter)
     {
         if (*iter == action_uppercase)
@@ -61,12 +64,12 @@ ControllerBase
     typedef std::map<std::string, std::function<void (void)> > actions_list_type;
 
     actions_list_type actions = {
-        { "GET", std::bind(&ControllerBase::execute_get, this) },
-        { "POST", std::bind(&ControllerBase::execute_post, this) },
-        { "PUT", std::bind(&ControllerBase::execute_put, this) },
-        { "PATCH", std::bind(&ControllerBase::execute_patch, this) },
-        { "DELETE", std::bind(&ControllerBase::execute_delete, this) },
-        { "OPTIONS", std::bind(&ControllerBase::execute_options, this) }
+        { ACTION_GET, std::bind(&ControllerBase::execute_get, this) },
+        { ACTION_POST, std::bind(&ControllerBase::execute_post, this) },
+        { ACTION_PUT, std::bind(&ControllerBase::execute_put, this) },
+        { ACTION_PATCH, std::bind(&ControllerBase::execute_patch, this) },
+        { ACTION_DELETE, std::bind(&ControllerBase::execute_delete, this) },
+        { ACTION_OPTIONS, std::bind(&ControllerBase::execute_options, this) }
     };
 
     if (actions.find(action_uppercase) == actions.end())
@@ -81,42 +84,42 @@ void
 ControllerBase
 ::execute_get()
 {
-    throw NotImplementedActionException("GET");
+    throw NotImplementedActionException(ACTION_GET);
 }
 
 void
 ControllerBase
 ::execute_post()
 {
-    throw NotImplementedActionException("POST");
+    throw NotImplementedActionException(ACTION_POST);
 }
 
 void
 ControllerBase
 ::execute_put()
 {
-    throw NotImplementedActionException("PUT");
+    throw NotImplementedActionException(ACTION_PUT);
 }
 
 void
 ControllerBase
 ::execute_patch()
 {
-    throw NotImplementedActionException("PATCH");
+    throw NotImplementedActionException(ACTION_PATCH);
 }
 
 void
 ControllerBase
 ::execute_delete()
 {
-    throw NotImplementedActionException("DELETE");
+    throw NotImplementedActionException(ACTION_DELETE);
 }
 
 void
 ControllerBase
 ::execute_options()
 {
-    throw NotImplementedActionException("OPTIONS");
+    throw NotImplementedActionException(ACTION_OPTIONS);
 }
 
 }

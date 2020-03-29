@@ -1,3 +1,6 @@
+// Include Boost files
+#include <boost/algorithm/string.hpp>
+
 // Include Project files
 #include "camscli/Arguments.h"
 #include "camscli/MissingArgumentException.h"
@@ -167,7 +170,9 @@ void Arguments::_parse(int argc, char *argv[])
         }
         else if (current_arg == 2)
         {
-            this->set_controller(std::string(argv[current_arg]));
+            auto controller_lowercase = std::string(argv[current_arg]);
+            boost::to_lower(controller_lowercase);
+            this->set_controller(controller_lowercase);
         }
         else if (std::string(argv[current_arg]) == std::string("--user") ||
             std::string(argv[current_arg]) == std::string("-u"))
