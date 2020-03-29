@@ -35,12 +35,24 @@ public:
     /**
      * @brief Create an instance of ControllerBase
      */
-    ControllerBase(Identity::Pointer identity = nullptr);
+    ControllerBase();
 
     /**
      * @brief Destructor
      */
     virtual ~ControllerBase();
+
+    /**
+     * @brief Get identity member
+     * @return Return value of identity
+     */
+    Identity::Pointer get_identity() const;
+
+    /**
+     * @brief Set identity member
+     * @param password: New value of identity
+     */
+    void set_identity(Identity::Pointer identity);
 
     /**
      * @brief Indicate if a given action exists
@@ -56,6 +68,7 @@ public:
     void execute(std::string const & action);
 
 protected:
+    /// @brief The identity data
     Identity::Pointer _identity;
 
     /**
