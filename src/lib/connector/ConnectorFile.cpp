@@ -1,3 +1,11 @@
+// Include Standard library
+#include <experimental/filesystem>
+
+#include <QFile>
+#include <QJsonDocument>
+
+#include <model/users/User.h>
+
 // Include Project files
 #include "connector/ConnectorFile.h"
 
@@ -32,6 +40,13 @@ ConnectorFile
 ::class_name()
 {
     return std::string("file");
+}
+
+std::string
+ConnectorFile
+::authenticate(std::string const & login, std::string const & password)
+{
+    return "Token OK";
 }
 
 }

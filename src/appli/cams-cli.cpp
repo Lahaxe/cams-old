@@ -59,7 +59,9 @@ int main(int argc, char *argv[])
             controller->set_connector(libcams::connector::ConnectorFactory::instance().create("file"));
 
             // Execute the action
-            controller->execute(arguments.get_action());
+            auto response = controller->execute(arguments.get_action());
+
+            logger.info(response);
         }
     }
     catch (std::exception & exc)

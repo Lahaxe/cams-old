@@ -83,14 +83,14 @@ ControllerBase
     return action_exist;
 }
 
-void
+std::string
 ControllerBase
 ::execute(std::string const & action)
 {
     auto action_uppercase = action;
     boost::to_upper(action_uppercase);
 
-    typedef std::map<std::string, std::function<void (void)> > actions_list_type;
+    typedef std::map<std::string, std::function<std::string (void)> > actions_list_type;
 
     actions_list_type actions = {
         { ACTION_GET, std::bind(&ControllerBase::execute_get, this) },
@@ -106,45 +106,45 @@ ControllerBase
         throw UnknownActionException(action);
     }
 
-    actions[action_uppercase]();
+    return actions[action_uppercase]();
 }
 
-void
+std::string
 ControllerBase
 ::execute_get()
 {
     throw NotImplementedActionException(ACTION_GET);
 }
 
-void
+std::string
 ControllerBase
 ::execute_post()
 {
     throw NotImplementedActionException(ACTION_POST);
 }
 
-void
+std::string
 ControllerBase
 ::execute_put()
 {
     throw NotImplementedActionException(ACTION_PUT);
 }
 
-void
+std::string
 ControllerBase
 ::execute_patch()
 {
     throw NotImplementedActionException(ACTION_PATCH);
 }
 
-void
+std::string
 ControllerBase
 ::execute_delete()
 {
     throw NotImplementedActionException(ACTION_DELETE);
 }
 
-void
+std::string
 ControllerBase
 ::execute_options()
 {

@@ -39,6 +39,8 @@ public:
      */
     static std::string class_name();
 
+    virtual std::string authenticate(std::string const & login, std::string const & password);
+
 protected:
 
 private:

@@ -32,6 +32,8 @@ public:
      */
     virtual ~ConnectorBase();
 
+    virtual std::string authenticate(std::string const & user, std::string const & password);
+
 protected:
 
 private:

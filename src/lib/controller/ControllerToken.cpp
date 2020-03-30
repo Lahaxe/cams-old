@@ -36,7 +36,7 @@ ControllerToken
     return std::string("token");
 }
 
-void
+std::string
 ControllerToken
 ::execute_post()
 {
@@ -50,8 +50,7 @@ ControllerToken
     {
         throw RefusedIdentityException();
     }
-
-    // Authentication OK
+    return this->_connector->authenticate(this->_identity->get_login(), this->_identity->get_password());
 }
 
 }

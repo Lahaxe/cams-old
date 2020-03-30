@@ -43,7 +43,7 @@ protected:
     /**
      * @brief Execute the POST action
      */
-    virtual void execute_post();
+    virtual std::string execute_post();
 
 private:
     /**

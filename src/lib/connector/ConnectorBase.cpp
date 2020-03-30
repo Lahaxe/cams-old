@@ -19,6 +19,13 @@ ConnectorBase
     // Nothing to do
 }
 
+std::string
+ConnectorBase
+::authenticate(std::string const & user, std::string const & password)
+{
+    throw std::exception();
+}
+
 } // namespace connector
 
 } // namespace libcams
