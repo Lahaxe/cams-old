@@ -5,6 +5,7 @@
 #include <memory>
 
 // Include Project files
+#include "connector/ConnectorBase.h"
 #include "controller/Identity.h"
 
 namespace libcams
@@ -55,6 +56,18 @@ public:
     void set_identity(Identity::Pointer identity);
 
     /**
+     * @brief Get connector member
+     * @return Return value of connector
+     */
+    connector::ConnectorBase::Pointer get_connector() const;
+
+    /**
+     * @brief Set connector member
+     * @param password: New value of connector
+     */
+    void set_connector(connector::ConnectorBase::Pointer connector);
+
+    /**
      * @brief Indicate if a given action exists
      * @param action: The given action name
      * @return Return true if the given action exists
@@ -65,41 +78,43 @@ public:
      * @brief Execute the given action
      * @param action: The given action name
      */
-    void execute(std::string const & action);
+    std::string execute(std::string const & action);
 
 protected:
     /// @brief The identity data
     Identity::Pointer _identity;
 
+    connector::ConnectorBase::Pointer _connector;
+
     /**
      * @brief Execute the GET action
      */
-    virtual void execute_get();
+    virtual std::string execute_get();
 
     /**
      * @brief Execute the POST action
      */
-    virtual void execute_post();
+    virtual std::string execute_post();
 
     /**
      * @brief Execute the PUT action
      */
-    virtual void execute_put();
+    virtual std::string execute_put();
 
     /**
      * @brief Execute the PATCH action
      */
-    virtual void execute_patch();
+    virtual std::string execute_patch();
 
     /**
      * @brief Execute the DELETE action
      */
-    virtual void execute_delete();
+    virtual std::string execute_delete();
 
     /**
      * @brief Execute the OPTIONS action
      */
-    virtual void execute_options();
+    virtual std::string execute_options();
 
 private:
     /**

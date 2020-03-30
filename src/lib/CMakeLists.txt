@@ -1,4 +1,5 @@
 find_package(Boost COMPONENTS filesystem system REQUIRED)
+find_package(Qt5Core REQUIRED)
 
 file(GLOB_RECURSE Header_Files "*.h")
 file(GLOB_RECURSE Source_Files "*.cpp")
@@ -18,3 +19,5 @@ target_link_libraries(libcams ${Boost_LIBRARIES})
 set_target_properties(libcams PROPERTIES
 				 VERSION ${cams_VERSION}
 				 SOVERSION ${cams_MAJOR_VERSION})
+
+QT5_USE_MODULES(libcams Core)
