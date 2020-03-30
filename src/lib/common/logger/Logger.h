@@ -28,6 +28,11 @@ public:
     static void delete_instance();
 
     /**
+     * @brief Create an instance of Logger
+     */
+    Logger();
+
+    /**
      * @brief Destructor
      */
     virtual ~Logger();
@@ -63,13 +68,6 @@ public:
     void fatal(std::string const & message);
 
 protected:
-
-private:
-    /**
-     * @brief Create an instance of Logger
-     */
-    Logger();
-
     /// Unique instance
     static Logger* _instance;
 
@@ -78,7 +76,9 @@ private:
      * @param message: Text to log
      * @param level: Log level
      */
-    void write(std::string const & message, std::string const & level);
+    virtual void write(std::string const & message, std::string const & level) = 0;
+
+private:
 
 };
 
