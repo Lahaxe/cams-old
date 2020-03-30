@@ -12,13 +12,13 @@
 
 int main(int argc, char *argv[])
 {
-    auto logger = libcams::common::Logger::instance();
+    //auto logger = libcams::common::Logger::instance();
     int status = EXIT_FAILURE;
     try
     {
         std::stringstream message;
         message << "Begin " << std::string(argv[0]);
-        logger.info(message.str());
+        //logger.info(message.str());
 
         QApplication a(argc, argv);
 
@@ -37,12 +37,12 @@ int main(int argc, char *argv[])
     {
         std::stringstream message;
         message << exc.what();
-        logger.fatal(message.str());
+        //logger.fatal(message.str());
     }
 
     std::stringstream message;
     message << "End " << std::string(argv[0]);
-    logger.info(message.str());
+    //logger.info(message.str());
 
     return status;
 }

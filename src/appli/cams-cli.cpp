@@ -5,6 +5,8 @@
 
 // Include
 #include "common/logger/Logger.h"
+#include "common/logger/DefaultLogger.h"
+#include "common/logger/FileLogger.h"
 #include "common/exception/CamsException.h"
 #include "connector/ConnectorFactory.h"
 #include "controller/ControllerFactory.h"
@@ -16,12 +18,17 @@ int main(int argc, char *argv[])
 {
     auto exit_value = EXIT_SUCCESS;
 
-    auto logger = libcams::common::Logger::instance();
+    // Sortie standard
+    //libcams::common::DefaultLogger::create_instance();
+
+    // Fichier log
+    libcams::common::FileLogger::create_instance();
+
     try
     {
         std::stringstream message;
         message << "Begin " << std::string(argv[0]);
-        logger.info(message.str());
+        libcams::common::Logger::instance().info(message.str());
 
         libcams::camscli::Arguments arguments(argc, argv);
 
@@ -34,7 +41,7 @@ int main(int argc, char *argv[])
         {
             std::stringstream message;
             message << "Trying to " << arguments.get_action() << " " << arguments.get_controller();
-            logger.info(message.str());
+            libcams::common::Logger::instance().info(message.str());
 
             // Check the controller
             if (!libcams::controller::ControllerFactory::instance().can_create(arguments.get_controller()))
@@ -61,7 +68,7 @@ int main(int argc, char *argv[])
             // Execute the action
             auto response = controller->execute(arguments.get_action());
 
-            logger.info(response);
+            libcams::common::Logger::instance().info(response);
         }
     }
     catch (std::exception & exc)
@@ -70,14 +77,14 @@ int main(int argc, char *argv[])
 
         std::stringstream message;
         message << exc.what();
-        logger.fatal(message.str());
+        libcams::common::Logger::instance().fatal(message.str());
     }
 
     libcams::controller::ControllerFactory::delete_instance();
 
     std::stringstream message;
     message << "End " << std::string(argv[0]);
-    logger.info(message.str());
+    libcams::common::Logger::instance().info(message.str());
 
     libcams::common::Logger::delete_instance();
 
