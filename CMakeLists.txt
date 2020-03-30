@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.7)
 
 project("cams")
 set(cams_MAJOR_VERSION 0)

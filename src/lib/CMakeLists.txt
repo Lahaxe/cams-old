@@ -14,7 +14,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${Boost_INCLUDE_DIRS})
 add_library(libcams ${Source_Files} ${Header_Files} ${templates})
 set_target_properties(libcams PROPERTIES OUTPUT_NAME libcams)
 
-target_link_libraries(libcams ${Boost_LIBRARIES})
+target_link_libraries(libcams ${Boost_LIBRARIES} stdc++fs)
 
 set_target_properties(libcams PROPERTIES
 				 VERSION ${cams_VERSION}

@@ -46,10 +46,6 @@ ControllerToken
     }
 
     // Test l'authentification
-    if (this->_identity->get_login() != "romain" || this->_identity->get_password() != "defaultpassword")
-    {
-        throw RefusedIdentityException();
-    }
     return this->_connector->authenticate(this->_identity->get_login(), this->_identity->get_password());
 }
 

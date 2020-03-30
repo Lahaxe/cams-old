@@ -52,6 +52,18 @@ public:
      */
     void set_name(std::string const & name);
 
+    /**
+     * @brief Get the user password
+     * @return Return the user password
+     */
+    std::string get_password() const;
+
+    /**
+     * @brief Set the user password
+     * @param name: The user password
+     */
+    void set_password(std::string const & password);
+
     virtual void from_json(QJsonObject const & json);
 
     virtual void to_json(QJsonObject & json) const;
@@ -59,8 +71,11 @@ public:
 protected:
 
 private:
-    /// The user name
+    /// @brief The user name
     std::string _name;
+
+    /// @brief The user password
+    std::string _password;
 
 };
 

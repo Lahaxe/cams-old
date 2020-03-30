@@ -16,7 +16,7 @@ User
 
 User
 ::User(std::string const & id, std::string const & name):
-    EntityBase(id), _name(name)
+    EntityBase(id), _name(name), _password("")
 {
     //Nothing to do
 }
@@ -41,12 +41,27 @@ User
     this->_name = name;
 }
 
+std::string
+User
+::get_password() const
+{
+    return this->_password;
+}
+
+void
+User
+::set_password(std::string const & password)
+{
+    this->_password = password;
+}
+
 void
 User
 ::to_json(QJsonObject & json) const
 {
     EntityBase::to_json(json);
     json["name"] = QString(this->get_name().c_str());
+    json["password"] = QString(this->get_password().c_str());
 }
 
 void
@@ -55,6 +70,7 @@ User
 {
     EntityBase::from_json(json);
     this->set_name(json["name"].toString().toStdString());
+    this->set_name(json["password"].toString().toStdString());
 }
 
 } // namespace model
