@@ -19,7 +19,7 @@ namespace controller
 
 ControllerBase
 ::ControllerBase():
-    _identity(nullptr)
+    _identity(nullptr), _connector(nullptr)
 {
     // Nothing to do
 }
@@ -42,6 +42,20 @@ ControllerBase
 ::set_identity(Identity::Pointer identity)
 {
     this->_identity = identity;
+}
+
+connector::ConnectorBase::Pointer
+ControllerBase
+::get_connector() const
+{
+    return this->_connector;
+}
+
+void
+ControllerBase
+::set_connector(connector::ConnectorBase::Pointer connector)
+{
+    this->_connector = connector;
 }
 
 bool

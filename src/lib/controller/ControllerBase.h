@@ -5,6 +5,7 @@
 #include <memory>
 
 // Include Project files
+#include "connector/ConnectorBase.h"
 #include "controller/Identity.h"
 
 namespace libcams
@@ -55,6 +56,18 @@ public:
     void set_identity(Identity::Pointer identity);
 
     /**
+     * @brief Get connector member
+     * @return Return value of connector
+     */
+    connector::ConnectorBase::Pointer get_connector() const;
+
+    /**
+     * @brief Set connector member
+     * @param password: New value of connector
+     */
+    void set_connector(connector::ConnectorBase::Pointer connector);
+
+    /**
      * @brief Indicate if a given action exists
      * @param action: The given action name
      * @return Return true if the given action exists
@@ -70,6 +83,8 @@ public:
 protected:
     /// @brief The identity data
     Identity::Pointer _identity;
+
+    connector::ConnectorBase::Pointer _connector;
 
     /**
      * @brief Execute the GET action

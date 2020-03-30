@@ -6,6 +6,7 @@
 // Include
 #include "common/logger/Logger.h"
 #include "common/exception/CamsException.h"
+#include "connector/ConnectorFactory.h"
 #include "controller/ControllerFactory.h"
 #include "controller/UnknownActionException.h"
 #include "controller/UnknownControllerException.h"
@@ -53,6 +54,9 @@ int main(int argc, char *argv[])
             // Add identity to the controller
             controller->set_identity(libcams::controller::Identity::New(
                         arguments.get_user(), arguments.get_password(), arguments.get_token()));
+
+            // Create the connector
+            controller->set_connector(libcams::connector::ConnectorFactory::instance().create("file"));
 
             // Execute the action
             controller->execute(arguments.get_action());
