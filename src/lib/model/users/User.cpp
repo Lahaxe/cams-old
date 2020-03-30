@@ -70,7 +70,7 @@ User
 {
     EntityBase::from_json(json);
     this->set_name(json["name"].toString().toStdString());
-    this->set_name(json["password"].toString().toStdString());
+    this->set_password(json["password"].toString().toStdString());
 }
 
 } // namespace model
