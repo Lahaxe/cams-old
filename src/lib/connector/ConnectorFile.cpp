@@ -2,16 +2,17 @@
 #include <experimental/filesystem>
 #include <iostream>
 
+// Include Qt files
 #include <QDateTime>
 #include <QFile>
 #include <QJsonDocument>
 #include <QTimeZone>
 
-#include <model/users/User.h>
-
 // Include Project files
+#include "common/base64.h"
 #include "common/json/JsonTools.h"
 #include "connector/ConnectorFile.h"
+#include "model/users/User.h"
 
 namespace libcams
 {
@@ -87,12 +88,9 @@ ConnectorFile
     buffer << now.toString(QString("yyyy-MM-ddThh-mm-ss")).toStdString()
            << "|"
            << now.timeZone().displayName(QTimeZone::StandardTime, QTimeZone::OffsetName).toStdString()
-           << "|" << user->get_name();
+           << "|" << user->get_id();
 
-    QByteArray bytearray;
-    bytearray.append(QString(buffer.str().c_str()));
-
-    return bytearray.toBase64().toStdString();
+    return common::to_base64(buffer.str());
 }
 
 }
