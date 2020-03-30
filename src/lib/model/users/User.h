@@ -16,6 +16,18 @@ namespace model
 class User : public EntityBase
 {
 public:
+    /// @brief The User Pointer type
+    typedef std::shared_ptr<User> Pointer;
+
+    /// @brief The User constant Pointer type
+    typedef std::shared_ptr<User const> ConstPointer;
+
+    /**
+     * @brief Create pointer to a new instance of User
+     * @return Return Pointer to new instance of User
+     */
+    static Pointer New();
+
     /**
      * @brief Create an instance of EntityBase
      * @param id: The entity Identifier
@@ -39,6 +51,10 @@ public:
      * @param name: The user name
      */
     void set_name(std::string const & name);
+
+    virtual void from_json(QJsonObject const & json);
+
+    virtual void to_json(QJsonObject & json) const;
 
 protected:
 

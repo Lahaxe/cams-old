@@ -34,6 +34,20 @@ EntityBase
     this->_id = id;
 }
 
+void
+EntityBase
+::to_json(QJsonObject & json) const
+{
+    json["id"] = QString(this->get_id().c_str());
+}
+
+void
+EntityBase
+::from_json(QJsonObject const & json)
+{
+    this->set_id(json["id"].toString().toStdString());
+}
+
 } // namespace model
 
 } // namespace libcams
