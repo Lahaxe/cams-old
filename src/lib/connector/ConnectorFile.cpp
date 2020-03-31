@@ -64,7 +64,7 @@ ConnectorFile
             if (user->get_name() == login)
             {
                 // find User => check password
-                if (user->get_password() != password)
+                if (user->get_password() != common::to_base64(password))
                 {
                     throw std::exception();
                 }
