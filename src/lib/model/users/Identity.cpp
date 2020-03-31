@@ -1,10 +1,10 @@
 // Include Project files
-#include "controller/Identity.h"
+#include "model/users/Identity.h"
 
 namespace libcams
 {
 
-namespace controller
+namespace model
 {
 
 Identity::Pointer

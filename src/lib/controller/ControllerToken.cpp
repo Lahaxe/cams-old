@@ -36,7 +36,7 @@ ControllerToken
     return std::string("token");
 }
 
-std::string
+QJsonDocument
 ControllerToken
 ::execute_post()
 {
@@ -46,7 +46,7 @@ ControllerToken
     }
 
     // Test l'authentification
-    return this->_connector->authenticate(this->_identity->get_login(), this->_identity->get_password());
+    return this->_connector->authenticate(this->_identity);
 }
 
 }

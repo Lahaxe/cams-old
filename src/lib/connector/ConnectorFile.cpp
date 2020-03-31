@@ -4,8 +4,6 @@
 
 // Include Qt files
 #include <QDateTime>
-#include <QFile>
-#include <QJsonDocument>
 #include <QTimeZone>
 
 // Include Project files
@@ -13,6 +11,7 @@
 #include "common/json/JsonTools.h"
 #include "connector/ConnectorFile.h"
 #include "model/users/User.h"
+#include "model/users/Token.h"
 
 namespace libcams
 {
@@ -47,9 +46,9 @@ ConnectorFile
     return std::string("file");
 }
 
-std::string
+QJsonDocument
 ConnectorFile
-::authenticate(std::string const & login, std::string const & password)
+::authenticate(model::Identity::Pointer identity)
 {
     model::User::Pointer user = nullptr;
     // For each file in users directory
@@ -61,10 +60,10 @@ ConnectorFile
             user = model::User::New();
             user->from_json(object);
 
-            if (user->get_name() == login)
+            if (user->get_name() == identity->get_login())
             {
                 // find User => check password
-                if (user->get_password() != password)
+                if (user->get_password() != common::to_base64(identity->get_password()))
                 {
                     throw std::exception();
                 }
@@ -90,7 +89,18 @@ ConnectorFile
            << now.timeZone().displayName(QTimeZone::StandardTime, QTimeZone::OffsetName).toStdString()
            << "|" << user->get_id();
 
-    return common::to_base64(buffer.str());
+    // Create the token object
+    auto token = model::Token::New();
+    token->set_userid(user->get_id());
+    token->set_username(user->get_name());
+    token->set_token(common::to_base64(buffer.str()));
+
+    // Create a JSON Response
+    QJsonObject object;
+    token->to_json(object);
+
+    QJsonDocument document(object);
+    return document;
 }
 
 }

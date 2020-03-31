@@ -6,7 +6,7 @@
 
 // Include Project files
 #include "connector/ConnectorBase.h"
-#include "controller/Identity.h"
+#include "model/users/Identity.h"
 
 namespace libcams
 {
@@ -47,13 +47,13 @@ public:
      * @brief Get identity member
      * @return Return value of identity
      */
-    Identity::Pointer get_identity() const;
+    model::Identity::Pointer get_identity() const;
 
     /**
      * @brief Set identity member
      * @param password: New value of identity
      */
-    void set_identity(Identity::Pointer identity);
+    void set_identity(model::Identity::Pointer identity);
 
     /**
      * @brief Get connector member
@@ -78,43 +78,43 @@ public:
      * @brief Execute the given action
      * @param action: The given action name
      */
-    std::string execute(std::string const & action);
+    QJsonDocument execute(std::string const & action);
 
 protected:
     /// @brief The identity data
-    Identity::Pointer _identity;
+    model::Identity::Pointer _identity;
 
     connector::ConnectorBase::Pointer _connector;
 
     /**
      * @brief Execute the GET action
      */
-    virtual std::string execute_get();
+    virtual QJsonDocument execute_get();
 
     /**
      * @brief Execute the POST action
      */
-    virtual std::string execute_post();
+    virtual QJsonDocument execute_post();
 
     /**
      * @brief Execute the PUT action
      */
-    virtual std::string execute_put();
+    virtual QJsonDocument execute_put();
 
     /**
      * @brief Execute the PATCH action
      */
-    virtual std::string execute_patch();
+    virtual QJsonDocument execute_patch();
 
     /**
      * @brief Execute the DELETE action
      */
-    virtual std::string execute_delete();
+    virtual QJsonDocument execute_delete();
 
     /**
      * @brief Execute the OPTIONS action
      */
-    virtual std::string execute_options();
+    virtual QJsonDocument execute_options();
 
 private:
     /**

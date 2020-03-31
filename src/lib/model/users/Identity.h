@@ -7,7 +7,7 @@
 namespace libcams
 {
 
-namespace controller
+namespace model
 {
 
 /**

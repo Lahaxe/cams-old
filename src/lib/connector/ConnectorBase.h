@@ -4,6 +4,10 @@
 // Include Standard library
 #include <memory>
 
+#include <QJsonDocument>
+
+#include "model/users/Identity.h"
+
 namespace libcams
 {
 
@@ -32,7 +36,7 @@ public:
      */
     virtual ~ConnectorBase();
 
-    virtual std::string authenticate(std::string const & user, std::string const & password);
+    virtual QJsonDocument authenticate(model::Identity::Pointer identity);
 
 protected:
 

@@ -30,7 +30,7 @@ ControllerBase
     // Nothing to do
 }
 
-Identity::Pointer
+model::Identity::Pointer
 ControllerBase
 ::get_identity() const
 {
@@ -39,7 +39,7 @@ ControllerBase
 
 void
 ControllerBase
-::set_identity(Identity::Pointer identity)
+::set_identity(model::Identity::Pointer identity)
 {
     this->_identity = identity;
 }
@@ -83,14 +83,14 @@ ControllerBase
     return action_exist;
 }
 
-std::string
+QJsonDocument
 ControllerBase
 ::execute(std::string const & action)
 {
     auto action_uppercase = action;
     boost::to_upper(action_uppercase);
 
-    typedef std::map<std::string, std::function<std::string (void)> > actions_list_type;
+    typedef std::map<std::string, std::function<QJsonDocument (void)> > actions_list_type;
 
     actions_list_type actions = {
         { ACTION_GET, std::bind(&ControllerBase::execute_get, this) },
@@ -109,42 +109,42 @@ ControllerBase
     return actions[action_uppercase]();
 }
 
-std::string
+QJsonDocument
 ControllerBase
 ::execute_get()
 {
     throw NotImplementedActionException(ACTION_GET);
 }
 
-std::string
+QJsonDocument
 ControllerBase
 ::execute_post()
 {
     throw NotImplementedActionException(ACTION_POST);
 }
 
-std::string
+QJsonDocument
 ControllerBase
 ::execute_put()
 {
     throw NotImplementedActionException(ACTION_PUT);
 }
 
-std::string
+QJsonDocument
 ControllerBase
 ::execute_patch()
 {
     throw NotImplementedActionException(ACTION_PATCH);
 }
 
-std::string
+QJsonDocument
 ControllerBase
 ::execute_delete()
 {
     throw NotImplementedActionException(ACTION_DELETE);
 }
 
-std::string
+QJsonDocument
 ControllerBase
 ::execute_options()
 {

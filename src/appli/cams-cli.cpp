@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             }
 
             // Add identity to the controller
-            controller->set_identity(libcams::controller::Identity::New(
+            controller->set_identity(libcams::model::Identity::New(
                         arguments.get_user(), arguments.get_password(), arguments.get_token()));
 
             // Create the connector
@@ -68,7 +68,9 @@ int main(int argc, char *argv[])
             // Execute the action
             auto response = controller->execute(arguments.get_action());
 
-            libcams::common::Logger::instance().info(response);
+            auto result = response.toJson().toStdString();
+            libcams::common::Logger::instance().info(result);
+            std::cout << result << std::endl;
         }
     }
     catch (std::exception & exc)
@@ -80,6 +82,7 @@ int main(int argc, char *argv[])
         libcams::common::Logger::instance().fatal(message.str());
     }
 
+    libcams::connector::ConnectorFactory::delete_instance();
     libcams::controller::ControllerFactory::delete_instance();
 
     std::stringstream message;
