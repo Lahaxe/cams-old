@@ -6,7 +6,7 @@
 
 // Include Project files
 #include "connector/ConnectorBase.h"
-#include "controller/Identity.h"
+#include "model/users/Identity.h"
 
 namespace libcams
 {
@@ -47,13 +47,13 @@ public:
      * @brief Get identity member
      * @return Return value of identity
      */
-    Identity::Pointer get_identity() const;
+    model::Identity::Pointer get_identity() const;
 
     /**
      * @brief Set identity member
      * @param password: New value of identity
      */
-    void set_identity(Identity::Pointer identity);
+    void set_identity(model::Identity::Pointer identity);
 
     /**
      * @brief Get connector member
@@ -82,7 +82,7 @@ public:
 
 protected:
     /// @brief The identity data
-    Identity::Pointer _identity;
+    model::Identity::Pointer _identity;
 
     connector::ConnectorBase::Pointer _connector;
 

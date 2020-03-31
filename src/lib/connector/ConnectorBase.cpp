@@ -21,7 +21,7 @@ ConnectorBase
 
 QJsonDocument
 ConnectorBase
-::authenticate(std::string const & user, std::string const & password)
+::authenticate(model::Identity::Pointer identity)
 {
     throw std::exception();
 }

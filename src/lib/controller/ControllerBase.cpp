@@ -30,7 +30,7 @@ ControllerBase
     // Nothing to do
 }
 
-Identity::Pointer
+model::Identity::Pointer
 ControllerBase
 ::get_identity() const
 {
@@ -39,7 +39,7 @@ ControllerBase
 
 void
 ControllerBase
-::set_identity(Identity::Pointer identity)
+::set_identity(model::Identity::Pointer identity)
 {
     this->_identity = identity;
 }

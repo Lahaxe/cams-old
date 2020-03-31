@@ -39,7 +39,7 @@ public:
      */
     static std::string class_name();
 
-    virtual QJsonDocument authenticate(std::string const & login, std::string const & password);
+    virtual QJsonDocument authenticate(model::Identity::Pointer identity);
 
 protected:
 

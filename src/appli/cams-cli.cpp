@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             }
 
             // Add identity to the controller
-            controller->set_identity(libcams::controller::Identity::New(
+            controller->set_identity(libcams::model::Identity::New(
                         arguments.get_user(), arguments.get_password(), arguments.get_token()));
 
             // Create the connector

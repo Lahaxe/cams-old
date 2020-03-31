@@ -48,7 +48,7 @@ ConnectorFile
 
 QJsonDocument
 ConnectorFile
-::authenticate(std::string const & login, std::string const & password)
+::authenticate(model::Identity::Pointer identity)
 {
     model::User::Pointer user = nullptr;
     // For each file in users directory
@@ -60,10 +60,10 @@ ConnectorFile
             user = model::User::New();
             user->from_json(object);
 
-            if (user->get_name() == login)
+            if (user->get_name() == identity->get_login())
             {
                 // find User => check password
-                if (user->get_password() != common::to_base64(password))
+                if (user->get_password() != common::to_base64(identity->get_password()))
                 {
                     throw std::exception();
                 }
