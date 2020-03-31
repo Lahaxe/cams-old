@@ -78,7 +78,7 @@ public:
      * @brief Execute the given action
      * @param action: The given action name
      */
-    std::string execute(std::string const & action);
+    QJsonDocument execute(std::string const & action);
 
 protected:
     /// @brief The identity data
@@ -89,32 +89,32 @@ protected:
     /**
      * @brief Execute the GET action
      */
-    virtual std::string execute_get();
+    virtual QJsonDocument execute_get();
 
     /**
      * @brief Execute the POST action
      */
-    virtual std::string execute_post();
+    virtual QJsonDocument execute_post();
 
     /**
      * @brief Execute the PUT action
      */
-    virtual std::string execute_put();
+    virtual QJsonDocument execute_put();
 
     /**
      * @brief Execute the PATCH action
      */
-    virtual std::string execute_patch();
+    virtual QJsonDocument execute_patch();
 
     /**
      * @brief Execute the DELETE action
      */
-    virtual std::string execute_delete();
+    virtual QJsonDocument execute_delete();
 
     /**
      * @brief Execute the OPTIONS action
      */
-    virtual std::string execute_options();
+    virtual QJsonDocument execute_options();
 
 private:
     /**

@@ -43,7 +43,7 @@ protected:
     /**
      * @brief Execute the POST action
      */
-    virtual std::string execute_post();
+    virtual QJsonDocument execute_post();
 
 private:
     /**

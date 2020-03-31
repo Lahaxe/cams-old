@@ -36,7 +36,7 @@ ControllerToken
     return std::string("token");
 }
 
-std::string
+QJsonDocument
 ControllerToken
 ::execute_post()
 {
