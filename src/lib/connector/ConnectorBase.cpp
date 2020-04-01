@@ -20,7 +20,7 @@ ConnectorBase
     // Nothing to do
 }
 
-QJsonDocument
+model::Token::Pointer
 ConnectorBase
 ::authenticate(model::Identity::Pointer __attribute__((unused)) identity)
 {

@@ -3,10 +3,11 @@
 
 // Include Standard library
 #include <memory>
-
-#include <QJsonDocument>
+#include <vector>
 
 #include "model/users/Identity.h"
+#include "model/users/Token.h"
+#include "model/users/User.h"
 
 namespace libcams
 {
@@ -36,7 +37,9 @@ public:
      */
     virtual ~ConnectorBase();
 
-    virtual QJsonDocument authenticate(model::Identity::Pointer identity);
+    virtual model::Token::Pointer authenticate(model::Identity::Pointer identity);
+
+    virtual std::vector<model::User::Pointer> get_users() = 0;
 
 protected:
 
