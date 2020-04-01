@@ -40,13 +40,8 @@ QJsonDocument
 ControllerToken
 ::execute_post()
 {
-    if (this->_identity->get_login() == "" || this->_identity->get_password() == "")
-    {
-        throw MissingIdentityException();
-    }
-
     // Test l'authentification
-    auto token = this->_connector->authenticate(this->_identity);
+    auto token = this->_connector->authenticate();
 
     if (token == nullptr)
     {

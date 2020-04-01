@@ -1,3 +1,5 @@
+#include <QJsonArray>
+
 // Include Project files
 #include "controller/ControllerUsers.h"
 
@@ -38,7 +40,16 @@ QJsonDocument
 ControllerUsers
 ::execute_get()
 {
-    return QJsonDocument();
+    auto users = this->_connector->get_users();
+    QJsonArray users_list;
+    for (auto& user : users)
+    {
+        QJsonObject json_user;
+        user->to_json(json_user);
+        users_list.push_back(json_user);
+    }
+
+    return QJsonDocument(users_list);
 }
 
 }

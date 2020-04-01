@@ -9,7 +9,8 @@ namespace connector
 {
 
 ConnectorBase
-::ConnectorBase()
+::ConnectorBase():
+    _identity(nullptr)
 {
     // Nothing to do
 }
@@ -20,9 +21,23 @@ ConnectorBase
     // Nothing to do
 }
 
+model::Identity::Pointer
+ConnectorBase
+::get_identity() const
+{
+    return this->_identity;
+}
+
+void
+ConnectorBase
+::set_identity(model::Identity::Pointer identity)
+{
+    this->_identity = identity;
+}
+
 model::Token::Pointer
 ConnectorBase
-::authenticate(model::Identity::Pointer __attribute__((unused)) identity)
+::authenticate()
 {
     throw common::NotImplementedException();
 }

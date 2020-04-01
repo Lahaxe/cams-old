@@ -37,13 +37,28 @@ public:
      */
     virtual ~ConnectorBase();
 
-    virtual model::Token::Pointer authenticate(model::Identity::Pointer identity);
+    /**
+     * @brief Get identity member
+     * @return Return value of identity
+     */
+    model::Identity::Pointer get_identity() const;
+
+    /**
+     * @brief Set identity member
+     * @param password: New value of identity
+     */
+    void set_identity(model::Identity::Pointer identity);
+
+    virtual model::Token::Pointer authenticate();
 
     virtual std::vector<model::User::Pointer> get_users() = 0;
 
 protected:
 
 private:
+    /// @brief The identity data
+    model::Identity::Pointer _identity;
+
     /**
      * @brief Copy constructor (Purposely not implemented)
      * @param other: Object to copy

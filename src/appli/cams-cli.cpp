@@ -57,13 +57,13 @@ int main(int argc, char *argv[])
                 throw libcams::controller::UnknownActionException(arguments.get_action());
             }
 
-            // Add identity to the controller
-            controller->set_identity(libcams::model::Identity::New(
-                        arguments.get_user(), arguments.get_password(), arguments.get_token()));
-
             // Create the connector
             controller->set_connector(libcams::connector::ConnectorFactory::instance().create(
                                           libcams::common::Configuration::instance().get_connector_type()));
+
+            // Add identity to the connector
+            controller->get_connector()->set_identity(libcams::model::Identity::New(
+                        arguments.get_user(), arguments.get_password(), arguments.get_token()));
 
             // Execute the action
             auto response = controller->execute(arguments.get_action());

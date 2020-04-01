@@ -39,7 +39,7 @@ public:
      */
     static std::string class_name();
 
-    virtual model::Token::Pointer authenticate(model::Identity::Pointer identity);
+    virtual model::Token::Pointer authenticate();
 
     virtual std::vector<model::User::Pointer> get_users();
 
@@ -62,6 +62,10 @@ private:
      * @param other: Object to copy
      */
     ConnectorFile& operator=(ConnectorFile const & other);
+
+    std::string _generate_token(std::string const & userid) const;
+
+    bool _is_good_token(std::string const & token) const;
 
 };
 
