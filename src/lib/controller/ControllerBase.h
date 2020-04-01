@@ -46,18 +46,6 @@ public:
     virtual ~ControllerBase();
 
     /**
-     * @brief Get identity member
-     * @return Return value of identity
-     */
-    model::Identity::Pointer get_identity() const;
-
-    /**
-     * @brief Set identity member
-     * @param password: New value of identity
-     */
-    void set_identity(model::Identity::Pointer identity);
-
-    /**
      * @brief Get connector member
      * @return Return value of connector
      */
@@ -83,9 +71,6 @@ public:
     QJsonDocument execute(std::string const & action);
 
 protected:
-    /// @brief The identity data
-    model::Identity::Pointer _identity;
-
     connector::ConnectorBase::Pointer _connector;
 
     /**

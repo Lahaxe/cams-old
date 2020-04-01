@@ -2,6 +2,8 @@
 #include <experimental/filesystem>
 #include <iostream>
 
+#include <boost/algorithm/string.hpp>
+
 // Include Qt files
 #include <QDateTime>
 #include <QTimeZone>
@@ -49,7 +51,7 @@ ConnectorFile
 
 model::Token::Pointer
 ConnectorFile
-::authenticate(model::Identity::Pointer identity)
+::authenticate()
 {
     auto root_path = libcams::common::Configuration::instance().get_connector_file_root_path();
 
@@ -63,10 +65,10 @@ ConnectorFile
             user = model::User::New();
             user->from_json(object);
 
-            if (user->get_name() == identity->get_login())
+            if (user->get_name() == this->get_identity()->get_login())
             {
                 // find User => check password
-                if (user->get_password() != common::to_base64(identity->get_password()))
+                if (user->get_password() != common::to_base64(this->get_identity()->get_password()))
                 {
                     return nullptr;
                 }
@@ -84,19 +86,11 @@ ConnectorFile
         return nullptr;
     }
 
-    auto now = QDateTime::currentDateTime();
-
-    std::stringstream buffer;
-    buffer << now.toString(QString("yyyy-MM-ddThh-mm-ss")).toStdString()
-           << "|"
-           << now.timeZone().displayName(QTimeZone::StandardTime, QTimeZone::OffsetName).toStdString()
-           << "|" << user->get_id();
-
     // Create the token object
     auto token = model::Token::New();
     token->set_userid(user->get_id());
     token->set_username(user->get_name());
-    token->set_token(common::to_base64(buffer.str()));
+    token->set_token(this->_generate_token(user->get_id()));
 
     return token;
 }
@@ -105,6 +99,12 @@ std::vector<model::User::Pointer>
 ConnectorFile
 ::get_users()
 {
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
     auto root_path = libcams::common::Configuration::instance().get_connector_file_root_path();
 
     std::vector<model::User::Pointer> users;
@@ -121,6 +121,59 @@ ConnectorFile
     }
 
     return users;
+}
+
+std::string
+ConnectorFile
+::_generate_token(std::string const & userid) const
+{
+    auto now = QDateTime::currentDateTime();
+
+    std::stringstream buffer;
+    buffer << now.toString(QString("yyyy-MM-ddThh-mm-ss")).toStdString()
+           << "|"
+           << now.timeZone().displayName(QTimeZone::StandardTime, QTimeZone::OffsetName).toStdString()
+           << "|" << userid;
+
+    return common::to_base64(buffer.str());
+}
+
+bool
+ConnectorFile
+::_is_good_token(std::string const & token) const
+{
+    auto cleartoken = common::from_base64(token);
+
+    std::vector<std::string> parts;
+    boost::split(parts, cleartoken, boost::is_any_of("|"));
+
+    // Should be in 3 parts
+    if (parts.size() != 3)
+    {
+        return false;
+    }
+
+    // Check timestamp
+    auto timestamp = QDateTime::fromString(QString(parts[0].c_str()), QString("yyyy-MM-ddThh-mm-ss"));
+    auto now = QDateTime::currentDateTime();
+
+    auto diff_hours = timestamp.secsTo(now) / 3600;
+    if (diff_hours > 24) // Token available 24hours
+    {
+        return false;
+    }
+
+    // Check User
+    std::stringstream filepath;
+    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+             << "/users/" << parts[2] << ".json";
+
+    if (!std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())))
+    {
+        return false;
+    }
+
+    return true;
 }
 
 }
