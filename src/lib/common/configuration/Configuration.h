@@ -39,6 +39,10 @@ public:
 
     void set_logger_type(std::string const & logger_type);
 
+    std::string get_connector_file_root_path() const;
+
+    void set_connector_file_root_path(std::string const & connector_file_root_path);
+
 protected:
 
 private:
@@ -63,6 +67,8 @@ private:
     std::string _connector_type;
 
     std::string _logger_type;
+
+    std::string _connector_file_root_path;
 
     void _load_configuration_file();
 

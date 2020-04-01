@@ -73,6 +73,20 @@ Configuration
     this->_logger_type = logger_type;
 }
 
+std::string
+Configuration
+::get_connector_file_root_path() const
+{
+    return this->_connector_file_root_path;
+}
+
+void
+Configuration
+::set_connector_file_root_path(std::string const & connector_file_root_path)
+{
+    this->_connector_file_root_path = connector_file_root_path;
+}
+
 void
 Configuration
 ::_load_configuration_file()
@@ -85,6 +99,9 @@ Configuration
 
     // Logger part
     this->set_logger_type(iniparser->get_value("logger.logger_type"));
+
+    // Connector part
+    this->set_connector_file_root_path(iniparser->get_value("connector_file.root_path"));
 }
 
 } // namespace common

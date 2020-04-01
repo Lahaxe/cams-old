@@ -6,8 +6,7 @@
 // Include
 #include "common/configuration/Configuration.h"
 #include "common/logger/Logger.h"
-#include "common/logger/DefaultLogger.h"
-#include "common/logger/FileLogger.h"
+#include "common/logger/LoggerFactory.h"
 #include "common/exception/CamsException.h"
 #include "connector/ConnectorFactory.h"
 #include "controller/ControllerFactory.h"
@@ -20,16 +19,9 @@ int main(int argc, char *argv[])
     auto exit_value = EXIT_SUCCESS;
 
     auto logger_type = libcams::common::Configuration::instance().get_logger_type();
-    if (logger_type == "cout")
-    {
-        // Sortie standard
-        libcams::common::DefaultLogger::create_instance();
-    }
-    else if (logger_type == "file")
-    {
-        // Fichier log
-        libcams::common::FileLogger::create_instance();
-    }
+    libcams::common::Logger::instance().set_logger_writer(
+                libcams::common::LoggerFactory::instance().create(logger_type));
+    libcams::common::LoggerFactory::delete_instance();
 
     try
     {

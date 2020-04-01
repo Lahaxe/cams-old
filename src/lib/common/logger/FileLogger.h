@@ -1,7 +1,7 @@
 #ifndef _82610f19_e640_4e65_bd75_049dfa0b9170
 #define _82610f19_e640_4e65_bd75_049dfa0b9170
 
-#include "common/logger/Logger.h"
+#include "common/logger/LoggerBase.h"
 
 namespace libcams
 {
@@ -12,18 +12,31 @@ namespace common
 /**
  * @brief The FileLogger class
  */
-class FileLogger : public Logger
+class FileLogger : public LoggerBase
 {
 public:
+    /// @brief The FileLogger Pointer type
+    typedef std::shared_ptr<FileLogger> Pointer;
+
+    /// @brief The FileLogger constante Pointer type
+    typedef std::shared_ptr<FileLogger const> ConstPointer;
+
     /**
-     * @brief Create and return an unique instance of FileLogger
+     * @brief Create pointer to a new instance of FileLogger
+     * @return Return Pointer to new instance of FileLogger
      */
-    static void create_instance();
+    static Pointer New();
 
     /**
      * @brief Destructor
      */
     virtual ~FileLogger();
+
+    /**
+     * @brief Return the name of this class
+     * @return Return name of this class
+     */
+    static std::string class_name();
 
 protected:
 

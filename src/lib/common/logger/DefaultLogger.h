@@ -1,7 +1,7 @@
 #ifndef _365e5589_7aa8_448f_8bfd_ceae68ac3a10
 #define _365e5589_7aa8_448f_8bfd_ceae68ac3a10
 
-#include "common/logger/Logger.h"
+#include "common/logger/LoggerBase.h"
 
 namespace libcams
 {
@@ -12,19 +12,31 @@ namespace common
 /**
  * @brief The Logger class
  */
-class DefaultLogger : public Logger
+class DefaultLogger : public LoggerBase
 {
 public:
+    /// @brief The DefaultLogger Pointer type
+    typedef std::shared_ptr<DefaultLogger> Pointer;
+
+    /// @brief The DefaultLogger constante Pointer type
+    typedef std::shared_ptr<DefaultLogger const> ConstPointer;
+
     /**
-     * @brief Create and return an unique instance of Logger
-     * @return unique instance of Logger
+     * @brief Create pointer to a new instance of DefaultLogger
+     * @return Return Pointer to new instance of DefaultLogger
      */
-    static void create_instance();
+    static Pointer New();
 
     /**
      * @brief Destructor
      */
     virtual ~DefaultLogger();
+
+    /**
+     * @brief Return the name of this class
+     * @return Return name of this class
+     */
+    static std::string class_name();
 
 protected:
 

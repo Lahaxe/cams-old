@@ -4,6 +4,9 @@
 // Include Project files
 #include "common/base64.h"
 
+namespace libcams
+{
+
 namespace common
 {
 
@@ -21,6 +24,8 @@ std::string from_base64(std::string const & encoded_text)
 
     auto bytearray = QByteArray::fromBase64(encoded_bytearray);
     return bytearray.toStdString();
+}
+
 }
 
 }

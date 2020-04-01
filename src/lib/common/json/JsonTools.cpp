@@ -4,6 +4,9 @@
 // Include Project files
 #include "common/json/JsonTools.h"
 
+namespace libcams
+{
+
 namespace common
 {
 
@@ -48,6 +51,8 @@ from_file(QJsonObject & json, std::string const & filename)
     json = document.object();
 
     return true;
+}
+
 }
 
 }

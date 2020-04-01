@@ -8,6 +8,7 @@
 
 // Include Project files
 #include "common/base64.h"
+#include "common/configuration/Configuration.h"
 #include "common/json/JsonTools.h"
 #include "connector/ConnectorFile.h"
 #include "model/users/User.h"
@@ -50,9 +51,11 @@ QJsonDocument
 ConnectorFile
 ::authenticate(model::Identity::Pointer identity)
 {
+    auto root_path = libcams::common::Configuration::instance().get_connector_file_root_path();
+
     model::User::Pointer user = nullptr;
     // For each file in users directory
-    for (auto& filename : std::experimental::filesystem::v1::directory_iterator("data/users"))
+    for (auto& filename : std::experimental::filesystem::v1::directory_iterator(root_path + "/users"))
     {
         QJsonObject object;
         if (common::json::from_file(object, filename.path()))
