@@ -12,7 +12,7 @@ namespace controller
 
 UnknownActionException
 ::UnknownActionException(std::string const & action):
-    common::CamsException()
+    common::CamsException("", 400)
 {
     std::stringstream message;
     message << "Given action is unknown: " << action;

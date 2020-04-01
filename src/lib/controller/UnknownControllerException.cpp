@@ -12,7 +12,7 @@ namespace controller
 
 UnknownControllerException
 ::UnknownControllerException(std::string const & controller):
-    common::CamsException()
+    common::CamsException("", 400)
 {
     std::stringstream message;
     message << "Given controller is unknown: " << controller;

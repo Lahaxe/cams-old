@@ -65,7 +65,7 @@ ConnectorFile
                 // find User => check password
                 if (user->get_password() != common::to_base64(identity->get_password()))
                 {
-                    throw std::exception();
+                    return QJsonDocument();
                 }
                 break;
             }
@@ -78,7 +78,7 @@ ConnectorFile
 
     if (user == nullptr)
     {
-        throw std::exception();
+        return QJsonDocument();
     }
 
     auto now = QDateTime::currentDateTime();

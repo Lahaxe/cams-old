@@ -1,7 +1,7 @@
 // Include Project files
+#include "common/exception/RefusedLoginException.h"
 #include "controller/ControllerToken.h"
 #include "controller/MissingIdentityException.h"
-#include "controller/RefusedIdentityException.h"
 
 namespace libcams
 {
@@ -46,7 +46,14 @@ ControllerToken
     }
 
     // Test l'authentification
-    return this->_connector->authenticate(this->_identity);
+    auto document = this->_connector->authenticate(this->_identity);
+
+    if (document.isNull() || document.isEmpty())
+    {
+        throw common::RefusedLoginException();
+    }
+
+    return document;
 }
 
 }
