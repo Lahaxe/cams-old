@@ -47,7 +47,7 @@ ConnectorFile
     return std::string("file");
 }
 
-QJsonDocument
+model::Token::Pointer
 ConnectorFile
 ::authenticate(model::Identity::Pointer identity)
 {
@@ -68,7 +68,7 @@ ConnectorFile
                 // find User => check password
                 if (user->get_password() != common::to_base64(identity->get_password()))
                 {
-                    return QJsonDocument();
+                    return nullptr;
                 }
                 break;
             }
@@ -81,7 +81,7 @@ ConnectorFile
 
     if (user == nullptr)
     {
-        return QJsonDocument();
+        return nullptr;
     }
 
     auto now = QDateTime::currentDateTime();
@@ -98,12 +98,14 @@ ConnectorFile
     token->set_username(user->get_name());
     token->set_token(common::to_base64(buffer.str()));
 
-    // Create a JSON Response
-    QJsonObject object;
-    token->to_json(object);
+    return token;
+}
 
-    QJsonDocument document(object);
-    return document;
+std::vector<model::User::Pointer>
+ConnectorFile
+::get_users()
+{
+    return std::vector<model::User::Pointer>();
 }
 
 }

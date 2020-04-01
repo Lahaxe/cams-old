@@ -4,6 +4,8 @@
 // Include Standard library
 #include <memory>
 
+#include <QJsonDocument>
+
 // Include Project files
 #include "connector/ConnectorBase.h"
 #include "model/users/Identity.h"

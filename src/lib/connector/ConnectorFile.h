@@ -39,7 +39,9 @@ public:
      */
     static std::string class_name();
 
-    virtual QJsonDocument authenticate(model::Identity::Pointer identity);
+    virtual model::Token::Pointer authenticate(model::Identity::Pointer identity);
+
+    virtual std::vector<model::User::Pointer> get_users();
 
 protected:
 

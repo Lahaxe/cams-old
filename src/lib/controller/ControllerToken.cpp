@@ -46,13 +46,18 @@ ControllerToken
     }
 
     // Test l'authentification
-    auto document = this->_connector->authenticate(this->_identity);
+    auto token = this->_connector->authenticate(this->_identity);
 
-    if (document.isNull() || document.isEmpty())
+    if (token == nullptr)
     {
         throw common::RefusedLoginException();
     }
 
+    // Create a JSON Response
+    QJsonObject object;
+    token->to_json(object);
+
+    QJsonDocument document(object);
     return document;
 }
 
