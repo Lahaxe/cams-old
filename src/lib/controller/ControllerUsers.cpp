@@ -84,6 +84,33 @@ ControllerUsers
 
 QJsonDocument
 ControllerUsers
+::execute_delete(std::string const & ressource)
+{
+    std::vector<std::string> parts;
+    boost::split(parts, ressource, boost::is_any_of("/"));
+
+    // GET users/{id}
+    if (parts.size() == 1 && !parts[0].empty())
+    {
+        auto user = this->_connector->delete_user_by_id(parts[0]);
+
+        if (user == nullptr)
+        {
+            return QJsonDocument();
+        }
+
+        QJsonObject object;
+        user->to_json(object);
+
+        return QJsonDocument(object);
+    }
+
+    // A revoir => RessourceNotFindException
+    throw std::exception();
+}
+
+QJsonDocument
+ControllerUsers
 ::execute_options(std::string const & ressource)
 {
     // OPTIONS users
@@ -91,6 +118,7 @@ ControllerUsers
     {
         QJsonArray options;
         options.push_back(QJsonValue(QString(ACTION_GET.c_str())));
+        options.push_back(QJsonValue(QString(ACTION_OPTIONS.c_str())));
         return QJsonDocument(options);
     }
 
@@ -102,6 +130,8 @@ ControllerUsers
     {
         QJsonArray options;
         options.push_back(QJsonValue(QString(ACTION_GET.c_str())));
+        options.push_back(QJsonValue(QString(ACTION_DELETE.c_str())));
+        options.push_back(QJsonValue(QString(ACTION_OPTIONS.c_str())));
         return QJsonDocument(options);
     }
 

@@ -153,6 +153,41 @@ ConnectorFile
     return user;
 }
 
+model::User::Pointer
+ConnectorFile
+::delete_user_by_id(std::string const & id)
+{
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
+    std::stringstream filepath;
+    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+             << "/users/" << id << ".json";
+    if (!std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())))
+    {
+        return nullptr;
+    }
+
+    QJsonObject object;
+    if (!common::json::from_file(object, filepath.str()))
+    {
+        // A revoir => Log an error
+    }
+
+    if (!std::experimental::filesystem::v1::remove(std::experimental::filesystem::v1::path(filepath.str())))
+    {
+        // A revoir => Error
+        throw std::exception();
+    }
+
+    auto user = model::User::New();
+    user->from_json(object);
+    return user;
+}
+
 std::string
 ConnectorFile
 ::_generate_token(std::string const & userid) const

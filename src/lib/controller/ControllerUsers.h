@@ -41,12 +41,17 @@ public:
 
 protected:
     /**
-     * @brief Execute the POST action
+     * @brief Execute the GET action
      */
     virtual QJsonDocument execute_get(std::string const & ressource = "");
 
     /**
-     * @brief Execute the POST action
+     * @brief Execute the DELETE action
+     */
+    virtual QJsonDocument execute_delete(std::string const & ressource = "");
+
+    /**
+     * @brief Execute the OPTIONS action
      */
     virtual QJsonDocument execute_options(std::string const & ressource = "");
 
