@@ -105,7 +105,22 @@ std::vector<model::User::Pointer>
 ConnectorFile
 ::get_users()
 {
-    return std::vector<model::User::Pointer>();
+    auto root_path = libcams::common::Configuration::instance().get_connector_file_root_path();
+
+    std::vector<model::User::Pointer> users;
+    // For each file in users directory
+    for (auto& filename : std::experimental::filesystem::v1::directory_iterator(root_path + "/users"))
+    {
+        QJsonObject object;
+        if (common::json::from_file(object, filename.path()))
+        {
+            auto user = model::User::New();
+            user->from_json(object);
+            users.push_back(user);
+        }
+    }
+
+    return users;
 }
 
 }
