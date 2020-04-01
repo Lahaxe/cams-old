@@ -13,7 +13,7 @@ namespace controller
 
 NotImplementedActionException
 ::NotImplementedActionException(std::string const & action):
-    common::CamsException()
+    common::CamsException("", 501)
 {
     std::stringstream message;
     message << "The controller does not implement the action '" << action << "'";

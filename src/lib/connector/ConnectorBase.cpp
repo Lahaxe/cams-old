@@ -1,5 +1,6 @@
 // Include Project files
 #include "connector/ConnectorBase.h"
+#include "common/exception/NotImplementedException.h"
 
 namespace libcams
 {
@@ -21,9 +22,9 @@ ConnectorBase
 
 QJsonDocument
 ConnectorBase
-::authenticate(model::Identity::Pointer identity)
+::authenticate(model::Identity::Pointer __attribute__((unused)) identity)
 {
-    throw std::exception();
+    throw common::NotImplementedException();
 }
 
 } // namespace connector

@@ -1,5 +1,5 @@
-#ifndef _aea06ea4_e689_4029_bf14_ab86d3f59139
-#define _aea06ea4_e689_4029_bf14_ab86d3f59139
+#ifndef _314d338a_29c1_4858_9898_a94e63ecba66
+#define _314d338a_29c1_4858_9898_a94e63ecba66
 
 // Include Standard library
 #include <exception>
@@ -21,7 +21,7 @@ public:
      * @brief Message string constructor
      * @param message: Details of the exception
      */
-    CamsException(std::string const & message = "");
+    CamsException(std::string const & message = "", unsigned int code = 500);
 
     /**
      * @brief Destructor
@@ -34,9 +34,14 @@ public:
      */
     virtual const char* what() const noexcept;
 
+    std::string to_json() const noexcept;
+
 protected:
     /// @brief Message of the exception
     std::string _message;
+
+    /// @brief Code of the exception
+    unsigned int _code;
 
 private:
 
@@ -46,4 +51,4 @@ private:
 
 } // namespace libcams
 
-#endif // _aea06ea4_e689_4029_bf14_ab86d3f59139
+#endif // _314d338a_29c1_4858_9898_a94e63ecba66

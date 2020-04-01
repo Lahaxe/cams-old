@@ -73,6 +73,15 @@ int main(int argc, char *argv[])
             std::cout << result << std::endl;
         }
     }
+    catch (libcams::common::CamsException & camsexc)
+    {
+        exit_value = EXIT_FAILURE;
+
+        auto message = camsexc.to_json();
+        libcams::common::Logger::instance().fatal(message);
+
+        std::cout << message << std::endl;
+    }
     catch (std::exception & exc)
     {
         exit_value = EXIT_FAILURE;

@@ -1,5 +1,5 @@
-#ifndef _8ac46421_eb00_4ad6_81bf_8bc288caa2ae
-#define _8ac46421_eb00_4ad6_81bf_8bc288caa2ae
+#ifndef _3ba4d15b_e468_4107_82c2_028cee8dcb3b
+#define _3ba4d15b_e468_4107_82c2_028cee8dcb3b
 
 // Include Qt files
 #include <QJsonObject>
@@ -18,4 +18,4 @@ bool from_file(QJsonObject & json, std::string const & filename);
 
 }
 
-#endif // _8ac46421_eb00_4ad6_81bf_8bc288caa2ae
+#endif // _3ba4d15b_e468_4107_82c2_028cee8dcb3b
