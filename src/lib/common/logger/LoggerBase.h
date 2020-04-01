@@ -1,10 +1,9 @@
-#ifndef _730ac144_2efe_44ba_a248_2e48b183a75a
-#define _730ac144_2efe_44ba_a248_2e48b183a75a
+#ifndef _9e6c3d75_bc55_47f8_b528_ac620af6b5b7
+#define _9e6c3d75_bc55_47f8_b528_ac620af6b5b7
 
 // Include Standard library
+#include <memory>
 #include <string>
-
-#include "common/logger/LoggerBase.h"
 
 namespace libcams
 {
@@ -15,29 +14,24 @@ namespace common
 /**
  * @brief The Logger class
  */
-class Logger
+class LoggerBase
 {
 public:
-    /**
-     * @brief Create and return an unique instance of Logger
-     * @return unique instance of Logger
-     */
-    static Logger& instance();
+    /// @brief The LoggerBase Pointer type
+    typedef std::shared_ptr<LoggerBase> Pointer;
 
-    /**
-     * @brief Remove the unique instance of Logger
-     */
-    static void delete_instance();
+    /// @brief The LoggerBase constant Pointer type
+    typedef std::shared_ptr<LoggerBase const> ConstPointer;
 
     /**
      * @brief Create an instance of Logger
      */
-    Logger();
+    LoggerBase();
 
     /**
      * @brief Destructor
      */
-    virtual ~Logger();
+    virtual ~LoggerBase();
 
     /**
      * @brief Write DEBUG line
@@ -69,15 +63,15 @@ public:
      */
     void fatal(std::string const & message);
 
-    void set_logger_writer(LoggerBase::Pointer logger_writer);
-
 protected:
+    /**
+     * @brief Write line
+     * @param message: Text to log
+     * @param level: Log level
+     */
+    virtual void write(std::string const & message, std::string const & level) = 0;
 
 private:
-    /// Unique instance
-    static Logger* _instance;
-
-    LoggerBase::Pointer _logger_writer;
 
 };
 
@@ -85,4 +79,4 @@ private:
 
 } // namespace libcams
 
-#endif // _730ac144_2efe_44ba_a248_2e48b183a75a
+#endif // _9e6c3d75_bc55_47f8_b528_ac620af6b5b7

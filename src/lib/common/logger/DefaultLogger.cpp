@@ -13,19 +13,16 @@ namespace libcams
 namespace common
 {
 
-void
+DefaultLogger::Pointer
 DefaultLogger
-::create_instance()
+::New()
 {
-   if (Logger::_instance == nullptr)
-   {
-       Logger::_instance = new DefaultLogger();
-   }
+    return Pointer(new DefaultLogger());
 }
 
 DefaultLogger
 ::DefaultLogger():
-    Logger()
+    LoggerBase()
 {
     // Nothing to do
 }
@@ -34,6 +31,13 @@ DefaultLogger
 ::~DefaultLogger()
 {
     // Nothing to do
+}
+
+std::string
+DefaultLogger
+::class_name()
+{
+    return std::string("cout");
 }
 
 void

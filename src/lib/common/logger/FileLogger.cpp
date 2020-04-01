@@ -15,19 +15,16 @@ namespace libcams
 namespace common
 {
 
-void
+FileLogger::Pointer
 FileLogger
-::create_instance()
+::New()
 {
-   if (Logger::_instance == nullptr)
-   {
-       Logger::_instance = new FileLogger();
-   }
+    return Pointer(new FileLogger());
 }
 
 FileLogger
 ::FileLogger():
-    Logger()
+    LoggerBase()
 {
     // Nothing to do
 }
@@ -36,6 +33,13 @@ FileLogger
 ::~FileLogger()
 {
     // Nothing to do
+}
+
+std::string
+FileLogger
+::class_name()
+{
+    return std::string("file");
 }
 
 void
