@@ -65,8 +65,10 @@ int main(int argc, char *argv[])
             controller->get_connector()->set_identity(libcams::model::Identity::New(
                         arguments.get_user(), arguments.get_password(), arguments.get_token()));
 
+            auto document = QJsonDocument::fromJson(QByteArray(arguments.get_json_string().c_str()));
+
             // Execute the action
-            auto response = controller->execute(arguments.get_action(), arguments.get_ressource_path());
+            auto response = controller->execute(arguments.get_action(), arguments.get_ressource_path(), document);
 
             auto result = response.toJson().toStdString();
             libcams::common::Logger::instance().info(result);
