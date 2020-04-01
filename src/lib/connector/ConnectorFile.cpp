@@ -7,6 +7,7 @@
 // Include Qt files
 #include <QDateTime>
 #include <QTimeZone>
+#include <QUuid>
 
 // Include Project files
 #include "common/base64.h"
@@ -151,6 +152,41 @@ ConnectorFile
     auto user = model::User::New();
     user->from_json(object);
     return user;
+}
+
+void
+ConnectorFile
+::post_user(model::User::Pointer user)
+{
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
+    std::stringstream filepath;
+    std::string uuid;
+    do
+    {
+        uuid = QUuid::createUuid().toString().toStdString();
+        boost::erase_all(uuid, "{");
+        boost::erase_all(uuid, "}");
+
+        filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+                 << "/users/" << uuid << ".json";
+    }
+    while (std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())));
+
+    user->set_id(uuid);
+
+    QJsonObject json_user;
+    user->to_json(json_user);
+
+    if (!common::json::to_file(json_user, filepath.str()))
+    {
+        // A revoir
+        throw std::exception();
+    }
 }
 
 model::User::Pointer

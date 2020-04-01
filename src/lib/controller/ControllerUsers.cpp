@@ -41,7 +41,7 @@ ControllerUsers
 
 QJsonDocument
 ControllerUsers
-::execute_get(std::string const & ressource)
+::execute_get(std::string const & ressource, QJsonDocument const & document)
 {
     // GET users
     if (ressource.empty())
@@ -78,18 +78,45 @@ ControllerUsers
         return QJsonDocument(object);
     }
 
-    // A revoir => RessourceNotFindException
+    // A revoir => Bad way
     throw std::exception();
 }
 
 QJsonDocument
 ControllerUsers
-::execute_delete(std::string const & ressource)
+::execute_post(std::string const & ressource, QJsonDocument const & document)
+{
+    // POST users
+    if (ressource.empty())
+    {
+        if (document.isNull() || document.isEmpty())
+        {
+            // A revoir => erreur
+            throw std::exception();
+        }
+
+        auto user = model::User::New();
+        user->from_json(document.object());
+
+        this->_connector->post_user(user);
+
+        QJsonObject json_user;
+        user->to_json(json_user);
+        return QJsonDocument(json_user);
+    }
+
+    // A revoir => Bad way
+    throw std::exception();
+}
+
+QJsonDocument
+ControllerUsers
+::execute_delete(std::string const & ressource, QJsonDocument const & document)
 {
     std::vector<std::string> parts;
     boost::split(parts, ressource, boost::is_any_of("/"));
 
-    // GET users/{id}
+    // DELETE users/{id}
     if (parts.size() == 1 && !parts[0].empty())
     {
         auto user = this->_connector->delete_user_by_id(parts[0]);
@@ -111,13 +138,14 @@ ControllerUsers
 
 QJsonDocument
 ControllerUsers
-::execute_options(std::string const & ressource)
+::execute_options(std::string const & ressource, QJsonDocument const & document)
 {
     // OPTIONS users
     if (ressource.empty())
     {
         QJsonArray options;
         options.push_back(QJsonValue(QString(ACTION_GET.c_str())));
+        options.push_back(QJsonValue(QString(ACTION_POST.c_str())));
         options.push_back(QJsonValue(QString(ACTION_OPTIONS.c_str())));
         return QJsonDocument(options);
     }

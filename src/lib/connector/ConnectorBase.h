@@ -55,6 +55,8 @@ public:
 
     virtual model::User::Pointer get_user_by_id(std::string const & id) = 0;
 
+    virtual void post_user(model::User::Pointer user) = 0;
+
     virtual model::User::Pointer delete_user_by_id(std::string const & id) = 0;
 
 protected:

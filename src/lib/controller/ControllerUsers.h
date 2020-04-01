@@ -43,17 +43,22 @@ protected:
     /**
      * @brief Execute the GET action
      */
-    virtual QJsonDocument execute_get(std::string const & ressource = "");
+    virtual QJsonDocument execute_get(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the DELETE action
      */
-    virtual QJsonDocument execute_delete(std::string const & ressource = "");
+    virtual QJsonDocument execute_post(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
+
+    /**
+     * @brief Execute the DELETE action
+     */
+    virtual QJsonDocument execute_delete(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the OPTIONS action
      */
-    virtual QJsonDocument execute_options(std::string const & ressource = "");
+    virtual QJsonDocument execute_options(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
 private:
     /**

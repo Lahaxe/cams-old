@@ -68,7 +68,7 @@ public:
      * @brief Execute the given action
      * @param action: The given action name
      */
-    QJsonDocument execute(std::string const & action, std::string const & ressource = "");
+    QJsonDocument execute(std::string const & action, std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
 protected:
     connector::ConnectorBase::Pointer _connector;
@@ -76,32 +76,32 @@ protected:
     /**
      * @brief Execute the GET action
      */
-    virtual QJsonDocument execute_get(std::string const & ressource = "");
+    virtual QJsonDocument execute_get(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the POST action
      */
-    virtual QJsonDocument execute_post(std::string const & ressource = "");
+    virtual QJsonDocument execute_post(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the PUT action
      */
-    virtual QJsonDocument execute_put(std::string const & ressource = "");
+    virtual QJsonDocument execute_put(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the PATCH action
      */
-    virtual QJsonDocument execute_patch(std::string const & ressource = "");
+    virtual QJsonDocument execute_patch(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the DELETE action
      */
-    virtual QJsonDocument execute_delete(std::string const & ressource = "");
+    virtual QJsonDocument execute_delete(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the OPTIONS action
      */
-    virtual QJsonDocument execute_options(std::string const & ressource = "");
+    virtual QJsonDocument execute_options(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
 private:
     /**
