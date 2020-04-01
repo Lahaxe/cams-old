@@ -38,7 +38,7 @@ ControllerToken
 
 QJsonDocument
 ControllerToken
-::execute_post()
+::execute_post(std::string const & ressource)
 {
     // Test l'authentification
     auto token = this->_connector->authenticate();
