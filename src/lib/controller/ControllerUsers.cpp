@@ -82,6 +82,33 @@ ControllerUsers
     throw std::exception();
 }
 
+QJsonDocument
+ControllerUsers
+::execute_options(std::string const & ressource)
+{
+    // OPTIONS users
+    if (ressource.empty())
+    {
+        QJsonArray options;
+        options.push_back(QJsonValue(QString(ACTION_GET.c_str())));
+        return QJsonDocument(options);
+    }
+
+    std::vector<std::string> parts;
+    boost::split(parts, ressource, boost::is_any_of("/"));
+
+    // OPTIONS users/{id}
+    if (parts.size() == 1)
+    {
+        QJsonArray options;
+        options.push_back(QJsonValue(QString(ACTION_GET.c_str())));
+        return QJsonDocument(options);
+    }
+
+    // A revoir => RessourceNotFindException
+    throw std::exception();
+}
+
 }
 
 }

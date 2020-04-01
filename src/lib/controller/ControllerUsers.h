@@ -45,6 +45,11 @@ protected:
      */
     virtual QJsonDocument execute_get(std::string const & ressource = "");
 
+    /**
+     * @brief Execute the POST action
+     */
+    virtual QJsonDocument execute_options(std::string const & ressource = "");
+
 private:
     /**
      * @brief Create an instance of ControllerUsers
