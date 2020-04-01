@@ -43,6 +43,8 @@ public:
 
     virtual std::vector<model::User::Pointer> get_users();
 
+    virtual model::User::Pointer get_user_by_id(std::string const & id);
+
 protected:
 
 private:

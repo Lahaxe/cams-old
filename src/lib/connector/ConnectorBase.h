@@ -52,6 +52,7 @@ public:
     virtual model::Token::Pointer authenticate();
 
     virtual std::vector<model::User::Pointer> get_users() = 0;
+    virtual model::User::Pointer get_user_by_id(std::string const & id) = 0;
 
 protected:
 

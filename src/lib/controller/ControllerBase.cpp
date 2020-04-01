@@ -71,20 +71,20 @@ ControllerBase
 
 QJsonDocument
 ControllerBase
-::execute(std::string const & action)
+::execute(std::string const & action, std::string const & ressource)
 {
     auto action_uppercase = action;
     boost::to_upper(action_uppercase);
 
-    typedef std::map<std::string, std::function<QJsonDocument (void)> > actions_list_type;
+    typedef std::map<std::string, std::function<QJsonDocument (std::string const &)> > actions_list_type;
 
     actions_list_type actions = {
-        { ACTION_GET, std::bind(&ControllerBase::execute_get, this) },
-        { ACTION_POST, std::bind(&ControllerBase::execute_post, this) },
-        { ACTION_PUT, std::bind(&ControllerBase::execute_put, this) },
-        { ACTION_PATCH, std::bind(&ControllerBase::execute_patch, this) },
-        { ACTION_DELETE, std::bind(&ControllerBase::execute_delete, this) },
-        { ACTION_OPTIONS, std::bind(&ControllerBase::execute_options, this) }
+        { ACTION_GET, std::bind(&ControllerBase::execute_get, this, std::placeholders::_1) },
+        { ACTION_POST, std::bind(&ControllerBase::execute_post, this, std::placeholders::_1) },
+        { ACTION_PUT, std::bind(&ControllerBase::execute_put, this, std::placeholders::_1) },
+        { ACTION_PATCH, std::bind(&ControllerBase::execute_patch, this, std::placeholders::_1) },
+        { ACTION_DELETE, std::bind(&ControllerBase::execute_delete, this, std::placeholders::_1) },
+        { ACTION_OPTIONS, std::bind(&ControllerBase::execute_options, this, std::placeholders::_1) }
     };
 
     if (actions.find(action_uppercase) == actions.end())
@@ -92,47 +92,47 @@ ControllerBase
         throw UnknownActionException(action);
     }
 
-    return actions[action_uppercase]();
+    return actions[action_uppercase](ressource);
 }
 
 QJsonDocument
 ControllerBase
-::execute_get()
+::execute_get(std::string const & ressource)
 {
     throw NotImplementedActionException(ACTION_GET);
 }
 
 QJsonDocument
 ControllerBase
-::execute_post()
+::execute_post(std::string const & ressource)
 {
     throw NotImplementedActionException(ACTION_POST);
 }
 
 QJsonDocument
 ControllerBase
-::execute_put()
+::execute_put(std::string const & ressource)
 {
     throw NotImplementedActionException(ACTION_PUT);
 }
 
 QJsonDocument
 ControllerBase
-::execute_patch()
+::execute_patch(std::string const & ressource)
 {
     throw NotImplementedActionException(ACTION_PATCH);
 }
 
 QJsonDocument
 ControllerBase
-::execute_delete()
+::execute_delete(std::string const & ressource)
 {
     throw NotImplementedActionException(ACTION_DELETE);
 }
 
 QJsonDocument
 ControllerBase
-::execute_options()
+::execute_options(std::string const & ressource)
 {
     throw NotImplementedActionException(ACTION_OPTIONS);
 }

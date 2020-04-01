@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
                         arguments.get_user(), arguments.get_password(), arguments.get_token()));
 
             // Execute the action
-            auto response = controller->execute(arguments.get_action());
+            auto response = controller->execute(arguments.get_action(), arguments.get_ressource_path());
 
             auto result = response.toJson().toStdString();
             libcams::common::Logger::instance().info(result);
