@@ -1,5 +1,6 @@
 // Include Project files
 #include "controller/ControllerFactory.h"
+#include "controller/ControllerUsers.h"
 #include "controller/ControllerToken.h"
 
 namespace libcams
@@ -36,6 +37,7 @@ ControllerFactory
 ::ControllerFactory():
     common::BaseFactory<ControllerBase>()
 {
+    this->register_<ControllerUsers>();
     this->register_<ControllerToken>();
 }
 
