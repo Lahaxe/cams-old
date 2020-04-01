@@ -4,6 +4,7 @@
 #include <sstream>
 
 // Include
+#include "common/configuration/Configuration.h"
 #include "common/logger/Logger.h"
 #include "common/logger/DefaultLogger.h"
 #include "common/logger/FileLogger.h"
@@ -18,11 +19,17 @@ int main(int argc, char *argv[])
 {
     auto exit_value = EXIT_SUCCESS;
 
-    // Sortie standard
-    //libcams::common::DefaultLogger::create_instance();
-
-    // Fichier log
-    libcams::common::FileLogger::create_instance();
+    auto logger_type = libcams::common::Configuration::instance().get_logger_type();
+    if (logger_type == "cout")
+    {
+        // Sortie standard
+        libcams::common::DefaultLogger::create_instance();
+    }
+    else if (logger_type == "file")
+    {
+        // Fichier log
+        libcams::common::FileLogger::create_instance();
+    }
 
     try
     {
@@ -63,7 +70,8 @@ int main(int argc, char *argv[])
                         arguments.get_user(), arguments.get_password(), arguments.get_token()));
 
             // Create the connector
-            controller->set_connector(libcams::connector::ConnectorFactory::instance().create("file"));
+            controller->set_connector(libcams::connector::ConnectorFactory::instance().create(
+                                          libcams::common::Configuration::instance().get_connector_type()));
 
             // Execute the action
             auto response = controller->execute(arguments.get_action());
@@ -99,6 +107,7 @@ int main(int argc, char *argv[])
     libcams::common::Logger::instance().info(message.str());
 
     libcams::common::Logger::delete_instance();
+    libcams::common::Configuration::delete_instance();
 
     return exit_value;
 }
