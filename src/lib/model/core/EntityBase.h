@@ -1,13 +1,6 @@
 #ifndef _d9cb6f7b_3646_4fa3_92ec_afdc25443782
 #define _d9cb6f7b_3646_4fa3_92ec_afdc25443782
 
-// Include Standard files
-#include <memory>
-#include <string>
-
-// Include Qt files
-#include <QJsonObject>
-
 #include "model/core/Attribute.h"
 
 namespace libcams

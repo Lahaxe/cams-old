@@ -1,8 +1,12 @@
 #ifndef _b6c95c96_f0ec_4f3e_8880_6244820cd915
 #define _b6c95c96_f0ec_4f3e_8880_6244820cd915
 
+// Include Standard files
 #include <memory>
 #include <string>
+
+// Include Qt files
+#include <QJsonObject>
 
 namespace libcams
 {
@@ -51,6 +55,10 @@ public:
     void set_value(const T& value);
 
     bool is_set() const;
+
+    void from_json(QJsonObject const & json);
+
+    void to_json(QJsonObject & json) const;
 
 protected:
 

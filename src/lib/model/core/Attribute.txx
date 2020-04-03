@@ -1,6 +1,8 @@
 #ifndef _c00c119a_1518_468c_8ecc_1ff945ae70cd
 #define _c00c119a_1518_468c_8ecc_1ff945ae70cd
 
+#include <sstream>
+
 #include "model/core/Attribute.h"
 
 namespace libcams
@@ -87,6 +89,30 @@ Attribute<T>
 ::is_set() const
 {
     return this->_is_set;
+}
+
+template<typename T>
+void
+Attribute<T>
+::from_json(QJsonObject const & json)
+{
+    if (json.contains(QString(this->_name.c_str())))
+    {
+        this->set_value(json[QString(this->_name.c_str())].toString().toStdString());
+    }
+}
+
+template<typename T>
+void
+Attribute<T>
+::to_json(QJsonObject & json) const
+{
+    if (this->_is_set)
+    {
+        std::stringstream buffer;
+        buffer << this->_value;
+        json[QString(this->_name.c_str())] = QString(buffer.str().c_str());
+    }
 }
 
 } // namespace model

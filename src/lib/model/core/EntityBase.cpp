@@ -43,22 +43,16 @@ EntityBase
 
 void
 EntityBase
-::to_json(QJsonObject & json) const
+::from_json(QJsonObject const & json)
 {
-    if (this->_id->is_set())
-    {
-        json["id"] = QString(this->get_id().c_str());
-    }
+    this->_id->from_json(json);
 }
 
 void
 EntityBase
-::from_json(QJsonObject const & json)
+::to_json(QJsonObject & json) const
 {
-    if (json.contains(QString("id")))
-    {
-        this->set_id(json["id"].toString().toStdString());
-    }
+    this->_id->to_json(json);
 }
 
 } // namespace model
