@@ -47,6 +47,10 @@ public:
 
     virtual void post_user(model::User::Pointer user);
 
+    virtual void put_user(model::User::Pointer user);
+
+    virtual void patch_user(model::User::Pointer user);
+
     virtual model::User::Pointer delete_user_by_id(std::string const & id);
 
 protected:

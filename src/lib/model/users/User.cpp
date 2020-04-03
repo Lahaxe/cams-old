@@ -73,6 +73,13 @@ User
     this->set_password(json["password"].toString().toStdString());
 }
 
+void
+User
+::patch_from_other(ConstPointer other)
+{
+// TODO
+}
+
 } // namespace model
 
 } // namespace libcams

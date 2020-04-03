@@ -46,9 +46,19 @@ protected:
     virtual QJsonDocument execute_get(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
-     * @brief Execute the DELETE action
+     * @brief Execute the POST action
      */
     virtual QJsonDocument execute_post(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
+
+    /**
+     * @brief Execute the PUT action
+     */
+    virtual QJsonDocument execute_put(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
+
+    /**
+     * @brief Execute the PATCH action
+     */
+    virtual QJsonDocument execute_patch(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the DELETE action

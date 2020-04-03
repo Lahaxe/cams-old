@@ -189,6 +189,61 @@ ConnectorFile
     }
 }
 
+void
+ConnectorFile
+::put_user(model::User::Pointer user)
+{
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
+    QJsonObject json_user;
+    user->to_json(json_user);
+
+    std::stringstream filepath;
+    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+             << "/users/" << user->get_id() << ".json";
+    if (!common::json::to_file(json_user, filepath.str()))
+    {
+        // A revoir
+        throw std::exception();
+    }
+}
+
+void
+ConnectorFile
+::patch_user(model::User::Pointer user)
+{
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
+    auto current_user = this->get_user_by_id(user->get_id());
+    if (current_user == nullptr)
+    {
+        // A revoir => 404
+        throw std::exception();
+    }
+
+    current_user->patch_from_other(user);
+
+    QJsonObject json_user;
+    current_user->to_json(json_user);
+
+    std::stringstream filepath;
+    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+             << "/users/" << user->get_id() << ".json";
+    if (!common::json::to_file(json_user, filepath.str()))
+    {
+        // A revoir
+        throw std::exception();
+    }
+}
+
 model::User::Pointer
 ConnectorFile
 ::delete_user_by_id(std::string const & id)

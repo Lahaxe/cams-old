@@ -111,6 +111,68 @@ ControllerUsers
 
 QJsonDocument
 ControllerUsers
+::execute_put(std::string const & ressource, QJsonDocument const & document)
+{
+    std::vector<std::string> parts;
+    boost::split(parts, ressource, boost::is_any_of("/"));
+
+    // PUT users/{id}
+    if (parts.size() == 1 && !parts[0].empty())
+    {
+        if (document.isNull() || document.isEmpty())
+        {
+            // A revoir => erreur
+            throw std::exception();
+        }
+
+        auto user = model::User::New();
+        user->from_json(document.object());
+        user->set_id(parts[0]);
+
+        this->_connector->put_user(user);
+
+        QJsonObject json_user;
+        user->to_json(json_user);
+        return QJsonDocument(json_user);
+    }
+
+    // A revoir => Bad way
+    throw std::exception();
+}
+
+QJsonDocument
+ControllerUsers
+::execute_patch(std::string const & ressource, QJsonDocument const & document)
+{
+    std::vector<std::string> parts;
+    boost::split(parts, ressource, boost::is_any_of("/"));
+
+    // PATCH users/{id}
+    if (parts.size() == 1 && !parts[0].empty())
+    {
+        if (document.isNull() || document.isEmpty())
+        {
+            // A revoir => erreur
+            throw std::exception();
+        }
+
+        auto user = model::User::New();
+        user->from_json(document.object());
+        user->set_id(parts[0]);
+
+        this->_connector->patch_user(user);
+
+        QJsonObject json_user;
+        user->to_json(json_user);
+        return QJsonDocument(json_user);
+    }
+
+    // A revoir => Bad way
+    throw std::exception();
+}
+
+QJsonDocument
+ControllerUsers
 ::execute_delete(std::string const & ressource, QJsonDocument const & document)
 {
     std::vector<std::string> parts;
@@ -158,6 +220,8 @@ ControllerUsers
     {
         QJsonArray options;
         options.push_back(QJsonValue(QString(ACTION_GET.c_str())));
+        options.push_back(QJsonValue(QString(ACTION_PUT.c_str())));
+        options.push_back(QJsonValue(QString(ACTION_PATCH.c_str())));
         options.push_back(QJsonValue(QString(ACTION_DELETE.c_str())));
         options.push_back(QJsonValue(QString(ACTION_OPTIONS.c_str())));
         return QJsonDocument(options);
