@@ -77,10 +77,10 @@ private:
 
 };
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 #endif // _154184e2_33d1_4fce_b249_649787afaa69

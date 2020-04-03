@@ -82,10 +82,10 @@ private:
 
 };
 
-}
+} // namespace connector
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 #endif // _ca947e3d_ec65_42f8_8ceb_a2d673b76e6c

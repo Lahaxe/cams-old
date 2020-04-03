@@ -335,8 +335,8 @@ ConnectorFile
     return true;
 }
 
-}
+} // namespace connector
 
-}
+} // namespace lib
 
-}
+} // namespace cams

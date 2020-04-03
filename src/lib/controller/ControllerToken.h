@@ -68,10 +68,10 @@ private:
 
 };
 
-}
+} // namespace controller
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 #endif // _d3ed60ca_8ce4_4dce_a886_8f98ed87cb61

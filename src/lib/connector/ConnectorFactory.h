@@ -59,10 +59,10 @@ private:
 
 };
 
-}
+} // namespace connector
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 #endif // _257e0f34_882a_4fcb_ac78_dd82bbf79dc9

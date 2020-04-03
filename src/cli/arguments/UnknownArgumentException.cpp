@@ -25,6 +25,6 @@ UnknownArgumentException
     // Nothing to do
 }
 
-}
+} // namespace cli
 
-}
+} // namespace cams

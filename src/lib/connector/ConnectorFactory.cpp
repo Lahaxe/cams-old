@@ -48,8 +48,8 @@ ConnectorFactory
     // Nothing to do
 }
 
-}
+} // namespace connector
 
-}
+} // namespace lib
 
-}
+} // namespace cams

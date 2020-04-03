@@ -25,6 +25,6 @@ MissingArgumentException
     // Nothing to do
 }
 
-}
+} // namespace cli
 
-}
+} // namespace cams

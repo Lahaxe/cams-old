@@ -57,8 +57,8 @@ LoggerBase
     this->write(message, "FATAL");
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

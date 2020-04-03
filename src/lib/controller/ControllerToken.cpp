@@ -57,8 +57,8 @@ ControllerToken
     return QJsonDocument(object);
 }
 
-}
+} // namespace controller
 
-}
+} // namespace lib
 
-}
+} // namespace cams

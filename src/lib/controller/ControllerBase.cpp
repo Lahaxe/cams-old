@@ -140,8 +140,8 @@ ControllerBase
     throw NotImplementedActionException(ACTION_OPTIONS);
 }
 
-}
+} // namespace controller
 
-}
+} // namespace lib
 
-}
+} // namespace cams

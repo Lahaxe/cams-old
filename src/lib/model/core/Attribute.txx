@@ -131,7 +131,7 @@ Attribute<T>
 
 } // namespace model
 
-}
+} // namespace lib
 
 } // namespace cams
 

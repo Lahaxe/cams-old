@@ -29,8 +29,8 @@ std::string from_base64(std::string const & encoded_text)
     return bytearray.toStdString();
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

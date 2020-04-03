@@ -89,8 +89,8 @@ Logger
     this->_logger_writer = logger_writer;
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

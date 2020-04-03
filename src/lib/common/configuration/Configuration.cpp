@@ -106,8 +106,8 @@ Configuration
     this->set_connector_file_root_path(iniparser->get_value("connector_file.root_path"));
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

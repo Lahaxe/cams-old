@@ -35,10 +35,10 @@ private:
 
 };
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 #endif // _420d8c94_a9d0_4e88_97e1_8eb81886c656

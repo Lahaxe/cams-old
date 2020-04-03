@@ -87,6 +87,6 @@ User
 
 } // namespace model
 
-}
+} // namespace lib
 
-} // namespace libcams
+} // namespace cams

@@ -28,6 +28,6 @@ MissingIdentityException
 
 } // namespace controller
 
-}
+} // namespace lib
 
-} // namespace libcams
+} // namespace cams

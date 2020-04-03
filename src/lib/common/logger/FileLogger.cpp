@@ -61,8 +61,8 @@ FileLogger
     logfile.close();
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

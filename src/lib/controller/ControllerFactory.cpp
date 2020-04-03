@@ -50,8 +50,8 @@ ControllerFactory
     // Nothing to do
 }
 
-}
+} // namespace controller
 
-}
+} // namespace lib
 
-}
+} // namespace cams

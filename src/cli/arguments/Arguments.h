@@ -175,8 +175,8 @@ private:
 
 };
 
-}
+} // namespace cli
 
-}
+} // namespace cams
 
 #endif // _f0a9ee97_83a8_4aa1_be9d_432ad9054c1c

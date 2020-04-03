@@ -33,8 +33,8 @@ private:
 
 };
 
-}
+} // namespace cli
 
-}
+} // namespace cams
 
 #endif // _389b4910_6f37_4f7d_a4b7_5af298c97bf5

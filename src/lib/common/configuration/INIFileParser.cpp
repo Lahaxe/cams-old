@@ -93,8 +93,8 @@ INIFileParser
     this->_tree->put(key, value);
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

@@ -38,8 +38,8 @@ private:
 
 } // namespace controller
 
-}
+} // namespace lib
 
-} // namespace libcams
+} // namespace cams
 
 #endif // _a50c62bd_9f44_40e3_a53d_f4f1f2355a05

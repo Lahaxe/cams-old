@@ -234,8 +234,8 @@ ControllerUsers
     throw std::exception();
 }
 
-}
+} // namespace controller
 
-}
+} // namespace lib
 
-}
+} // namespace cams

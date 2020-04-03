@@ -67,11 +67,11 @@ private:
 
 };
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 // Include template implementation
 #include "common/factory/BaseFactory.txx"

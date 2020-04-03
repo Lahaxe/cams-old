@@ -87,10 +87,10 @@ private:
 
 };
 
-}
+} // namespace connector
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 #endif // _2042560f_85db_421b_87f7_edb1a566b5b3

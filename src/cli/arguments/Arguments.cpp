@@ -262,6 +262,6 @@ void Arguments::_parse(int argc, char *argv[])
     }
 }
 
-}
+} // namespace cli
 
-}
+} // namespace cams

@@ -34,6 +34,6 @@ Attribute<std::string>
 
 } // namespace model
 
-}
+} // namespace lib
 
 } // namespace cams

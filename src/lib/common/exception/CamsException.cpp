@@ -50,8 +50,8 @@ CamsException
     return document.toJson().toStdString();
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

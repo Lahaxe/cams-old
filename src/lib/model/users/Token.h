@@ -102,8 +102,8 @@ private:
 
 } // namespace model
 
-}
+} // namespace lib
 
-} // namespace libcams
+} // namespace cams
 
 #endif // _a8cd50cf_fe0b_49d1_86ea_1bdc6e42715d

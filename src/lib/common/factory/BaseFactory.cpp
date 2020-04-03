@@ -12,8 +12,8 @@ namespace common
 
 // Nothing here
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

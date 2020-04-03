@@ -56,10 +56,10 @@ from_file(QJsonObject & json, std::string const & filename)
     return true;
 }
 
-}
+} // namespace json
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

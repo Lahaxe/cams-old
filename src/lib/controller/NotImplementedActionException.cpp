@@ -31,6 +31,6 @@ NotImplementedActionException
 
 } // namespace controller
 
-}
+} // namespace lib
 
-} // namespace libcams
+} // namespace cams

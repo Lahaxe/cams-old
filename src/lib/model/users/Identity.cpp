@@ -76,8 +76,8 @@ Identity
     this->_token = token;
 }
 
-}
+} // namespace model
 
-}
+} // namespace lib
 
-}
+} // namespace cams

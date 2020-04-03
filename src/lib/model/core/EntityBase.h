@@ -69,7 +69,7 @@ private:
 
 } // namespace model
 
-}
+} // namespace lib
 
 } // namespace cams
 

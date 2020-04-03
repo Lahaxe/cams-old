@@ -60,6 +60,6 @@ EntityBase
 
 } // namespace model
 
-}
+} // namespace lib
 
 } // namespace cams

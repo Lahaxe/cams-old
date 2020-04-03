@@ -64,10 +64,10 @@ BaseFactory<T>
     return nullptr;
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams
 
 #endif // _0b2f6564_a4c4_4714_a50b_3e3968ae9300

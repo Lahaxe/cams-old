@@ -56,8 +56,8 @@ DefaultLogger
     std::cout << stream.str() << std::endl;
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

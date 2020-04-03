@@ -50,8 +50,8 @@ LoggerFactory
     // Nothing to do
 }
 
-}
+} // namespace common
 
-}
+} // namespace lib
 
-}
+} // namespace cams

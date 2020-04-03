@@ -45,8 +45,8 @@ ConnectorBase
     throw common::NotImplementedException();
 }
 
-}
+} // namespace connector
 
-}
+} // namespace lib
 
-}
+} // namespace cams
