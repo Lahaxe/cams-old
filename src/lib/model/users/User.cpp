@@ -28,11 +28,11 @@ User
     // Nothing to do
 }
 
-std::string
+Attribute<std::string>::Pointer
 User
 ::get_name() const
 {
-    return this->_name->get_value();
+    return this->_name;
 }
 
 void
@@ -42,11 +42,11 @@ User
     this->_name->set_value(name);
 }
 
-std::string
+Attribute<std::string>::Pointer
 User
 ::get_password() const
 {
-    return this->_password->get_value();
+    return this->_password;
 }
 
 void
@@ -78,7 +78,8 @@ void
 User
 ::patch_from_other(ConstPointer other)
 {
-// TODO
+    this->_name->patch_from_other(other->get_name());
+    this->_password->patch_from_other(other->get_password());
 }
 
 } // namespace model

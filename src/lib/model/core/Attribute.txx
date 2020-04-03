@@ -115,6 +115,17 @@ Attribute<T>
     }
 }
 
+template<typename T>
+void
+Attribute<T>
+::patch_from_other(ConstPointer other)
+{
+    if (other->is_set())
+    {
+        this->set_value(other->get_value());
+    }
+}
+
 } // namespace model
 
 } // namespace libcams

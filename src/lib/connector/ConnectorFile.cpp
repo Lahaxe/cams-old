@@ -66,10 +66,10 @@ ConnectorFile
             user = model::User::New();
             user->from_json(object);
 
-            if (user->get_name() == this->get_identity()->get_login())
+            if (user->get_name()->get_value() == this->get_identity()->get_login())
             {
                 // find User => check password
-                if (user->get_password() != common::to_base64(this->get_identity()->get_password()))
+                if (user->get_password()->get_value() != common::to_base64(this->get_identity()->get_password()))
                 {
                     return nullptr;
                 }
@@ -90,7 +90,7 @@ ConnectorFile
     // Create the token object
     auto token = model::Token::New();
     token->set_userid(user->get_id());
-    token->set_username(user->get_name());
+    token->set_username(user->get_name()->get_value());
     token->set_token(this->_generate_token(user->get_id()));
 
     return token;

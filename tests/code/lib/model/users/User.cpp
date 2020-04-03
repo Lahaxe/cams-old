@@ -19,7 +19,7 @@ BOOST_FIXTURE_TEST_CASE(Constructor, FixtureUser)
 BOOST_FIXTURE_TEST_CASE(DefaultValues, FixtureUser)
 {
     BOOST_REQUIRE(this->_user != nullptr);
-    BOOST_CHECK_EQUAL(this->_user->get_name(), std::string(""));
+    BOOST_CHECK_EQUAL(this->_user->get_name()->get_value(), std::string(""));
 }
 
 /******************************** TEST Nominal ********************************/
@@ -30,5 +30,5 @@ BOOST_FIXTURE_TEST_CASE(Accessors, FixtureUser)
 {
     BOOST_REQUIRE(this->_user != nullptr);
     this->_user->set_name("MYNAME");
-    BOOST_CHECK_EQUAL(this->_user->get_name(), std::string("MYNAME"));
+    BOOST_CHECK_EQUAL(this->_user->get_name()->get_value(), std::string("MYNAME"));
 }

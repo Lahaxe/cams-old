@@ -47,7 +47,7 @@ public:
      * @brief Get the user name
      * @return Return the user name
      */
-    std::string get_name() const;
+    Attribute<std::string>::Pointer get_name() const;
 
     /**
      * @brief Set the user name
@@ -59,7 +59,7 @@ public:
      * @brief Get the user password
      * @return Return the user password
      */
-    std::string get_password() const;
+    Attribute<std::string>::Pointer get_password() const;
 
     /**
      * @brief Set the user password

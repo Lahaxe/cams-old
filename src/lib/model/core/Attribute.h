@@ -60,6 +60,8 @@ public:
 
     void to_json(QJsonObject & json) const;
 
+    void patch_from_other(ConstPointer other);
+
 protected:
 
 private:
