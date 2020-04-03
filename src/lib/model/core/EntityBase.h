@@ -16,6 +16,8 @@ namespace libcams
 namespace model
 {
 
+const std::string ENTITYBASE_ID = "id";
+
 /**
  * @brief Base class for all entity
  */

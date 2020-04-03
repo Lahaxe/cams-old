@@ -9,14 +9,14 @@ namespace model
 
 EntityBase
 ::EntityBase():
-    _id(Attribute<std::string>::New())
+    _id(Attribute<std::string>::New(ENTITYBASE_ID))
 {
     // Nothing to do
 }
 
 EntityBase
 ::EntityBase(std::string const & id):
-    _id(Attribute<std::string>::New(id))
+    _id(Attribute<std::string>::New(ENTITYBASE_ID, id))
 {
     // Nothing to do
 }

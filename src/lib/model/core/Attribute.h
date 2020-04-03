@@ -2,6 +2,7 @@
 #define _b6c95c96_f0ec_4f3e_8880_6244820cd915
 
 #include <memory>
+#include <string>
 
 namespace libcams
 {
@@ -22,24 +23,28 @@ public:
     /// @brief The EntityBase constant Pointer type
     typedef std::shared_ptr<Attribute<T> const> ConstPointer;
 
-    static Pointer New();
+    static Pointer New(std::string const & name);
 
-    static Pointer New(const T& value);
-
-    /**
-     * @brief Create an instance of Attribute
-     */
-    Attribute();
+    static Pointer New(std::string const & name, const T& value);
 
     /**
      * @brief Create an instance of Attribute
      */
-    Attribute(const T& value);
+    Attribute(std::string const & name);
+
+    /**
+     * @brief Create an instance of Attribute
+     */
+    Attribute(std::string const & name, const T& value);
 
     /**
      * @brief Destructor
      */
     virtual ~Attribute();
+
+    std::string get_name() const;
+
+    void set_name(std::string const & name);
 
     T get_value() const;
 
@@ -50,6 +55,8 @@ public:
 protected:
 
 private:
+    std::string _name;
+
     T _value;
 
     bool _is_set;

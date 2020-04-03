@@ -12,31 +12,31 @@ namespace model
 template<typename T>
 typename Attribute<T>::Pointer
 Attribute<T>
-::New()
+::New(std::string const & name)
 {
-    return Pointer(new Attribute<T>());
+    return Pointer(new Attribute<T>(name));
 }
 
 template<typename T>
 typename Attribute<T>::Pointer
 Attribute<T>
-::New(const T &value)
+::New(std::string const & name, const T &value)
 {
-    return Pointer(new Attribute<T>(value));
+    return Pointer(new Attribute<T>(name, value));
 }
 
 template<typename T>
 Attribute<T>
-::Attribute():
-    _value(T()), _is_set(false)
+::Attribute(std::string const & name):
+    _name(name), _value(T()), _is_set(false)
 {
     // Nothing to do
 }
 
 template<typename T>
 Attribute<T>
-::Attribute(const T &value):
-    _value(value), _is_set(true)
+::Attribute(std::string const & name, const T &value):
+    _name(name), _value(value), _is_set(true)
 {
     // Nothing to do
 }
@@ -46,6 +46,22 @@ Attribute<T>
 ::~Attribute()
 {
     // Nothing to do
+}
+
+template<typename T>
+std::string
+Attribute<T>
+::get_name() const
+{
+    return this->_name;
+}
+
+template<typename T>
+void
+Attribute<T>
+::set_name(std::string const & name)
+{
+    this->_name = name;
 }
 
 template<typename T>
