@@ -8,6 +8,8 @@
 // Include Qt files
 #include <QJsonObject>
 
+#include "model/core/Attribute.h"
+
 namespace libcams
 {
 
@@ -30,7 +32,13 @@ public:
      * @brief Create an instance of EntityBase
      * @param id: The entity Identifier
      */
-    EntityBase(std::string const & id = "");
+    EntityBase();
+
+    /**
+     * @brief Create an instance of EntityBase
+     * @param id: The entity Identifier
+     */
+    EntityBase(std::string const & id);
 
     /**
      * @brief Destructor
@@ -57,7 +65,7 @@ protected:
 
 private:
     /// Identifier
-    std::string _id;
+    Attribute<std::string>::Pointer _id;
 
 };
 

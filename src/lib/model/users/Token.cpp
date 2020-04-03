@@ -15,8 +15,8 @@ Token
 }
 
 Token
-::Token(std::string const & id):
-    EntityBase(id), _userid(""), _username(""), _token("")
+::Token():
+    EntityBase(), _userid(""), _username(""), _token("")
 {
     //Nothing to do
 }

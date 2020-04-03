@@ -15,8 +15,8 @@ User
 }
 
 User
-::User(std::string const & id, std::string const & name):
-    EntityBase(id), _name(name), _password("")
+::User():
+    EntityBase(), _name(""), _password("")
 {
     //Nothing to do
 }

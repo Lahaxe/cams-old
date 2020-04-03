@@ -32,7 +32,7 @@ public:
      * @brief Create an instance of Token
      * @param id: The entity Identifier
      */
-    Token(std::string const & id = "");
+    Token();
 
     /**
      * @brief Destructor

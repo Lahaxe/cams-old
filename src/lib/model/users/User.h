@@ -33,7 +33,7 @@ public:
      * @param id: The entity Identifier
      * @param name: The user name
      */
-    User(std::string const & id = "", std::string const & name = "");
+    User();
 
     /**
      * @brief Destructor
