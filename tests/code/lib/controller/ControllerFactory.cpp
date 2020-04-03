@@ -4,8 +4,8 @@
 #include <iostream>
 
 // Include Project files
-#include "FixtureControllerFactory.h"
-#include "controller/ControllerToken.h"
+#include "tests/code/lib/controller/FixtureControllerFactory.h"
+#include "src/lib/controller/ControllerToken.h"
 
 /******************************** TEST Nominal ********************************/
 /**

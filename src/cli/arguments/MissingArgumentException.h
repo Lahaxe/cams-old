@@ -4,16 +4,13 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
-namespace libcams
-{
-
 namespace camscli
 {
 
 /**
  * @brief The MissingArgumentException class
  */
-class MissingArgumentException : public common::CamsException
+class MissingArgumentException : public libcams::common::CamsException
 {
 public:
     /**
@@ -34,7 +31,5 @@ private:
 };
 
 } // namespace camscli
-
-} // namespace libcams
 
 #endif // _360d5488_4513_4b8e_8db0_5e691783d3bb

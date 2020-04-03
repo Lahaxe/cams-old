@@ -4,7 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include "lib/controller/NotImplementedActionException.h"
+#include "src/lib/controller/NotImplementedActionException.h"
 
 /******************************** TEST Nominal ********************************/
 /**

@@ -2,8 +2,8 @@
 #define _60193dfb_2138_4124_936c_1f607a8fb297
 
 // Include Project files
-#include "FixtureBase.h"
-#include "lib/controller/ControllerFactory.h"
+#include "tests/code/FixtureBase.h"
+#include "src/lib/controller/ControllerFactory.h"
 
 class FixtureControllerFactory : public FixtureBase
 {

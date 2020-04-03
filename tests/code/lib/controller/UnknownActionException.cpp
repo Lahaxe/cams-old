@@ -4,7 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include "lib/controller/UnknownActionException.h"
+#include "src/lib/controller/UnknownActionException.h"
 
 /******************************** TEST Nominal ********************************/
 /**

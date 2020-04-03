@@ -2,12 +2,9 @@
 #include <boost/algorithm/string.hpp>
 
 // Include Project files
-#include "camscli/Arguments.h"
-#include "camscli/MissingArgumentException.h"
-#include "camscli/UnknownArgumentException.h"
-
-namespace libcams
-{
+#include "arguments/Arguments.h"
+#include "arguments/MissingArgumentException.h"
+#include "arguments/UnknownArgumentException.h"
 
 namespace camscli
 {
@@ -263,5 +260,3 @@ void Arguments::_parse(int argc, char *argv[])
 }
 
 } // namespace camscli
-
-} // namespace libcams

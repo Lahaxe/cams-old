@@ -4,7 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include "lib/controller/UnknownControllerException.h"
+#include "src/lib/controller/UnknownControllerException.h"
 
 /******************************** TEST Nominal ********************************/
 /**

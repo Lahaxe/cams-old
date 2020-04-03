@@ -1,7 +1,7 @@
 #define BOOST_TEST_MODULE ModuleEntityBase
 
 // Include Project files
-#include "FixtureEntityBase.h"
+#include "tests/code/lib/model/core/FixtureEntityBase.h"
 
 /******************************** TEST Nominal ********************************/
 /**

@@ -4,7 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include "lib/common/exception/CamsException.h"
+#include "src/lib/common/exception/CamsException.h"
 
 /******************************** TEST Nominal ********************************/
 /**

@@ -2,8 +2,8 @@
 #define _03e7bd32_bb7a_47e2_8fa9_5ae22fa68ead
 
 // Include Project files
-#include "FixtureBase.h"
-#include "lib/model/users/User.h"
+#include "tests/code/FixtureBase.h"
+#include "src/lib/model/users/User.h"
 
 class FixtureUser : public FixtureBase
 {

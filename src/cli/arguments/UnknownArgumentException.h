@@ -4,16 +4,13 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
-namespace libcams
-{
-
 namespace camscli
 {
 
 /**
  * @brief The UnknownArgumentException class
  */
-class UnknownArgumentException : public common::CamsException
+class UnknownArgumentException : public libcams::common::CamsException
 {
 public:
     /**
@@ -34,7 +31,5 @@ private:
 };
 
 } // namespace camscli
-
-} // namespace libcams
 
 #endif // _389b4910_6f37_4f7d_a4b7_5af298c97bf5

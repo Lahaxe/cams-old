@@ -4,7 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include "lib/camscli/MissingArgumentException.h"
+#include "src/cli/arguments/MissingArgumentException.h"
 
 /******************************** TEST Nominal ********************************/
 /**
@@ -12,7 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
-    auto exception = new libcams::camscli::MissingArgumentException("Argument");
+    auto exception = new camscli::MissingArgumentException("Argument");
     BOOST_REQUIRE(exception != nullptr);
 
     BOOST_CHECK_EQUAL(std::string(exception->what()), "At least one argument is missing: Argument");
@@ -27,9 +27,9 @@ BOOST_AUTO_TEST_CASE(Constructor)
  */
 BOOST_AUTO_TEST_CASE(ThrowMissingArgumentException)
 {
-    BOOST_CHECK_EXCEPTION(throw libcams::camscli::MissingArgumentException("Argument"),
-                          libcams::camscli::MissingArgumentException,
-                          [](libcams::camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(throw camscli::MissingArgumentException("Argument"),
+                          camscli::MissingArgumentException,
+                          [](camscli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Argument");

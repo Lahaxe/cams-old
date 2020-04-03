@@ -4,7 +4,7 @@
 #include <iostream>
 
 // Include Project files
-#include "FixtureLogger.h"
+#include "tests/code/lib/common/logger/FixtureLogger.h"
 
 /******************************** TEST Nominal ********************************/
 /**
