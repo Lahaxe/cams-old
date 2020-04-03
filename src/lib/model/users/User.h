@@ -10,6 +10,9 @@ namespace libcams
 namespace model
 {
 
+const std::string USER_NAME = "name";
+const std::string USER_PASSWORD = "password";
+
 /**
  * @brief The User class
  */
@@ -33,7 +36,7 @@ public:
      * @param id: The entity Identifier
      * @param name: The user name
      */
-    User(std::string const & id = "", std::string const & name = "");
+    User();
 
     /**
      * @brief Destructor
@@ -44,7 +47,7 @@ public:
      * @brief Get the user name
      * @return Return the user name
      */
-    std::string get_name() const;
+    Attribute<std::string>::Pointer get_name() const;
 
     /**
      * @brief Set the user name
@@ -56,7 +59,7 @@ public:
      * @brief Get the user password
      * @return Return the user password
      */
-    std::string get_password() const;
+    Attribute<std::string>::Pointer get_password() const;
 
     /**
      * @brief Set the user password
@@ -68,14 +71,16 @@ public:
 
     virtual void to_json(QJsonObject & json) const;
 
+    void patch_from_other(ConstPointer other);
+
 protected:
 
 private:
     /// @brief The user name
-    std::string _name;
+    Attribute<std::string>::Pointer _name;
 
     /// @brief The user password
-    std::string _password;
+    Attribute<std::string>::Pointer _password;
 
 };
 

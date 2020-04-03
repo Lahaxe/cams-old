@@ -1,18 +1,15 @@
 #ifndef _d9cb6f7b_3646_4fa3_92ec_afdc25443782
 #define _d9cb6f7b_3646_4fa3_92ec_afdc25443782
 
-// Include Standard files
-#include <memory>
-#include <string>
-
-// Include Qt files
-#include <QJsonObject>
+#include "model/core/Attribute.h"
 
 namespace libcams
 {
 
 namespace model
 {
+
+const std::string ENTITYBASE_ID = "id";
 
 /**
  * @brief Base class for all entity
@@ -30,7 +27,13 @@ public:
      * @brief Create an instance of EntityBase
      * @param id: The entity Identifier
      */
-    EntityBase(std::string const & id = "");
+    EntityBase();
+
+    /**
+     * @brief Create an instance of EntityBase
+     * @param id: The entity Identifier
+     */
+    EntityBase(std::string const & id);
 
     /**
      * @brief Destructor
@@ -57,7 +60,7 @@ protected:
 
 private:
     /// Identifier
-    std::string _id;
+    Attribute<std::string>::Pointer _id;
 
 };
 

@@ -66,10 +66,10 @@ ConnectorFile
             user = model::User::New();
             user->from_json(object);
 
-            if (user->get_name() == this->get_identity()->get_login())
+            if (user->get_name()->get_value() == this->get_identity()->get_login())
             {
                 // find User => check password
-                if (user->get_password() != common::to_base64(this->get_identity()->get_password()))
+                if (user->get_password()->get_value() != common::to_base64(this->get_identity()->get_password()))
                 {
                     return nullptr;
                 }
@@ -90,7 +90,7 @@ ConnectorFile
     // Create the token object
     auto token = model::Token::New();
     token->set_userid(user->get_id());
-    token->set_username(user->get_name());
+    token->set_username(user->get_name()->get_value());
     token->set_token(this->_generate_token(user->get_id()));
 
     return token;
@@ -182,6 +182,61 @@ ConnectorFile
     QJsonObject json_user;
     user->to_json(json_user);
 
+    if (!common::json::to_file(json_user, filepath.str()))
+    {
+        // A revoir
+        throw std::exception();
+    }
+}
+
+void
+ConnectorFile
+::put_user(model::User::Pointer user)
+{
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
+    QJsonObject json_user;
+    user->to_json(json_user);
+
+    std::stringstream filepath;
+    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+             << "/users/" << user->get_id() << ".json";
+    if (!common::json::to_file(json_user, filepath.str()))
+    {
+        // A revoir
+        throw std::exception();
+    }
+}
+
+void
+ConnectorFile
+::patch_user(model::User::Pointer user)
+{
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
+    auto current_user = this->get_user_by_id(user->get_id());
+    if (current_user == nullptr)
+    {
+        // A revoir => 404
+        throw std::exception();
+    }
+
+    current_user->patch_from_other(user);
+
+    QJsonObject json_user;
+    current_user->to_json(json_user);
+
+    std::stringstream filepath;
+    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+             << "/users/" << user->get_id() << ".json";
     if (!common::json::to_file(json_user, filepath.str()))
     {
         // A revoir
