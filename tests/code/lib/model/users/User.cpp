@@ -1,7 +1,7 @@
 #define BOOST_TEST_MODULE ModuleUser
 
 // Include Project files
-#include "FixtureUser.h"
+#include "tests/code/lib/model/users/FixtureUser.h"
 
 /******************************** TEST Nominal ********************************/
 /**

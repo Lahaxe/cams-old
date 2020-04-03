@@ -2,8 +2,8 @@
 #define _cddd19da_852a_492d_a8f7_e26e7b812292
 
 // Include Project files
-#include "FixtureBase.h"
-#include "lib/model/core/EntityBase.h"
+#include "tests/code/FixtureBase.h"
+#include "src/lib/model/core/EntityBase.h"
 
 class FixtureEntityBase : public FixtureBase
 {

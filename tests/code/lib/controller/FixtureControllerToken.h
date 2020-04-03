@@ -2,8 +2,8 @@
 #define _953b5ef5_b3bc_48a4_adba_db1c158d4a64
 
 // Include Project files
-#include "FixtureBase.h"
-#include "lib/controller/ControllerToken.h"
+#include "tests/code/FixtureBase.h"
+#include "src/lib/controller/ControllerToken.h"
 
 class FixtureControllerToken : public FixtureBase
 {

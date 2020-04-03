@@ -3,11 +3,12 @@ find_package(Qt5Core REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR}/src/gui
                     ${CMAKE_SOURCE_DIR}/src/lib
+                    ${CMAKE_SOURCE_DIR}/src/cli
                     ${Boost_INCLUDE_DIRS})
 
 # Create CAMS-CLI binary
 add_executable(cams-cli "cams-cli.cpp")
-target_link_libraries(cams-cli
+target_link_libraries(cams-cli libcamscli
                       libcams
                       ${Boost_LIBRARIES})
 

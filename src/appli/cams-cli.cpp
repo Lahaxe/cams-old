@@ -12,7 +12,7 @@
 #include "controller/ControllerFactory.h"
 #include "controller/UnknownActionException.h"
 #include "controller/UnknownControllerException.h"
-#include "camscli/Arguments.h"
+#include "arguments/Arguments.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         message << "Begin " << std::string(argv[0]);
         libcams::common::Logger::instance().info(message.str());
 
-        libcams::camscli::Arguments arguments(argc, argv);
+        camscli::Arguments arguments(argc, argv);
 
         if (arguments.get_display_help() == true)
         {

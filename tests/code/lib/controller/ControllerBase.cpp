@@ -4,9 +4,9 @@
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include "FixtureControllerBase.h"
-#include "controller/NotImplementedActionException.h"
-#include "controller/UnknownActionException.h"
+#include "tests/code/lib/controller/FixtureControllerBase.h"
+#include "src/lib/controller/NotImplementedActionException.h"
+#include "src/lib/controller/UnknownActionException.h"
 
 /******************************** TEST Nominal ********************************/
 /**

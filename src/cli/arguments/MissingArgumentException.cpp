@@ -2,17 +2,14 @@
 #include <sstream>
 
 // Include Project files
-#include "camscli/MissingArgumentException.h"
-
-namespace libcams
-{
+#include "arguments/MissingArgumentException.h"
 
 namespace camscli
 {
 
 MissingArgumentException
 ::MissingArgumentException(std::string const & argument):
-    common::CamsException()
+    libcams::common::CamsException()
 {
     std::stringstream message;
     message << "At least one argument is missing: " << argument;
@@ -26,5 +23,3 @@ MissingArgumentException
 }
 
 } // namespace camscli
-
-} // namespace libcams

@@ -4,9 +4,6 @@
 // Include Standard library
 #include <string>
 
-namespace libcams
-{
-
 namespace camscli
 {
 
@@ -176,7 +173,5 @@ private:
 };
 
 } // namespace camscli
-
-} // namespace libcams
 
 #endif // _f0a9ee97_83a8_4aa1_be9d_432ad9054c1c

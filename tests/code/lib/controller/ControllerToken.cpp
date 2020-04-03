@@ -4,8 +4,8 @@
 #include <boost/test/unit_test.hpp>
 
 // Include Project files
-#include "FixtureControllerToken.h"
-#include "controller/NotImplementedActionException.h"
+#include "tests/code/lib/controller/FixtureControllerToken.h"
+#include "src/lib/controller/NotImplementedActionException.h"
 
 /******************************** TEST Nominal ********************************/
 /**

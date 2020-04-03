@@ -2,8 +2,8 @@
 #define _1d4da5e6_5f16_4e41_bea7_da787d780f32
 
 // Include Project files
-#include "FixtureBase.h"
-#include "lib/camscli/Arguments.h"
+#include "tests/code/FixtureBase.h"
+#include "src/cli/arguments/Arguments.h"
 
 class FixtureArguments : public FixtureBase
 {
@@ -74,7 +74,7 @@ public:
         arguments[current_count] = ressource;
         ++current_count;
 
-        this->_arguments = new libcams::camscli::Arguments(count, arguments);
+        this->_arguments = new camscli::Arguments(count, arguments);
     }
 
     virtual ~FixtureArguments()
@@ -86,7 +86,7 @@ public:
     }
 
 protected:
-    libcams::camscli::Arguments* _arguments;
+    camscli::Arguments* _arguments;
 
 private:
 

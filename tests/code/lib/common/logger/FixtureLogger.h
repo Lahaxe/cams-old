@@ -2,8 +2,8 @@
 #define _1d4da5e6_5f16_4e41_bea7_da787d780f32
 
 // Include Project files
-#include "FixtureBase.h"
-#include "lib/common/logger/Logger.h"
+#include "tests/code/FixtureBase.h"
+#include "src/lib/common/logger/Logger.h"
 
 class FixtureLogger : public FixtureBase
 {

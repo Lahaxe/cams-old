@@ -3,9 +3,9 @@ find_package(Boost COMPONENTS unit_test_framework date_time REQUIRED)
 file(GLOB_RECURSE headers code/*.h)
 file(GLOB_RECURSE tests code/*.cpp)
 
-include_directories(${CMAKE_SOURCE_DIR}/src/
-                    ${CMAKE_SOURCE_DIR}/src/lib/
-                    ${CMAKE_SOURCE_DIR}/tests/code/
+include_directories(${CMAKE_SOURCE_DIR}
+                    ${CMAKE_SOURCE_DIR}/src/lib
+                    ${CMAKE_SOURCE_DIR}/src/cli
                     ${Boost_INCLUDE_DIRS})
 
 add_definitions(
@@ -19,7 +19,7 @@ foreach(test_file ${tests})
     get_filename_component(test ${test_file} NAME_WE)
 
     add_executable(test_${test} ${test_file} ${headers} ${extra_files})
-    target_link_libraries(test_${test} libcams ${Boost_LIBRARIES})
+    target_link_libraries(test_${test} libcamscli libcams ${Boost_LIBRARIES})
     set_target_properties(test_${test} PROPERTIES OUTPUT_NAME ${test} FOLDER "Tests")
 
     file(READ ${test_file} content)
