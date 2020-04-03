@@ -6,7 +6,10 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -47,6 +50,8 @@ CamsException
     return document.toJson().toStdString();
 }
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}

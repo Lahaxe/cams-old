@@ -5,7 +5,10 @@
 #include "common/factory/BaseFactory.h"
 #include "connector/ConnectorBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace connector
@@ -56,8 +59,10 @@ private:
 
 };
 
-} // namespace connector
+}
 
-} // namespace libcams
+}
+
+}
 
 #endif // _257e0f34_882a_4fcb_ac78_dd82bbf79dc9

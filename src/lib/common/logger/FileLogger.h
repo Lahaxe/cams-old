@@ -3,7 +3,10 @@
 
 #include "common/logger/LoggerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -55,8 +58,10 @@ private:
 
 };
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}
 
 #endif // _82610f19_e640_4e65_bd75_049dfa0b9170

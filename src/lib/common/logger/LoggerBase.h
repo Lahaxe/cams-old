@@ -5,7 +5,10 @@
 #include <memory>
 #include <string>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -75,8 +78,10 @@ private:
 
 };
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}
 
 #endif // _9e6c3d75_bc55_47f8_b528_ac620af6b5b7

@@ -4,7 +4,10 @@
 // Include Standard library
 #include <string>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -13,6 +16,8 @@ namespace common
 std::string to_base64(std::string const & text);
 
 std::string from_base64(std::string const & encoded_text);
+
+}
 
 }
 

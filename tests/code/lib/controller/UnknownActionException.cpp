@@ -12,7 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
-    auto exception = new libcams::controller::UnknownActionException("action");
+    auto exception = new cams::lib::controller::UnknownActionException("action");
     BOOST_REQUIRE(exception != nullptr);
 
     BOOST_CHECK_EQUAL(std::string(exception->what()), "Given action is unknown: action");
@@ -27,9 +27,9 @@ BOOST_AUTO_TEST_CASE(Constructor)
  */
 BOOST_AUTO_TEST_CASE(ThrowNotImplementedActionException)
 {
-    BOOST_CHECK_EXCEPTION(throw libcams::controller::UnknownActionException("action"),
-                          libcams::controller::UnknownActionException,
-                          [](libcams::controller::UnknownActionException const & exc)
+    BOOST_CHECK_EXCEPTION(throw cams::lib::controller::UnknownActionException("action"),
+                          cams::lib::controller::UnknownActionException,
+                          [](cams::lib::controller::UnknownActionException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("Given action is unknown: action");

@@ -2,7 +2,10 @@
 #include "connector/ConnectorBase.h"
 #include "common/exception/NotImplementedException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace connector
@@ -42,6 +45,8 @@ ConnectorBase
     throw common::NotImplementedException();
 }
 
-} // namespace connector
+}
 
-} // namespace libcams
+}
+
+}

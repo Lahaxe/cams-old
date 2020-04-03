@@ -4,7 +4,10 @@
 //Include Project files
 #include "connector/ConnectorBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace connector
@@ -78,6 +81,8 @@ private:
     bool _is_good_token(std::string const & token) const;
 
 };
+
+}
 
 }
 

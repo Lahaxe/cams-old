@@ -1,7 +1,10 @@
 // Include Project files
 #include "common/logger/LoggerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -54,6 +57,8 @@ LoggerBase
     this->write(message, "FATAL");
 }
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}

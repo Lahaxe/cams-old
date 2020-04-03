@@ -4,7 +4,10 @@
 //Include Project files
 #include "controller/ControllerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -64,6 +67,8 @@ private:
     ControllerToken& operator=(ControllerToken const & other);
 
 };
+
+}
 
 }
 

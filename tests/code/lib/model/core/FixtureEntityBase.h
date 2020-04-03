@@ -10,7 +10,7 @@ class FixtureEntityBase : public FixtureBase
 public:
     FixtureEntityBase(): FixtureBase(), _entity(nullptr)
     {
-        this->_entity = new libcams::model::EntityBase();
+        this->_entity = new cams::lib::model::EntityBase();
     }
 
     virtual ~FixtureEntityBase()
@@ -23,7 +23,7 @@ public:
     }
 
 protected:
-    libcams::model::EntityBase* _entity;
+    cams::lib::model::EntityBase* _entity;
 
 private:
 

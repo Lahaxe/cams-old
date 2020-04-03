@@ -4,12 +4,15 @@
 // Include Project files
 #include "arguments/UnknownArgumentException.h"
 
-namespace camscli
+namespace cams
+{
+
+namespace cli
 {
 
 UnknownArgumentException
 ::UnknownArgumentException(std::string const & argument):
-    libcams::common::CamsException()
+    lib::common::CamsException()
 {
     std::stringstream message;
     message << "At least one argument is unknown: " << argument;
@@ -22,4 +25,6 @@ UnknownArgumentException
     // Nothing to do
 }
 
-} // namespace camscli
+}
+
+}

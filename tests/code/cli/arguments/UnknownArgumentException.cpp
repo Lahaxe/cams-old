@@ -12,7 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
-    auto exception = new camscli::UnknownArgumentException("Argument");
+    auto exception = new cams::cli::UnknownArgumentException("Argument");
     BOOST_REQUIRE(exception != nullptr);
 
     BOOST_CHECK_EQUAL(std::string(exception->what()), "At least one argument is unknown: Argument");
@@ -27,9 +27,9 @@ BOOST_AUTO_TEST_CASE(Constructor)
  */
 BOOST_AUTO_TEST_CASE(ThrowUnknownArgumentException)
 {
-    BOOST_CHECK_EXCEPTION(throw camscli::UnknownArgumentException("Argument"),
-                          camscli::UnknownArgumentException,
-                          [](camscli::UnknownArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(throw cams::cli::UnknownArgumentException("Argument"),
+                          cams::cli::UnknownArgumentException,
+                          [](cams::cli::UnknownArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is unknown: Argument");

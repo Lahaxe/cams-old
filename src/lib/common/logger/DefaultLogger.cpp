@@ -7,7 +7,10 @@
 // Include Project files
 #include "common/logger/DefaultLogger.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -53,6 +56,8 @@ DefaultLogger
     std::cout << stream.str() << std::endl;
 }
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}

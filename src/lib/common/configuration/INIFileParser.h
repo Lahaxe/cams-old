@@ -6,7 +6,10 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -54,8 +57,10 @@ private:
 
 };
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}
 
 #endif // _4dd605ca_d2ca_4bad_a171_813a924358d9

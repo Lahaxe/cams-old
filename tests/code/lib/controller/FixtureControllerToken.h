@@ -9,7 +9,7 @@ class FixtureControllerToken : public FixtureBase
 {
 public:
     FixtureControllerToken():
-        FixtureBase(), _controller(libcams::controller::ControllerToken::New())
+        FixtureBase(), _controller(cams::lib::controller::ControllerToken::New())
     {
         // Nothing to do
     }
@@ -20,7 +20,7 @@ public:
     }
 
 protected:
-    libcams::controller::ControllerToken::Pointer _controller;
+    cams::lib::controller::ControllerToken::Pointer _controller;
 
 private:
 

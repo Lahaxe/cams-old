@@ -17,7 +17,10 @@
 #include "model/users/User.h"
 #include "model/users/Token.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace connector
@@ -54,7 +57,7 @@ model::Token::Pointer
 ConnectorFile
 ::authenticate()
 {
-    auto root_path = libcams::common::Configuration::instance().get_connector_file_root_path();
+    auto root_path = common::Configuration::instance().get_connector_file_root_path();
 
     model::User::Pointer user = nullptr;
     // For each file in users directory
@@ -106,7 +109,7 @@ ConnectorFile
         throw std::exception();
     }
 
-    auto root_path = libcams::common::Configuration::instance().get_connector_file_root_path();
+    auto root_path = common::Configuration::instance().get_connector_file_root_path();
 
     std::vector<model::User::Pointer> users;
     // For each file in users directory
@@ -135,7 +138,7 @@ ConnectorFile
     }
 
     std::stringstream filepath;
-    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+    filepath << common::Configuration::instance().get_connector_file_root_path()
              << "/users/" << id << ".json";
     if (!std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())))
     {
@@ -172,7 +175,7 @@ ConnectorFile
         boost::erase_all(uuid, "{");
         boost::erase_all(uuid, "}");
 
-        filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+        filepath << common::Configuration::instance().get_connector_file_root_path()
                  << "/users/" << uuid << ".json";
     }
     while (std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())));
@@ -203,7 +206,7 @@ ConnectorFile
     user->to_json(json_user);
 
     std::stringstream filepath;
-    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+    filepath << common::Configuration::instance().get_connector_file_root_path()
              << "/users/" << user->get_id() << ".json";
     if (!common::json::to_file(json_user, filepath.str()))
     {
@@ -235,7 +238,7 @@ ConnectorFile
     current_user->to_json(json_user);
 
     std::stringstream filepath;
-    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+    filepath << common::Configuration::instance().get_connector_file_root_path()
              << "/users/" << user->get_id() << ".json";
     if (!common::json::to_file(json_user, filepath.str()))
     {
@@ -255,7 +258,7 @@ ConnectorFile
     }
 
     std::stringstream filepath;
-    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+    filepath << common::Configuration::instance().get_connector_file_root_path()
              << "/users/" << id << ".json";
     if (!std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())))
     {
@@ -321,7 +324,7 @@ ConnectorFile
 
     // Check User
     std::stringstream filepath;
-    filepath << libcams::common::Configuration::instance().get_connector_file_root_path()
+    filepath << common::Configuration::instance().get_connector_file_root_path()
              << "/users/" << parts[2] << ".json";
 
     if (!std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())))
@@ -330,6 +333,8 @@ ConnectorFile
     }
 
     return true;
+}
+
 }
 
 }

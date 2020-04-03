@@ -3,7 +3,10 @@
 #include "controller/ControllerToken.h"
 #include "controller/MissingIdentityException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -52,6 +55,8 @@ ControllerToken
     QJsonObject object;
     token->to_json(object);
     return QJsonDocument(object);
+}
+
 }
 
 }

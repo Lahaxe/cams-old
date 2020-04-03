@@ -5,7 +5,10 @@
 #include "common/factory/BaseFactory.h"
 #include "controller/ControllerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -55,6 +58,8 @@ private:
     void operator=(ControllerFactory const & other);
 
 };
+
+}
 
 }
 

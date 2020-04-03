@@ -10,12 +10,12 @@ class FixtureControllerFactory : public FixtureBase
 public:
     FixtureControllerFactory(): FixtureBase()
     {
-        libcams::controller::ControllerFactory::instance();
+        cams::lib::controller::ControllerFactory::instance();
     }
 
     virtual ~FixtureControllerFactory()
     {
-        libcams::controller::ControllerFactory::delete_instance();
+        cams::lib::controller::ControllerFactory::delete_instance();
     }
 
 protected:

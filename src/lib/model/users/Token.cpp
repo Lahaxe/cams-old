@@ -1,7 +1,10 @@
 // Include Project files
 #include "model/users/Token.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -93,5 +96,7 @@ Token
 }
 
 } // namespace model
+
+}
 
 } // namespace libcams

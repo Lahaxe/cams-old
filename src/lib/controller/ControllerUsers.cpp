@@ -6,7 +6,10 @@
 // Include Project files
 #include "controller/ControllerUsers.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -229,6 +232,8 @@ ControllerUsers
 
     // A revoir => RessourceNotFindException
     throw std::exception();
+}
+
 }
 
 }

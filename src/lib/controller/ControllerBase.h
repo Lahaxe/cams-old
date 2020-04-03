@@ -10,7 +10,10 @@
 #include "connector/ConnectorBase.h"
 #include "model/users/Identity.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -118,6 +121,8 @@ private:
     ControllerBase& operator=(ControllerBase const & other);
 
 };
+
+}
 
 }
 

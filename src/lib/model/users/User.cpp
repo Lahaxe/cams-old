@@ -1,7 +1,10 @@
 // Include Project files
 #include "model/users/User.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -83,5 +86,7 @@ User
 }
 
 } // namespace model
+
+}
 
 } // namespace libcams

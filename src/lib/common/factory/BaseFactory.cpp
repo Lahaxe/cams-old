@@ -1,7 +1,10 @@
 // Include Project files
 #include "common/factory/BaseFactory.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -9,6 +12,8 @@ namespace common
 
 // Nothing here
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}

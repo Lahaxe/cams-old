@@ -5,7 +5,10 @@
 #include "common/factory/BaseFactory.h"
 #include "common/logger/LoggerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -56,8 +59,10 @@ private:
 
 };
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}
 
 #endif // _7de528e2_5530_489e_b91e_a197ff6687ab

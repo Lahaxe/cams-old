@@ -1,7 +1,10 @@
 // Include Project files
 #include "common/logger/Logger.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -86,6 +89,8 @@ Logger
     this->_logger_writer = logger_writer;
 }
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}

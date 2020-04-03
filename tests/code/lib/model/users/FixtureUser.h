@@ -10,7 +10,7 @@ class FixtureUser : public FixtureBase
 public:
     FixtureUser(): FixtureBase(), _user(nullptr)
     {
-        this->_user = new libcams::model::User();
+        this->_user = new cams::lib::model::User();
     }
 
     virtual ~FixtureUser()
@@ -23,7 +23,7 @@ public:
     }
 
 protected:
-    libcams::model::User* _user;
+    cams::lib::model::User* _user;
 
 private:
 

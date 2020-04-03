@@ -7,7 +7,10 @@
 #include <memory>
 #include <string>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -64,9 +67,11 @@ private:
 
 };
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}
 
 // Include template implementation
 #include "common/factory/BaseFactory.txx"

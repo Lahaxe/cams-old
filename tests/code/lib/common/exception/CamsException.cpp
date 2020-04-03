@@ -12,7 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
-    auto exception = new libcams::common::CamsException("Mon message");
+    auto exception = new cams::lib::common::CamsException("Mon message");
     BOOST_REQUIRE(exception != nullptr);
 
     BOOST_CHECK_EQUAL(std::string(exception->what()), "Mon message");
@@ -27,9 +27,9 @@ BOOST_AUTO_TEST_CASE(Constructor)
  */
 BOOST_AUTO_TEST_CASE(ThrowCamsException)
 {
-    BOOST_CHECK_EXCEPTION(throw libcams::common::CamsException("Mon message"),
-                          libcams::common::CamsException,
-                          [](libcams::common::CamsException const & exc)
+    BOOST_CHECK_EXCEPTION(throw cams::lib::common::CamsException("Mon message"),
+                          cams::lib::common::CamsException,
+                          [](cams::lib::common::CamsException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("Mon message");

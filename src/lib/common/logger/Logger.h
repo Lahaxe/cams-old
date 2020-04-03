@@ -6,7 +6,10 @@
 
 #include "common/logger/LoggerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -81,8 +84,10 @@ private:
 
 };
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}
 
 #endif // _730ac144_2efe_44ba_a248_2e48b183a75a

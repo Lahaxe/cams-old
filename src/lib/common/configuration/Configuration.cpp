@@ -1,8 +1,10 @@
 #include "common/configuration/Configuration.h"
 #include "common/configuration/INIFileParser.h"
 
+namespace cams
+{
 
-namespace libcams
+namespace lib
 {
 
 namespace common
@@ -104,6 +106,8 @@ Configuration
     this->set_connector_file_root_path(iniparser->get_value("connector_file.root_path"));
 }
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}

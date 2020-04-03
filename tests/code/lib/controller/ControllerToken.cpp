@@ -35,41 +35,41 @@ BOOST_FIXTURE_TEST_CASE(ExecuteNotImplemented, FixtureControllerToken)
 {
     BOOST_REQUIRE(this->_controller != nullptr);
 
-    BOOST_CHECK_EXCEPTION(this->_controller->execute(libcams::controller::ACTION_GET),
-                          libcams::controller::NotImplementedActionException,
-                          [](libcams::controller::NotImplementedActionException const & exc)
+    BOOST_CHECK_EXCEPTION(this->_controller->execute(cams::lib::controller::ACTION_GET),
+                          cams::lib::controller::NotImplementedActionException,
+                          [](cams::lib::controller::NotImplementedActionException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("The controller does not implement the action 'GET'");
                                 });
 
-    BOOST_CHECK_EXCEPTION(this->_controller->execute(libcams::controller::ACTION_PUT),
-                          libcams::controller::NotImplementedActionException,
-                          [](libcams::controller::NotImplementedActionException const & exc)
+    BOOST_CHECK_EXCEPTION(this->_controller->execute(cams::lib::controller::ACTION_PUT),
+                          cams::lib::controller::NotImplementedActionException,
+                          [](cams::lib::controller::NotImplementedActionException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("The controller does not implement the action 'PUT'");
                                 });
 
-    BOOST_CHECK_EXCEPTION(this->_controller->execute(libcams::controller::ACTION_PATCH),
-                          libcams::controller::NotImplementedActionException,
-                          [](libcams::controller::NotImplementedActionException const & exc)
+    BOOST_CHECK_EXCEPTION(this->_controller->execute(cams::lib::controller::ACTION_PATCH),
+                          cams::lib::controller::NotImplementedActionException,
+                          [](cams::lib::controller::NotImplementedActionException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("The controller does not implement the action 'PATCH'");
                                 });
 
-    BOOST_CHECK_EXCEPTION(this->_controller->execute(libcams::controller::ACTION_DELETE),
-                          libcams::controller::NotImplementedActionException,
-                          [](libcams::controller::NotImplementedActionException const & exc)
+    BOOST_CHECK_EXCEPTION(this->_controller->execute(cams::lib::controller::ACTION_DELETE),
+                          cams::lib::controller::NotImplementedActionException,
+                          [](cams::lib::controller::NotImplementedActionException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("The controller does not implement the action 'DELETE'");
                                 });
 
-    BOOST_CHECK_EXCEPTION(this->_controller->execute(libcams::controller::ACTION_OPTIONS),
-                          libcams::controller::NotImplementedActionException,
-                          [](libcams::controller::NotImplementedActionException const & exc)
+    BOOST_CHECK_EXCEPTION(this->_controller->execute(cams::lib::controller::ACTION_OPTIONS),
+                          cams::lib::controller::NotImplementedActionException,
+                          [](cams::lib::controller::NotImplementedActionException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("The controller does not implement the action 'OPTIONS'");

@@ -11,7 +11,10 @@
 #include "controller/NotImplementedActionException.h"
 #include "controller/UnknownActionException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -135,6 +138,8 @@ ControllerBase
 ::execute_options(std::string const & ressource, QJsonDocument const & document)
 {
     throw NotImplementedActionException(ACTION_OPTIONS);
+}
+
 }
 
 }

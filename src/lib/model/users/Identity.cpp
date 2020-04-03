@@ -1,7 +1,10 @@
 // Include Project files
 #include "model/users/Identity.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -71,6 +74,8 @@ Identity
 ::set_token(std::string const & token)
 {
     this->_token = token;
+}
+
 }
 
 }

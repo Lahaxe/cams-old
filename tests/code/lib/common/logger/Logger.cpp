@@ -24,7 +24,7 @@ BOOST_FIXTURE_TEST_CASE(LogDebug, FixtureLogger)
     std::stringbuf buffer(std::ios::out);
     auto oldbuffer = std::cout.rdbuf(std::addressof(buffer));
 
-    libcams::common::Logger::instance().debug("Test debug message");
+    cams::lib::common::Logger::instance().debug("Test debug message");
 
     std::cout.rdbuf(oldbuffer);
 
@@ -41,7 +41,7 @@ BOOST_FIXTURE_TEST_CASE(LogInfo, FixtureLogger)
     std::stringbuf buffer(std::ios::out);
     auto oldbuffer = std::cout.rdbuf(std::addressof(buffer));
 
-    libcams::common::Logger::instance().info("Test info message");
+    cams::lib::common::Logger::instance().info("Test info message");
 
     std::cout.rdbuf(oldbuffer);
 
@@ -58,7 +58,7 @@ BOOST_FIXTURE_TEST_CASE(LogWarning, FixtureLogger)
     std::stringbuf buffer(std::ios::out);
     auto oldbuffer = std::cout.rdbuf(std::addressof(buffer));
 
-    libcams::common::Logger::instance().warning("Test warning message");
+    cams::lib::common::Logger::instance().warning("Test warning message");
 
     std::cout.rdbuf(oldbuffer);
 
@@ -75,7 +75,7 @@ BOOST_FIXTURE_TEST_CASE(LogError, FixtureLogger)
     std::stringbuf buffer(std::ios::out);
     auto oldbuffer = std::cout.rdbuf(std::addressof(buffer));
 
-    libcams::common::Logger::instance().error("Test error message");
+    cams::lib::common::Logger::instance().error("Test error message");
 
     std::cout.rdbuf(oldbuffer);
 
@@ -92,7 +92,7 @@ BOOST_FIXTURE_TEST_CASE(LogFatal, FixtureLogger)
     std::stringbuf buffer(std::ios::out);
     auto oldbuffer = std::cout.rdbuf(std::addressof(buffer));
 
-    libcams::common::Logger::instance().fatal("Test fatal message");
+    cams::lib::common::Logger::instance().fatal("Test fatal message");
 
     std::cout.rdbuf(oldbuffer);
 

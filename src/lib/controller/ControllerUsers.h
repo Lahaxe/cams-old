@@ -4,7 +4,10 @@
 //Include Project files
 #include "controller/ControllerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -89,6 +92,8 @@ private:
     ControllerUsers& operator=(ControllerUsers const & other);
 
 };
+
+}
 
 }
 

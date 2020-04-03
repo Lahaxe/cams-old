@@ -4,7 +4,10 @@
 // Include Standard library
 #include <memory>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -91,6 +94,8 @@ private:
     std::string _token;
 
 };
+
+}
 
 }
 

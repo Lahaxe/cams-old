@@ -5,7 +5,10 @@
 
 #include "common/configuration/INIFileParser.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -90,6 +93,8 @@ INIFileParser
     this->_tree->put(key, value);
 }
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}

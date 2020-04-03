@@ -74,7 +74,7 @@ public:
         arguments[current_count] = ressource;
         ++current_count;
 
-        this->_arguments = new camscli::Arguments(count, arguments);
+        this->_arguments = new cams::cli::Arguments(count, arguments);
     }
 
     virtual ~FixtureArguments()
@@ -86,7 +86,7 @@ public:
     }
 
 protected:
-    camscli::Arguments* _arguments;
+    cams::cli::Arguments* _arguments;
 
 private:
 

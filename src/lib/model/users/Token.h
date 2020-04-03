@@ -4,7 +4,10 @@
 // Include Project files
 #include "model/core/EntityBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -98,6 +101,8 @@ private:
 };
 
 } // namespace model
+
+}
 
 } // namespace libcams
 

@@ -3,7 +3,10 @@
 
 #include <string>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -74,8 +77,10 @@ private:
 
 };
 
-} // namespace common
+}
 
-} // namespace libcams
+}
+
+}
 
 #endif // _154184e2_33d1_4fce_b249_649787afaa69

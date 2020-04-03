@@ -1,7 +1,10 @@
 // Include Project files
 #include "model/core/Attribute.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -31,4 +34,6 @@ Attribute<std::string>
 
 } // namespace model
 
-} // namespace libcams
+}
+
+} // namespace cams

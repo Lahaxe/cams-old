@@ -4,7 +4,10 @@
 // Include Qt files
 #include <QJsonObject>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -16,6 +19,8 @@ namespace json
 bool to_file(QJsonObject const & json, std::string const & filename);
 
 bool from_file(QJsonObject & json, std::string const & filename);
+
+}
 
 }
 
