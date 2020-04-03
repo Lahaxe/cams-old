@@ -10,6 +10,9 @@ namespace libcams
 namespace model
 {
 
+const std::string USER_NAME = "name";
+const std::string USER_PASSWORD = "password";
+
 /**
  * @brief The User class
  */
@@ -74,10 +77,10 @@ protected:
 
 private:
     /// @brief The user name
-    std::string _name;
+    Attribute<std::string>::Pointer _name;
 
     /// @brief The user password
-    std::string _password;
+    Attribute<std::string>::Pointer _password;
 
 };
 

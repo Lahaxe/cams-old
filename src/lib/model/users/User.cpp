@@ -16,7 +16,8 @@ User
 
 User
 ::User():
-    EntityBase(), _name(""), _password("")
+    EntityBase(), _name(Attribute<std::string>::New(USER_NAME)),
+    _password(Attribute<std::string>::New(USER_PASSWORD))
 {
     //Nothing to do
 }
@@ -31,28 +32,28 @@ std::string
 User
 ::get_name() const
 {
-    return this->_name;
+    return this->_name->get_value();
 }
 
 void
 User
 ::set_name(std::string const & name)
 {
-    this->_name = name;
+    this->_name->set_value(name);
 }
 
 std::string
 User
 ::get_password() const
 {
-    return this->_password;
+    return this->_password->get_value();
 }
 
 void
 User
 ::set_password(std::string const & password)
 {
-    this->_password = password;
+    this->_password->set_value(password);
 }
 
 void
@@ -60,8 +61,8 @@ User
 ::to_json(QJsonObject & json) const
 {
     EntityBase::to_json(json);
-    json["name"] = QString(this->get_name().c_str());
-    json["password"] = QString(this->get_password().c_str());
+    this->_name->to_json(json);
+    this->_password->to_json(json);
 }
 
 void
@@ -69,8 +70,8 @@ User
 ::from_json(QJsonObject const & json)
 {
     EntityBase::from_json(json);
-    this->set_name(json["name"].toString().toStdString());
-    this->set_password(json["password"].toString().toStdString());
+    this->_name->from_json(json);
+    this->_password->from_json(json);
 }
 
 void

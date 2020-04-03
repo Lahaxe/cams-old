@@ -10,6 +10,10 @@ namespace libcams
 namespace model
 {
 
+const std::string TOKEN_USERID= "userid";
+const std::string TOKEN_USERNAME = "username";
+const std::string TOKEN_TOKEN = "token";
+
 /**
  * @brief The User class
  */
@@ -83,13 +87,13 @@ protected:
 
 private:
     /// @brief The user id
-    std::string _userid;
+    Attribute<std::string>::Pointer _userid;
 
     /// @brief The user name
-    std::string _username;
+    Attribute<std::string>::Pointer _username;
 
     /// @brief The user token
-    std::string _token;
+    Attribute<std::string>::Pointer _token;
 
 };
 
