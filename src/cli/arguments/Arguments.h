@@ -8,6 +8,7 @@
 namespace cams
 {
 
+/// @brief Cams Command Line Interface part
 namespace cli
 {
 

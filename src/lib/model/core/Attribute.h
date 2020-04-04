@@ -12,9 +12,11 @@
 namespace cams
 {
 
+/// @brief Cams library part
 namespace lib
 {
 
+/// @brief Data Model
 namespace model
 {
 

@@ -51,35 +51,50 @@ void
 Logger
 ::debug(const std::string &message)
 {
-    this->_logger_writer->debug(message);
+    if (this->_logger_writer != nullptr)
+    {
+        this->_logger_writer->debug(message);
+    }
 }
 
 void
 Logger
 ::info(const std::string &message)
 {
-    this->_logger_writer->info(message);
+    if (this->_logger_writer != nullptr)
+    {
+        this->_logger_writer->info(message);
+    }
 }
 
 void
 Logger
 ::warning(const std::string &message)
 {
-    this->_logger_writer->warning(message);
+    if (this->_logger_writer != nullptr)
+    {
+        this->_logger_writer->warning(message);
+    }
 }
 
 void
 Logger
 ::error(const std::string &message)
 {
-    this->_logger_writer->error(message);
+    if (this->_logger_writer != nullptr)
+    {
+        this->_logger_writer->error(message);
+    }
 }
 
 void
 Logger
 ::fatal(const std::string &message)
 {
-    this->_logger_writer->fatal(message);
+    if (this->_logger_writer != nullptr)
+    {
+        this->_logger_writer->fatal(message);
+    }
 }
 
 void
