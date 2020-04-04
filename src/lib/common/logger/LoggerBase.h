@@ -5,6 +5,7 @@
 #include <memory>
 #include <string>
 
+/// @brief Main namespace
 namespace cams
 {
 

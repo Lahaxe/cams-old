@@ -10,6 +10,7 @@
 #include "connector/ConnectorBase.h"
 #include "model/users/Identity.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

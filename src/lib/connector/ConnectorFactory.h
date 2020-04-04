@@ -5,6 +5,7 @@
 #include "common/factory/BaseFactory.h"
 #include "connector/ConnectorBase.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

@@ -4,6 +4,7 @@
 //Include Project files
 #include "connector/ConnectorBase.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

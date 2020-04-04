@@ -3,6 +3,7 @@
 
 #include <string>
 
+/// @brief Main namespace
 namespace cams
 {
 

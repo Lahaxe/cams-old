@@ -6,6 +6,7 @@
 
 #include "common/logger/LoggerBase.h"
 
+/// @brief Main namespace
 namespace cams
 {
 
