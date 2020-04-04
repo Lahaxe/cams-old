@@ -4,7 +4,10 @@
 // Include Project files
 #include "controller/UnknownControllerException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -27,4 +30,6 @@ UnknownControllerException
 
 } // namespace controller
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

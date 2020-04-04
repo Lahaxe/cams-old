@@ -81,7 +81,7 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
     args[current_count] = help;
     ++current_count;
 
-    auto arguments = camscli::Arguments(count, args);
+    auto arguments = cams::cli::Arguments(count, args);
 
     BOOST_CHECK(arguments.get_display_help() == true);
     }
@@ -99,7 +99,7 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
     args[current_count] = help;
     ++current_count;
 
-    auto arguments = camscli::Arguments(count, args);
+    auto arguments = cams::cli::Arguments(count, args);
 
     BOOST_CHECK(arguments.get_display_help() == true);
     }
@@ -117,7 +117,7 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
     args[current_count] = help;
     ++current_count;
 
-    auto arguments = camscli::Arguments(count, args);
+    auto arguments = cams::cli::Arguments(count, args);
 
     BOOST_CHECK(arguments.get_display_help() == true);
     }
@@ -143,7 +143,7 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
     args[current_count] = help;
     ++current_count;
 
-    auto arguments = camscli::Arguments(count, args);
+    auto arguments = cams::cli::Arguments(count, args);
 
     BOOST_CHECK(arguments.get_display_help() == true);
     }
@@ -163,9 +163,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingAction)
     args[current_count] = program;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Action");
@@ -190,9 +190,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingController)
     args[current_count] = action;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Controller");
@@ -225,9 +225,9 @@ BOOST_AUTO_TEST_CASE(ErrorUnknownArgument)
     args[current_count] = unknown;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::UnknownArgumentException,
-                          [](camscli::UnknownArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::UnknownArgumentException,
+                          [](cams::cli::UnknownArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is unknown: error");
@@ -260,9 +260,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentUser)
     args[current_count] = unknown;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: User");
@@ -295,9 +295,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentPassword)
     args[current_count] = unknown;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Password");
@@ -330,9 +330,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentToken)
     args[current_count] = unknown;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Token");
@@ -365,9 +365,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonFile)
     args[current_count] = unknown;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Jsonfile");
@@ -400,9 +400,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonString)
     args[current_count] = unknown;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Json");
@@ -435,9 +435,9 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonJsonRessource)
     args[current_count] = unknown;
     ++current_count;
 
-    BOOST_CHECK_EXCEPTION(camscli::Arguments(count, args),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Ressource");

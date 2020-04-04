@@ -1,8 +1,10 @@
 #include "common/configuration/Configuration.h"
 #include "common/configuration/INIFileParser.h"
 
+namespace cams
+{
 
-namespace libcams
+namespace lib
 {
 
 namespace common
@@ -106,4 +108,6 @@ Configuration
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

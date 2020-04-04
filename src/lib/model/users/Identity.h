@@ -4,7 +4,10 @@
 // Include Standard library
 #include <memory>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -92,8 +95,10 @@ private:
 
 };
 
-}
+} // namespace model
 
-}
+} // namespace lib
+
+} // namespace cams
 
 #endif // _a525f584_8b2e_4449_a2f2_5f8873530512

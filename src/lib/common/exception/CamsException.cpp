@@ -6,7 +6,10 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -49,4 +52,6 @@ CamsException
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

@@ -10,12 +10,12 @@ class FixtureLogger : public FixtureBase
 public:
     FixtureLogger(): FixtureBase()
     {
-        libcams::common::Logger::instance();
+        cams::lib::common::Logger::instance();
     }
 
     virtual ~FixtureLogger()
     {
-        libcams::common::Logger::delete_instance();
+        cams::lib::common::Logger::delete_instance();
     }
 
 protected:

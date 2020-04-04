@@ -7,7 +7,10 @@
 // Include Project files
 #include "common/logger/DefaultLogger.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -55,4 +58,6 @@ DefaultLogger
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

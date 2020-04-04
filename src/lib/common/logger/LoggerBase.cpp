@@ -1,7 +1,10 @@
 // Include Project files
 #include "common/logger/LoggerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -56,4 +59,6 @@ LoggerBase
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

@@ -3,7 +3,10 @@
 
 #include "model/core/Attribute.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -66,6 +69,8 @@ private:
 
 } // namespace model
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams
 
 #endif // _d9cb6f7b_3646_4fa3_92ec_afdc25443782

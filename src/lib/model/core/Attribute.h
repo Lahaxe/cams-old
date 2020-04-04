@@ -8,7 +8,10 @@
 // Include Qt files
 #include <QJsonObject>
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -75,7 +78,9 @@ private:
 
 } // namespace model
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams
 
 // Include template implementation
 #include "model/core/Attribute.txx"

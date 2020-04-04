@@ -5,7 +5,10 @@
 // Include Project files
 #include "controller/NotImplementedActionException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -28,4 +31,6 @@ NotImplementedActionException
 
 } // namespace controller
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

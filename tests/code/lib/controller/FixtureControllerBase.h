@@ -8,7 +8,7 @@
 class FixtureControllerBase : public FixtureBase
 {
 public:
-    FixtureControllerBase(): FixtureBase(), _controller(new libcams::controller::ControllerBase())
+    FixtureControllerBase(): FixtureBase(), _controller(new cams::lib::controller::ControllerBase())
     {
         // Nothing to do
     }
@@ -22,7 +22,7 @@ public:
     }
 
 protected:
-    libcams::controller::ControllerBase* _controller;
+    cams::lib::controller::ControllerBase* _controller;
 
 private:
 

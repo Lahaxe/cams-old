@@ -5,7 +5,10 @@
 
 #include "model/core/Attribute.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -128,6 +131,8 @@ Attribute<T>
 
 } // namespace model
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams
 
 #endif // _c00c119a_1518_468c_8ecc_1ff945ae70cd

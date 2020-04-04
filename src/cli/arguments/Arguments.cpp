@@ -6,7 +6,10 @@
 #include "arguments/MissingArgumentException.h"
 #include "arguments/UnknownArgumentException.h"
 
-namespace camscli
+namespace cams
+{
+
+namespace cli
 {
 
 Arguments
@@ -259,4 +262,6 @@ void Arguments::_parse(int argc, char *argv[])
     }
 }
 
-} // namespace camscli
+} // namespace cli
+
+} // namespace cams

@@ -1,7 +1,10 @@
 // Include Project files
 #include "common/exception/RefusedLoginException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -9,7 +12,7 @@ namespace common
 
 RefusedLoginException
 ::RefusedLoginException():
-    common::CamsException("Login and/or password are invalid", 401)
+    CamsException("Login and/or password are invalid", 401)
 {
     // Nothing to do
 }
@@ -22,4 +25,6 @@ RefusedLoginException
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

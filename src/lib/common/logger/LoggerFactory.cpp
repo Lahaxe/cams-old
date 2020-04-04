@@ -3,7 +3,10 @@
 #include "common/logger/DefaultLogger.h"
 #include "common/logger/FileLogger.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -49,4 +52,6 @@ LoggerFactory
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

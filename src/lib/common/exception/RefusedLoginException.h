@@ -4,7 +4,10 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -13,7 +16,7 @@ namespace common
 /**
  * @brief The RefusedLoginException class
  */
-class RefusedLoginException : public common::CamsException
+class RefusedLoginException : public CamsException
 {
 public:
     /**
@@ -34,6 +37,8 @@ private:
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams
 
 #endif // _420d8c94_a9d0_4e88_97e1_8eb81886c656

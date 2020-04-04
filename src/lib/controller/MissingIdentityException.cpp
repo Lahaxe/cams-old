@@ -4,7 +4,10 @@
 // Include Project files
 #include "controller/MissingIdentityException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -25,4 +28,6 @@ MissingIdentityException
 
 } // namespace controller
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

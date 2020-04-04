@@ -4,7 +4,10 @@
 // Include Project files
 #include "common/factory/BaseFactory.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -63,6 +66,8 @@ BaseFactory<T>
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams
 
 #endif // _0b2f6564_a4c4_4714_a50b_3e3968ae9300

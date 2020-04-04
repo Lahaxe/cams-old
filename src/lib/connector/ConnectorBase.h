@@ -9,7 +9,10 @@
 #include "model/users/Token.h"
 #include "model/users/User.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace connector
@@ -86,6 +89,8 @@ private:
 
 } // namespace connector
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams
 
 #endif // _2042560f_85db_421b_87f7_edb1a566b5b3

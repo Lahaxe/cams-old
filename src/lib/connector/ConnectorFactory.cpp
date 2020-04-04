@@ -2,7 +2,10 @@
 #include "connector/ConnectorFactory.h"
 #include "connector/ConnectorFile.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace connector
@@ -47,4 +50,6 @@ ConnectorFactory
 
 } // namespace connector
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

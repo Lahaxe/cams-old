@@ -22,9 +22,9 @@ BOOST_FIXTURE_TEST_CASE(Constructor, FixtureControllerFactory)
  */
 BOOST_FIXTURE_TEST_CASE(CanCreate, FixtureControllerFactory)
 {
-    BOOST_CHECK(libcams::controller::ControllerFactory::instance().can_create(
-                    libcams::controller::ControllerToken::class_name()) == true);
-    BOOST_CHECK(libcams::controller::ControllerFactory::instance().can_create(
+    BOOST_CHECK(cams::lib::controller::ControllerFactory::instance().can_create(
+                    cams::lib::controller::ControllerToken::class_name()) == true);
+    BOOST_CHECK(cams::lib::controller::ControllerFactory::instance().can_create(
                     "error") == false);
 }
 
@@ -34,8 +34,8 @@ BOOST_FIXTURE_TEST_CASE(CanCreate, FixtureControllerFactory)
  */
 BOOST_FIXTURE_TEST_CASE(Create, FixtureControllerFactory)
 {
-    BOOST_CHECK(libcams::controller::ControllerFactory::instance().create(
-                    libcams::controller::ControllerToken::class_name()) != nullptr);
-    BOOST_CHECK(libcams::controller::ControllerFactory::instance().create(
+    BOOST_CHECK(cams::lib::controller::ControllerFactory::instance().create(
+                    cams::lib::controller::ControllerToken::class_name()) != nullptr);
+    BOOST_CHECK(cams::lib::controller::ControllerFactory::instance().create(
                     "error") == nullptr);
 }

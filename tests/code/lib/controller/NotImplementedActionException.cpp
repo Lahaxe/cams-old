@@ -12,7 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
-    auto exception = new libcams::controller::NotImplementedActionException("action");
+    auto exception = new cams::lib::controller::NotImplementedActionException("action");
     BOOST_REQUIRE(exception != nullptr);
 
     BOOST_CHECK_EQUAL(std::string(exception->what()), "The controller does not implement the action 'action'");
@@ -27,9 +27,9 @@ BOOST_AUTO_TEST_CASE(Constructor)
  */
 BOOST_AUTO_TEST_CASE(ThrowNotImplementedActionException)
 {
-    BOOST_CHECK_EXCEPTION(throw libcams::controller::NotImplementedActionException("action"),
-                          libcams::controller::NotImplementedActionException,
-                          [](libcams::controller::NotImplementedActionException const & exc)
+    BOOST_CHECK_EXCEPTION(throw cams::lib::controller::NotImplementedActionException("action"),
+                          cams::lib::controller::NotImplementedActionException,
+                          [](cams::lib::controller::NotImplementedActionException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("The controller does not implement the action 'action'");

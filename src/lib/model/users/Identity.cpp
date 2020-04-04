@@ -1,7 +1,10 @@
 // Include Project files
 #include "model/users/Identity.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace model
@@ -73,6 +76,8 @@ Identity
     this->_token = token;
 }
 
-}
+} // namespace model
 
-}
+} // namespace lib
+
+} // namespace cams

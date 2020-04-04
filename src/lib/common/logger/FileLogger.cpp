@@ -9,7 +9,10 @@
 // Include Project files
 #include "common/logger/FileLogger.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -60,4 +63,6 @@ FileLogger
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

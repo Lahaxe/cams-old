@@ -1,7 +1,10 @@
 // Include Project files
 #include "common/exception/NotImplementedException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace common
@@ -22,4 +25,6 @@ NotImplementedException
 
 } // namespace common
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams

@@ -10,7 +10,10 @@
 #include "connector/ConnectorBase.h"
 #include "model/users/Identity.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -119,8 +122,10 @@ private:
 
 };
 
-}
+} // namespace controller
 
-}
+} // namespace lib
+
+} // namespace cams
 
 #endif // _a45a4540_1a7a_44f8_b997_5b0311e5dabb

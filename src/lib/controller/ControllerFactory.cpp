@@ -3,7 +3,10 @@
 #include "controller/ControllerUsers.h"
 #include "controller/ControllerToken.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -47,6 +50,8 @@ ControllerFactory
     // Nothing to do
 }
 
-}
+} // namespace controller
 
-}
+} // namespace lib
+
+} // namespace cams

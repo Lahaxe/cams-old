@@ -12,7 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
-    auto exception = new camscli::MissingArgumentException("Argument");
+    auto exception = new cams::cli::MissingArgumentException("Argument");
     BOOST_REQUIRE(exception != nullptr);
 
     BOOST_CHECK_EQUAL(std::string(exception->what()), "At least one argument is missing: Argument");
@@ -27,9 +27,9 @@ BOOST_AUTO_TEST_CASE(Constructor)
  */
 BOOST_AUTO_TEST_CASE(ThrowMissingArgumentException)
 {
-    BOOST_CHECK_EXCEPTION(throw camscli::MissingArgumentException("Argument"),
-                          camscli::MissingArgumentException,
-                          [](camscli::MissingArgumentException const & exc)
+    BOOST_CHECK_EXCEPTION(throw cams::cli::MissingArgumentException("Argument"),
+                          cams::cli::MissingArgumentException,
+                          [](cams::cli::MissingArgumentException const & exc)
                                 {
                                     return std::string(exc.what()) ==
                                             std::string("At least one argument is missing: Argument");

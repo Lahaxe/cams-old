@@ -4,7 +4,10 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -34,6 +37,8 @@ private:
 
 } // namespace controller
 
-} // namespace libcams
+} // namespace lib
+
+} // namespace cams
 
 #endif // _9c9f7b09_66c1_4619_8108_7abc426dc22c

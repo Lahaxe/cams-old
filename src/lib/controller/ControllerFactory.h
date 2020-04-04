@@ -5,7 +5,10 @@
 #include "common/factory/BaseFactory.h"
 #include "controller/ControllerBase.h"
 
-namespace libcams
+namespace cams
+{
+
+namespace lib
 {
 
 namespace controller
@@ -56,8 +59,10 @@ private:
 
 };
 
-}
+} // namespace controller
 
-}
+} // namespace lib
+
+} // namespace cams
 
 #endif // _0f58ba5f_4de8_4b21_8ebb_2ca689c4b7f7
