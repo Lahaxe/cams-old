@@ -2,6 +2,7 @@
 
 export WORKSPACE=$PWD
 
+mkdir build
 cd build
 
 # Generate Makefile
