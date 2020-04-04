@@ -16,12 +16,17 @@ namespace lib
 namespace model
 {
 
+/// @brief Name of the Token attribute 'User ID'
 const std::string TOKEN_USERID= "userid";
+
+/// @brief Name of the Token attribute 'User Name'
 const std::string TOKEN_USERNAME = "username";
+
+/// @brief Name of the Token attribute 'Token'
 const std::string TOKEN_TOKEN = "token";
 
 /**
- * @brief The User class
+ * @brief The Token class
  */
 class Token : public EntityBase
 {
@@ -40,53 +45,60 @@ public:
 
     /**
      * @brief Create an instance of Token
-     * @param id: The entity Identifier
      */
     Token();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of Token
      */
     virtual ~Token();
 
     /**
-     * @brief Get the user id
-     * @return Return the user id
+     * @brief Get the Token userid
+     * @return Return the Token userid
      */
     std::string get_userid() const;
 
     /**
-     * @brief Set the user name
-     * @param name: The user name
+     * @brief Set the Token userid
+     * @param login: New Token userid
      */
     void set_userid(std::string const & userid);
 
     /**
-     * @brief Get the user name
-     * @return Return the user name
+     * @brief Get the Token username
+     * @return Return the Token username
      */
     std::string get_username() const;
 
     /**
-     * @brief Set the user name
-     * @param name: The user name
+     * @brief Set the Token username
+     * @param login: New Token username
      */
     void set_username(std::string const & username);
 
     /**
-     * @brief Get the user token
-     * @return Return the user token
+     * @brief Get the Token token
+     * @return Return the Token token
      */
     std::string get_token() const;
 
     /**
-     * @brief Set the user token
-     * @param name: The user token
+     * @brief Set the Token token
+     * @param login: New Token token
      */
-    void set_token(std::string const & password);
+    void set_token(std::string const & token);
 
+    /**
+     * @brief Convert a JSON object into this Token
+     * @param json: JSON object in which the token is readed
+     */
     virtual void from_json(QJsonObject const & json);
 
+    /**
+     * @brief Convert this Token as JSON attribute
+     * @param json: JSON object in which the token is added
+     */
     virtual void to_json(QJsonObject & json) const;
 
 protected:

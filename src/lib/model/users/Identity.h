@@ -1,7 +1,7 @@
 #ifndef _a525f584_8b2e_4449_a2f2_5f8873530512
 #define _a525f584_8b2e_4449_a2f2_5f8873530512
 
-// Include Standard library
+// Include Standard library files
 #include <memory>
 
 /// @brief Main namespace
@@ -30,50 +30,50 @@ public:
 
     /**
      * @brief Create pointer to a new instance of Identity
-     * @return Return Pointer to new instance of Identity
+     * @return Return a Pointer to new instance of Identity
      */
     static Pointer New(std::string const & login = "",
                        std::string const & password = "",
                        std::string const & token = "");
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of Identity
      */
     virtual ~Identity();
 
     /**
-     * @brief Get login member
-     * @return Return value of login
+     * @brief Get the Identity login
+     * @return Return the Identity login
      */
     std::string get_login() const;
 
     /**
-     * @brief Set login member
-     * @param login: New value of login
+     * @brief Set the Identity login
+     * @param login: New Identity login
      */
     void set_login(std::string const & login);
 
     /**
-     * @brief Get password member
-     * @return Return value of password
+     * @brief Get the Identity password
+     * @return Return the Identity password
      */
     std::string get_password() const;
 
     /**
-     * @brief Set password member
-     * @param password: New value of password
+     * @brief Set the Identity password
+     * @param password: New Identity password
      */
     void set_password(std::string const & password);
 
     /**
-     * @brief Get token member
-     * @return Return value of token
+     * @brief Get the Identity token
+     * @return Return the Identity token
      */
     std::string get_token() const;
 
     /**
-     * @brief Set token member
-     * @param token: New value of token
+     * @brief Set the Identity token
+     * @param token: New Identity token
      */
     void set_token(std::string const & token);
 
@@ -82,18 +82,21 @@ protected:
 private:
     /**
      * @brief Create an instance of Identity
+     * @param login: User login
+     * @param password: Password associated to the login
+     * @param token: User token
      */
     Identity(std::string const & login = "",
              std::string const & password = "",
              std::string const & token = "");
 
-    /// @brief Login
+    /// @brief User login
     std::string _login;
 
-    /// @brief Password
+    /// @brief Password associated to the login
     std::string _password;
 
-    /// @brief Token
+    /// @brief User token
     std::string _token;
 
 };
