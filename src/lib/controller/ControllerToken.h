@@ -4,6 +4,7 @@
 //Include Project files
 #include "controller/ControllerBase.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

@@ -6,6 +6,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 
+/// @brief Main namespace
 namespace cams
 {
 

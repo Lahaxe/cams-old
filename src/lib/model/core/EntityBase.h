@@ -3,6 +3,7 @@
 
 #include "model/core/Attribute.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

@@ -4,6 +4,7 @@
 // Include Project files
 #include "common/factory/BaseFactory.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

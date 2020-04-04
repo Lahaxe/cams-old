@@ -4,6 +4,7 @@
 // Include Standard library
 #include <string>
 
+/// @brief Main namespace
 namespace cams
 {
 

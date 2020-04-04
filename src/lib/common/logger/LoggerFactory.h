@@ -5,6 +5,7 @@
 #include "common/factory/BaseFactory.h"
 #include "common/logger/LoggerBase.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

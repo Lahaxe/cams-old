@@ -4,6 +4,7 @@
 // Include Project files
 #include "common/exception/CamsException.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

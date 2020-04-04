@@ -4,6 +4,7 @@
 // Include Project files
 #include "model/core/EntityBase.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

@@ -5,6 +5,7 @@
 #include "common/factory/BaseFactory.h"
 #include "controller/ControllerBase.h"
 
+/// @brief Main namespace
 namespace cams
 {
 

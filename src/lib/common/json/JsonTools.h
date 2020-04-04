@@ -4,6 +4,7 @@
 // Include Qt files
 #include <QJsonObject>
 
+/// @brief Main namespace
 namespace cams
 {
 

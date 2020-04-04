@@ -5,10 +5,12 @@
 #include <memory>
 #include <vector>
 
+// Include Project files
 #include "model/users/Identity.h"
 #include "model/users/Token.h"
 #include "model/users/User.h"
 
+/// @brief Main namespace
 namespace cams
 {
 
