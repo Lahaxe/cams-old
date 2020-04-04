@@ -128,6 +128,62 @@ private:
 
 };
 
+
+template<>
+inline void
+Attribute<std::string>
+::from_json(QJsonObject const & json)
+{
+    if (json.contains(QString(this->_name.c_str())))
+    {
+        this->set_value(json[QString(this->_name.c_str())].toString().toStdString());
+    }
+}
+
+template<>
+inline void
+Attribute<int>
+::from_json(QJsonObject const & json)
+{
+    if (json.contains(QString(this->_name.c_str())))
+    {
+        this->set_value(json[QString(this->_name.c_str())].toInt());
+    }
+}
+
+template<>
+inline void
+Attribute<bool>
+::from_json(QJsonObject const & json)
+{
+    if (json.contains(QString(this->_name.c_str())))
+    {
+        this->set_value(json[QString(this->_name.c_str())].toBool());
+    }
+}
+
+template<>
+inline void
+Attribute<double>
+::from_json(QJsonObject const & json)
+{
+    if (json.contains(QString(this->_name.c_str())))
+    {
+        this->set_value(json[QString(this->_name.c_str())].toDouble());
+    }
+}
+
+template<>
+inline void
+Attribute<std::string>
+::to_json(QJsonObject & json) const
+{
+    if (this->_is_set)
+    {
+        json[QString(this->_name.c_str())] = QString(this->_value.c_str());
+    }
+}
+
 } // namespace model
 
 } // namespace lib
