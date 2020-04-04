@@ -44,7 +44,7 @@ ControllerUsers
 
 QJsonDocument
 ControllerUsers
-::execute_get(std::string const & ressource, QJsonDocument const & document)
+::execute_get(std::string const & ressource, QJsonDocument const & __attribute__((unused)) document)
 {
     // GET users
     if (ressource.empty())
@@ -176,7 +176,7 @@ ControllerUsers
 
 QJsonDocument
 ControllerUsers
-::execute_delete(std::string const & ressource, QJsonDocument const & document)
+::execute_delete(std::string const & ressource, QJsonDocument const & __attribute__((unused)) document)
 {
     std::vector<std::string> parts;
     boost::split(parts, ressource, boost::is_any_of("/"));
@@ -203,7 +203,7 @@ ControllerUsers
 
 QJsonDocument
 ControllerUsers
-::execute_options(std::string const & ressource, QJsonDocument const & document)
+::execute_options(std::string const & ressource, QJsonDocument const & __attribute__((unused)) document)
 {
     // OPTIONS users
     if (ressource.empty())
