@@ -100,42 +100,48 @@ ControllerBase
 
 QJsonDocument
 ControllerBase
-::execute_get(std::string const & ressource, QJsonDocument const & document)
+::execute_get(std::string const & __attribute__((unused)) ressource,
+              QJsonDocument const & __attribute__((unused)) document)
 {
     throw NotImplementedActionException(ACTION_GET);
 }
 
 QJsonDocument
 ControllerBase
-::execute_post(std::string const & ressource, QJsonDocument const & document)
+::execute_post(std::string const & __attribute__((unused)) ressource,
+               QJsonDocument const & __attribute__((unused)) document)
 {
     throw NotImplementedActionException(ACTION_POST);
 }
 
 QJsonDocument
 ControllerBase
-::execute_put(std::string const & ressource, QJsonDocument const & document)
+::execute_put(std::string const & __attribute__((unused)) ressource,
+              QJsonDocument const & __attribute__((unused)) document)
 {
     throw NotImplementedActionException(ACTION_PUT);
 }
 
 QJsonDocument
 ControllerBase
-::execute_patch(std::string const & ressource, QJsonDocument const & document)
+::execute_patch(std::string const & __attribute__((unused)) ressource,
+                QJsonDocument const & __attribute__((unused)) document)
 {
     throw NotImplementedActionException(ACTION_PATCH);
 }
 
 QJsonDocument
 ControllerBase
-::execute_delete(std::string const & ressource, QJsonDocument const & document)
+::execute_delete(std::string const & __attribute__((unused)) ressource,
+                 QJsonDocument const & __attribute__((unused)) document)
 {
     throw NotImplementedActionException(ACTION_DELETE);
 }
 
 QJsonDocument
 ControllerBase
-::execute_options(std::string const & ressource, QJsonDocument const & document)
+::execute_options(std::string const & __attribute__((unused)) ressource,
+                  QJsonDocument const & __attribute__((unused)) document)
 {
     throw NotImplementedActionException(ACTION_OPTIONS);
 }

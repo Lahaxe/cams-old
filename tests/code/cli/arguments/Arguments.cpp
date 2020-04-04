@@ -79,7 +79,6 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
 
     char help[] = "-h";
     args[current_count] = help;
-    ++current_count;
 
     auto arguments = cams::cli::Arguments(count, args);
 
@@ -97,7 +96,6 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
 
     char help[] = "--help";
     args[current_count] = help;
-    ++current_count;
 
     auto arguments = cams::cli::Arguments(count, args);
 
@@ -115,7 +113,6 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
 
     char help[] = "help";
     args[current_count] = help;
-    ++current_count;
 
     auto arguments = cams::cli::Arguments(count, args);
 
@@ -141,7 +138,6 @@ BOOST_AUTO_TEST_CASE(DisplayHelp)
 
     char help[] = "-h";
     args[current_count] = help;
-    ++current_count;
 
     auto arguments = cams::cli::Arguments(count, args);
 
@@ -161,7 +157,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingAction)
     int current_count = 0;
     char program[] = "program";
     args[current_count] = program;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
@@ -188,7 +183,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingController)
 
     char action[] = "action";
     args[current_count] = action;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
@@ -223,7 +217,6 @@ BOOST_AUTO_TEST_CASE(ErrorUnknownArgument)
 
     char unknown[] = "error";
     args[current_count] = unknown;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::UnknownArgumentException,
@@ -258,7 +251,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentUser)
 
     char unknown[] = "-u";
     args[current_count] = unknown;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
@@ -293,7 +285,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentPassword)
 
     char unknown[] = "-p";
     args[current_count] = unknown;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
@@ -328,7 +319,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentToken)
 
     char unknown[] = "-t";
     args[current_count] = unknown;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
@@ -363,7 +353,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonFile)
 
     char unknown[] = "-f";
     args[current_count] = unknown;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
@@ -398,7 +387,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonString)
 
     char unknown[] = "-j";
     args[current_count] = unknown;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
@@ -433,7 +421,6 @@ BOOST_AUTO_TEST_CASE(ErrorMissingArgumentJsonJsonRessource)
 
     char unknown[] = "-r";
     args[current_count] = unknown;
-    ++current_count;
 
     BOOST_CHECK_EXCEPTION(cams::cli::Arguments(count, args),
                           cams::cli::MissingArgumentException,
