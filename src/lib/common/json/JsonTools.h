@@ -8,12 +8,15 @@
 namespace cams
 {
 
+/// @brief Cams library part
 namespace lib
 {
 
+/// @brief Common part
 namespace common
 {
 
+/// @brief Specific JSON functions
 namespace json
 {
 

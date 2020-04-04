@@ -9,9 +9,11 @@
 namespace cams
 {
 
+/// @brief Cams library part
 namespace lib
 {
 
+/// @brief Controller part
 namespace controller
 {
 

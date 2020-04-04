@@ -8,9 +8,11 @@
 namespace cams
 {
 
+/// @brief Cams library part
 namespace lib
 {
 
+/// @brief Common part
 namespace common
 {
 
