@@ -1,8 +1,10 @@
 #ifndef _c00c119a_1518_468c_8ecc_1ff945ae70cd
 #define _c00c119a_1518_468c_8ecc_1ff945ae70cd
 
+// Include Standard library files
 #include <sstream>
 
+// Include Project files
 #include "model/core/Attribute.h"
 
 namespace cams
@@ -101,7 +103,11 @@ Attribute<T>
 {
     if (json.contains(QString(this->_name.c_str())))
     {
-        this->set_value(json[QString(this->_name.c_str())].toString().toStdString());
+        auto object = json[QString(this->_name.c_str())];
+        if (object.type() == QJsonValue::String)
+        {
+            this->set_value(object.toString().toStdString());
+        }
     }
 }
 
@@ -112,9 +118,7 @@ Attribute<T>
 {
     if (this->_is_set)
     {
-        std::stringstream buffer;
-        buffer << this->_value;
-        json[QString(this->_name.c_str())] = QString(buffer.str().c_str());
+        json[QString(this->_name.c_str())] = QJsonValue(this->_value);
     }
 }
 
