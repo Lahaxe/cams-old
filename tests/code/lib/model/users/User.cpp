@@ -76,3 +76,22 @@ BOOST_FIXTURE_TEST_CASE(ToJson, FixtureUser)
     BOOST_CHECK_EQUAL(object[QString(cams::lib::model::USER_PASSWORD.c_str())].toString().toStdString(),
             std::string("MYPWD"));
 }
+
+/******************************** TEST Nominal ********************************/
+/**
+ * @brief Nominal test case: Tests function patch_from_other
+ */
+BOOST_FIXTURE_TEST_CASE(PatchFromOther, FixtureUser)
+{
+    BOOST_REQUIRE(this->_user != nullptr);
+    BOOST_CHECK_EQUAL(this->_user->get_name()->get_value(), std::string(""));
+    BOOST_CHECK_EQUAL(this->_user->get_password()->get_value(), std::string(""));
+
+    auto other_user = cams::lib::model::User::New();
+    other_user->set_name("MYNAME");
+    other_user->set_password("MYPWD");
+
+    this->_user->patch_from_other(other_user);
+    BOOST_CHECK_EQUAL(this->_user->get_name()->get_value(), std::string("MYNAME"));
+    BOOST_CHECK_EQUAL(this->_user->get_password()->get_value(), std::string("MYPWD"));
+}
