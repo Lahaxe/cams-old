@@ -1,4 +1,3 @@
-
 // Include Qt files
 #include <qdesktopwidget.h>
 
@@ -21,8 +20,6 @@ MainWindow
 {
     this->_ui->setupUi(this);
 
-    this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-
     // Resize to fullscreen
     this->resize(QDesktopWidget().availableGeometry(this).size());
 }
@@ -30,7 +27,10 @@ MainWindow
 MainWindow
 ::~MainWindow()
 {
-    delete this->_ui;
+    if (this->_ui != nullptr)
+    {
+        delete this->_ui;
+    }
 }
 
 } // namespace gui
