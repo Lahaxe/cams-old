@@ -14,7 +14,7 @@ BOOST_FIXTURE_TEST_CASE(Constructor, FixtureUser)
 
 /******************************** TEST Nominal ********************************/
 /**
- * @brief Nominal test case: Constructor and Destructor
+ * @brief Nominal test case: Tests default values
  */
 BOOST_FIXTURE_TEST_CASE(DefaultValues, FixtureUser)
 {
@@ -25,7 +25,7 @@ BOOST_FIXTURE_TEST_CASE(DefaultValues, FixtureUser)
 
 /******************************** TEST Nominal ********************************/
 /**
- * @brief Nominal test case: Constructor and Destructor
+ * @brief Nominal test case: Tests Getters and Setters
  */
 BOOST_FIXTURE_TEST_CASE(Accessors, FixtureUser)
 {
