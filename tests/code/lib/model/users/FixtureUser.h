@@ -10,20 +10,16 @@ class FixtureUser : public FixtureBase
 public:
     FixtureUser(): FixtureBase(), _user(nullptr)
     {
-        this->_user = new cams::lib::model::User();
+        this->_user = cams::lib::model::User::New();
     }
 
     virtual ~FixtureUser()
     {
-        if (this->_user != nullptr)
-        {
-            delete this->_user;
-            this->_user = nullptr;
-        }
+        // Nothing to do
     }
 
 protected:
-    cams::lib::model::User* _user;
+    cams::lib::model::User::Pointer _user;
 
 private:
 
