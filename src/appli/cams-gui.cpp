@@ -8,7 +8,7 @@
 
 // Include Project files
 #include "common/logger/Logger.h"
-#include "cams-gui/MainWindow.h"
+#include "main/MainWindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
         QCoreApplication::setApplicationName("cams-gui");
 
         // Create main frame
-        cams_gui::MainWindow frame;
+        cams::gui::MainWindow frame;
         //frame.Initialize();
         frame.show();
 

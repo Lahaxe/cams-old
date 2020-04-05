@@ -3,11 +3,15 @@
 #include <qdesktopwidget.h>
 
 // Include Project files
-#include "common/logger/Logger.h"
-#include "MainWindow.h"
+#include "main/MainWindow.h"
 #include "ui_MainWindow.h"
 
-namespace cams_gui
+/// @brief Main namespace
+namespace cams
+{
+
+/// @brief Cams User Interface part
+namespace gui
 {
 
 MainWindow
@@ -29,4 +33,6 @@ MainWindow
     delete this->_ui;
 }
 
-} // namespace cams_gui
+} // namespace gui
+
+} // namespace cams
