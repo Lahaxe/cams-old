@@ -1,5 +1,6 @@
 // Include Qt files
 #include <qdesktopwidget.h>
+#include <QFile>
 
 // Include Project files
 #include "main/MainWindow.h"
@@ -22,6 +23,21 @@ MainWindow
 
     // Resize to fullscreen
     this->resize(QDesktopWidget().availableGeometry(this).size());
+
+    // Load stylesheet
+    QFile stylesheet("cams.css");
+    if (stylesheet.open(QIODevice::Text | QIODevice::ReadOnly))
+    {
+        qApp->setStyleSheet(stylesheet.readAll());
+        stylesheet.close();
+    }
+    else
+    {
+        // A revoir => Default stylesheet ???
+    }
+
+    // Hide menu
+    this->_ui->widget->hide();
 }
 
 MainWindow

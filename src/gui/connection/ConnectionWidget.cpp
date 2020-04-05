@@ -2,8 +2,8 @@
 #include <QMainWindow>
 
 // Include Project files
-#include "menu/Menu.h"
-#include "ui_Menu.h"
+#include "connection/ConnectionWidget.h"
+#include "ui_ConnectionWidget.h"
 
 namespace cams
 {
@@ -11,19 +11,19 @@ namespace cams
 namespace gui
 {
 
-namespace menu
+namespace connection
 {
 
-Menu
-::Menu(QWidget *parent) :
+ConnectionWidget
+::ConnectionWidget(QWidget *parent) :
     QWidget(parent),
-    _ui(new Ui::Menu)
+    _ui(new Ui::ConnectionWidget)
 {
     this->_ui->setupUi(this);
 }
 
-Menu
-::~Menu()
+ConnectionWidget
+::~ConnectionWidget()
 {
     if (this->_ui != nullptr)
     {
@@ -31,14 +31,7 @@ Menu
     }
 }
 
-void
-Menu
-::on_user_btn_clicked()
-{
-    // Nothing yet
-}
-
-} // namespace menu
+} // namespace connection
 
 } // namespace gui
 

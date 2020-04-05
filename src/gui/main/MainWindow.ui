@@ -41,7 +41,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QWidget" name="widget_2" native="true"/>
+     <widget class="cams::gui::connection::ConnectionWidget" name="Connection" native="true"/>
     </item>
    </layout>
   </widget>
@@ -51,6 +51,12 @@
    <class>cams::gui::menu::Menu</class>
    <extends>QWidget</extends>
    <header>menu/Menu.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>cams::gui::connection::ConnectionWidget</class>
+   <extends>QWidget</extends>
+   <header>connection/ConnectionWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

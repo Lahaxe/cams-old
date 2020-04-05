@@ -1,0 +1,44 @@
+#ifndef _5dc2942d_0163_4037_8904_9da7fed3b0cf
+#define _5dc2942d_0163_4037_8904_9da7fed3b0cf
+
+// include Qt files
+#include <QWidget>
+
+/// @brief Main namespace
+namespace cams
+{
+
+/// @brief Cams User Interface part
+namespace gui
+{
+
+/// @brief Connection part
+namespace connection
+{
+
+namespace Ui {
+class ConnectionWidget;
+}
+
+class ConnectionWidget : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit ConnectionWidget(QWidget *parent = 0);
+
+    virtual ~ConnectionWidget();
+
+private slots:
+
+private:
+    Ui::ConnectionWidget * _ui;
+};
+
+} // namespace connection
+
+} // namespace gui
+
+} // namespace cams
+
+#endif // _5dc2942d_0163_4037_8904_9da7fed3b0cf
