@@ -4,7 +4,12 @@
 // Include Qt Files
 #include <QMainWindow>
 
-namespace cams_gui
+/// @brief Main namespace
+namespace cams
+{
+
+/// @brief Cams User Interface part
+namespace gui
 {
 
 namespace Ui {
@@ -25,6 +30,8 @@ private:
 
 };
 
-} // namespace cams_gui
+} // namespace gui
+
+} // namespace cams
 
 #endif // _9162810b_73fd_4f92_9c12_53cff547cbcc

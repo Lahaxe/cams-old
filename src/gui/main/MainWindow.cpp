@@ -1,13 +1,16 @@
-
 // Include Qt files
 #include <qdesktopwidget.h>
 
 // Include Project files
-#include "common/logger/Logger.h"
-#include "MainWindow.h"
+#include "main/MainWindow.h"
 #include "ui_MainWindow.h"
 
-namespace cams_gui
+/// @brief Main namespace
+namespace cams
+{
+
+/// @brief Cams User Interface part
+namespace gui
 {
 
 MainWindow
@@ -17,8 +20,6 @@ MainWindow
 {
     this->_ui->setupUi(this);
 
-    this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-
     // Resize to fullscreen
     this->resize(QDesktopWidget().availableGeometry(this).size());
 }
@@ -26,7 +27,12 @@ MainWindow
 MainWindow
 ::~MainWindow()
 {
-    delete this->_ui;
+    if (this->_ui != nullptr)
+    {
+        delete this->_ui;
+    }
 }
 
-} // namespace cams_gui
+} // namespace gui
+
+} // namespace cams

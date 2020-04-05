@@ -1,4 +1,4 @@
-// Include Standard library
+// Include Standard library files
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
@@ -7,18 +7,25 @@
 #include <QApplication>
 
 // Include Project files
+#include "common/configuration/Configuration.h"
 #include "common/logger/Logger.h"
-#include "cams-gui/MainWindow.h"
+#include "common/logger/LoggerFactory.h"
+#include "main/MainWindow.h"
 
 int main(int argc, char *argv[])
 {
-    //auto logger = libcams::common::Logger::instance();
-    int status = EXIT_FAILURE;
+    int exit_value = EXIT_SUCCESS;
+
+    auto logger_type = cams::lib::common::Configuration::instance().get_logger_type();
+    cams::lib::common::Logger::instance().set_logger_writer(
+                cams::lib::common::LoggerFactory::instance().create(logger_type));
+    cams::lib::common::LoggerFactory::delete_instance();
+
     try
     {
         std::stringstream message;
         message << "Begin " << std::string(argv[0]);
-        //logger.info(message.str());
+        cams::lib::common::Logger::instance().info(message.str());
 
         QApplication a(argc, argv);
 
@@ -27,23 +34,26 @@ int main(int argc, char *argv[])
         QCoreApplication::setApplicationName("cams-gui");
 
         // Create main frame
-        cams_gui::MainWindow frame;
-        //frame.Initialize();
+        cams::gui::MainWindow frame;
         frame.show();
 
-        status = a.exec();
+        exit_value = a.exec();
     }
     catch (std::exception & exc)
     {
+        exit_value = EXIT_FAILURE;
+
         std::stringstream message;
         message << exc.what();
-        //logger.fatal(message.str());
+        cams::lib::common::Logger::instance().fatal(message.str());
     }
 
     std::stringstream message;
     message << "End " << std::string(argv[0]);
-    //logger.info(message.str());
+    cams::lib::common::Logger::instance().info(message.str());
 
-    return status;
+    cams::lib::common::Logger::delete_instance();
+    cams::lib::common::Configuration::delete_instance();
+
+    return exit_value;
 }
-

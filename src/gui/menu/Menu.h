@@ -4,9 +4,15 @@
 // include Qt files
 #include <QWidget>
 
-namespace cams_gui
+/// @brief Main namespace
+namespace cams
 {
 
+/// @brief Cams User Interface part
+namespace gui
+{
+
+/// @brief Menu part
 namespace menu
 {
 
@@ -32,6 +38,8 @@ private:
 
 } // namespace menu
 
-} // namespace cams_gui
+} // namespace gui
+
+} // namespace cams
 
 #endif // _bc09e680_1ffe_4e01_bc22_9fde1b3070b2
