@@ -1,5 +1,8 @@
 #define BOOST_TEST_MODULE ModuleCamsException
 
+// Include Standard library files
+#include <sstream>
+
 // Include Boost library
 #include <boost/test/unit_test.hpp>
 
@@ -20,7 +23,6 @@ BOOST_AUTO_TEST_CASE(Constructor)
     delete exception;
 }
 
-
 /******************************** TEST Nominal ********************************/
 /**
  * @brief Nominal test case: Throw CamsException
@@ -34,4 +36,26 @@ BOOST_AUTO_TEST_CASE(ThrowCamsException)
                                     return std::string(exc.what()) ==
                                             std::string("Mon message");
                                 });
+}
+
+/******************************** TEST Nominal ********************************/
+/**
+ * @brief Nominal test case: Tests function to_json
+ */
+BOOST_AUTO_TEST_CASE(ToJson)
+{
+    auto exception = new cams::lib::common::CamsException("Mon message", 404);
+    BOOST_REQUIRE(exception != nullptr);
+
+    auto json_exception = exception->to_json();
+
+    std::stringstream expected_result;
+    expected_result << "{\n";
+    expected_result << "    \"error\": \"Mon message\",\n";
+    expected_result << "    \"errorcode\": \"404\"\n";
+    expected_result << "}\n";
+
+    BOOST_CHECK_EQUAL(json_exception, expected_result.str());
+
+    delete exception;
 }
