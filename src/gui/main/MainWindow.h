@@ -4,6 +4,8 @@
 // Include Qt Files
 #include <QMainWindow>
 
+#include "connector/ConnectorBase.h"
+/*
 /// @brief Main namespace
 namespace cams
 {
@@ -11,7 +13,7 @@ namespace cams
 /// @brief Cams User Interface part
 namespace gui
 {
-
+*/
 namespace Ui {
 class MainWindow;
 }
@@ -25,13 +27,18 @@ public:
 
     virtual ~MainWindow();
 
+private slots:
+    void onConnectionSend(QString const &, QString const &);
+
 private:
     Ui::MainWindow * _ui;
 
-};
+    cams::lib::connector::ConnectorBase::Pointer _connector;
 
+};
+/*
 } // namespace gui
 
 } // namespace cams
-
+*/
 #endif // _9162810b_73fd_4f92_9c12_53cff547cbcc

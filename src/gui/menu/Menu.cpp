@@ -5,27 +5,22 @@
 #include "menu/Menu.h"
 #include "ui_Menu.h"
 
-namespace cams
-{
-
-namespace gui
-{
-
-namespace menu
-{
-
 Menu
 ::Menu(QWidget *parent) :
     QWidget(parent),
     _ui(new Ui::Menu)
 {
     this->_ui->setupUi(this);
+    //this->resize(parent->size().width(), 60);
 }
 
 Menu
 ::~Menu()
 {
-    delete this->_ui;
+    if (this->_ui != nullptr)
+    {
+        delete this->_ui;
+    }
 }
 
 void
@@ -34,9 +29,3 @@ Menu
 {
     // Nothing yet
 }
-
-} // namespace menu
-
-} // namespace gui
-
-} // namespace cams

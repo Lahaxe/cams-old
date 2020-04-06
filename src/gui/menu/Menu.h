@@ -3,7 +3,7 @@
 
 // include Qt files
 #include <QWidget>
-
+/*
 /// @brief Main namespace
 namespace cams
 {
@@ -15,7 +15,7 @@ namespace gui
 /// @brief Menu part
 namespace menu
 {
-
+*/
 namespace Ui {
 class Menu;
 }
@@ -35,11 +35,11 @@ private slots:
 private:
     Ui::Menu * _ui;
 };
-
+/*
 } // namespace menu
 
 } // namespace gui
 
 } // namespace cams
-
+*/
 #endif // _bc09e680_1ffe_4e01_bc22_9fde1b3070b2

@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
         QCoreApplication::setApplicationName("cams-gui");
 
         // Create main frame
-        cams::gui::MainWindow frame;
+        MainWindow frame;
         frame.show();
 
         exit_value = a.exec();
