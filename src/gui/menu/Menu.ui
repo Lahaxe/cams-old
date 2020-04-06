@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>cams::gui::menu::Menu</class>
+ <class>Menu</class>
  <widget class="QWidget" name="Menu">
   <property name="geometry">
    <rect>

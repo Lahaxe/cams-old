@@ -5,15 +5,6 @@
 #include "menu/Menu.h"
 #include "ui_Menu.h"
 
-namespace cams
-{
-
-namespace gui
-{
-
-namespace menu
-{
-
 Menu
 ::Menu(QWidget *parent) :
     QWidget(parent),
@@ -37,9 +28,3 @@ Menu
 {
     // Nothing yet
 }
-
-} // namespace menu
-
-} // namespace gui
-
-} // namespace cams

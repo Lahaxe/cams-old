@@ -3,7 +3,7 @@
 
 // include Qt files
 #include <QWidget>
-
+/*
 /// @brief Main namespace
 namespace cams
 {
@@ -15,7 +15,7 @@ namespace gui
 /// @brief Connection part
 namespace connection
 {
-
+*/
 namespace Ui {
 class ConnectionWidget;
 }
@@ -29,16 +29,27 @@ public:
 
     virtual ~ConnectionWidget();
 
+public:
+    void onConnectionRefused();
+
+Q_SIGNALS:
+    void sendConnection(QString const & login, QString const & password);
+
 private slots:
+    void on_ConnectionButton_clicked();
+
+    void onLoginFilled(bool isFilled);
+
+    void onPasswordFilled(bool isFilled);
 
 private:
     Ui::ConnectionWidget * _ui;
 };
-
+/*
 } // namespace connection
 
 } // namespace gui
 
 } // namespace cams
-
+*/
 #endif // _5dc2942d_0163_4037_8904_9da7fed3b0cf

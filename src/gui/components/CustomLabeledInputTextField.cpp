@@ -1,15 +1,7 @@
 // Include Project files
 #include "components/CustomLabeledInputTextField.h"
+#include "tools/FocusEventFilter.h"
 #include "ui_CustomLabeledInputTextField.h"
-
-namespace cams
-{
-
-namespace gui
-{
-
-namespace components
-{
 
 CustomLabeledInputTextField
 ::CustomLabeledInputTextField(QWidget *parent) :
@@ -17,6 +9,12 @@ CustomLabeledInputTextField
     _ui(new Ui::CustomLabeledInputTextField)
 {
     this->_ui->setupUi(this);
+
+    this->_ui->message->setText("");
+
+    auto focuseventfilter = new FocusEventFilter(this->_ui->inputText);
+    this->connect(focuseventfilter, &FocusEventFilter::focusChanged,
+                  this, &CustomLabeledInputTextField::fieldlabel_focusChanged);
 }
 
 CustomLabeledInputTextField
@@ -42,8 +40,42 @@ CustomLabeledInputTextField
     this->_ui->fieldLabel->setText(label);
 }
 
-} // namespace components
+QString
+CustomLabeledInputTextField
+::get_input() const
+{
+    return this->_ui->inputText->text();
+}
 
-} // namespace gui
+void
+CustomLabeledInputTextField
+::display_error_message(QString const & message)
+{
+    this->_ui->message->setText(message);
+}
 
-} // namespace cams
+void
+CustomLabeledInputTextField
+::on_inputText_textChanged(const QString &arg1)
+{
+    if (!arg1.isEmpty())
+    {
+        this->_ui->message->setText("");
+        emit this->inputFill(true);
+    }
+    else
+    {
+        this->display_error_message("This field is required.");
+        emit this->inputFill(false);
+    }
+}
+
+void
+CustomLabeledInputTextField
+::fieldlabel_focusChanged(bool has_focus)
+{
+    if (!has_focus && this->_ui->inputText->text().isEmpty())
+    {
+        this->display_error_message("This field is required.");
+    }
+}

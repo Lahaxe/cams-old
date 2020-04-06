@@ -1,15 +1,6 @@
 // Include Project files
 #include "components/ValidationButton.h"
 
-namespace cams
-{
-
-namespace gui
-{
-
-namespace components
-{
-
 ValidationButton
 ::ValidationButton(QWidget *parent) :
     QPushButton(parent)
@@ -29,9 +20,3 @@ ValidationButton
 {
     // Nothing to do
 }
-
-} // namespace components
-
-} // namespace gui
-
-} // namespace cams

@@ -3,7 +3,7 @@
 
 // include Qt files
 #include <QPushButton>
-
+/*
 /// @brief Main namespace
 namespace cams
 {
@@ -15,7 +15,7 @@ namespace gui
 /// @brief Components part
 namespace components
 {
-
+*/
 class ValidationButton : public QPushButton
 {
     Q_OBJECT
@@ -32,11 +32,11 @@ private slots:
 private:
 
 };
-
+/*
 } // namespace components
 
 } // namespace gui
 
 } // namespace cams
-
+*/
 #endif // _95b29a3c_6459_48e0_b63f_736ffc5b59a5

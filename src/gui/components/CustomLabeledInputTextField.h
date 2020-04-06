@@ -4,18 +4,6 @@
 // include Qt files
 #include <QWidget>
 
-/// @brief Main namespace
-namespace cams
-{
-
-/// @brief Cams User Interface part
-namespace gui
-{
-
-/// @brief Components part
-namespace components
-{
-
 namespace Ui {
 class CustomLabeledInputTextField;
 }
@@ -34,17 +22,21 @@ public:
 
     void set_field_label(QString const & label);
 
+    QString get_input() const;
+
+    void display_error_message(QString const & message);
+
+Q_SIGNALS:
+    void inputFill(bool isFilled);
+
 private slots:
+    void on_inputText_textChanged(const QString &arg1);
+
+    void fieldlabel_focusChanged(bool has_focus);
 
 private:
     Ui::CustomLabeledInputTextField * _ui;
 
 };
-
-} // namespace components
-
-} // namespace gui
-
-} // namespace cams
 
 #endif // _3e5c9467_8241_420f_9684_3f3d291682d7

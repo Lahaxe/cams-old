@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>cams::gui::MainWindow</class>
+ <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
@@ -31,30 +31,14 @@
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <widget class="cams::gui::menu::Menu" name="widget" native="true">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="cams::gui::connection::ConnectionWidget" name="Connection" native="true"/>
+     <widget class="ConnectionWidget" name="Connection" native="true"/>
     </item>
    </layout>
   </widget>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>cams::gui::menu::Menu</class>
-   <extends>QWidget</extends>
-   <header>menu/Menu.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>cams::gui::connection::ConnectionWidget</class>
+   <class>ConnectionWidget</class>
    <extends>QWidget</extends>
    <header>connection/ConnectionWidget.h</header>
    <container>1</container>

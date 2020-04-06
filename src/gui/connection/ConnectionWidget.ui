@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>cams::gui::connection::ConnectionWidget</class>
+ <class>ConnectionWidget</class>
  <widget class="QWidget" name="ConnectionWidget">
   <property name="geometry">
    <rect>
@@ -27,10 +27,10 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="0">
-    <widget class="cams::gui::components::CustomLabeledInputTextField" name="login" native="true"/>
+    <widget class="CustomLabeledInputTextField" name="login" native="true"/>
    </item>
    <item row="1" column="0">
-    <widget class="cams::gui::components::CustomNotificationWidget" name="errorMessage" native="true"/>
+    <widget class="CustomNotificationWidget" name="errorMessage" native="true"/>
    </item>
    <item row="0" column="0" alignment="Qt::AlignHCenter">
     <widget class="QLabel" name="label">
@@ -40,7 +40,7 @@
     </widget>
    </item>
    <item row="4" column="0">
-    <widget class="cams::gui::components::ValidationButton" name="ConnectionButton">
+    <widget class="ValidationButton" name="ConnectionButton">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -56,24 +56,24 @@
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="cams::gui::components::CustomLabeledInputTextField" name="password" native="true"/>
+    <widget class="CustomLabeledInputTextField" name="password" native="true"/>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>cams::gui::components::ValidationButton</class>
+   <class>ValidationButton</class>
    <extends>QPushButton</extends>
    <header>components/ValidationButton.h</header>
   </customwidget>
   <customwidget>
-   <class>cams::gui::components::CustomNotificationWidget</class>
+   <class>CustomNotificationWidget</class>
    <extends>QWidget</extends>
    <header>components/CustomNotificationWidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>cams::gui::components::CustomLabeledInputTextField</class>
+   <class>CustomLabeledInputTextField</class>
    <extends>QWidget</extends>
    <header>components/CustomLabeledInputTextField.h</header>
    <container>1</container>

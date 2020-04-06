@@ -5,15 +5,6 @@
 #include "components/CustomNotificationWidget.h"
 #include "ui_CustomNotificationWidget.h"
 
-namespace cams
-{
-
-namespace gui
-{
-
-namespace components
-{
-
 CustomNotificationWidget
 ::CustomNotificationWidget(QWidget *parent) :
     QWidget(parent),
@@ -30,9 +21,3 @@ CustomNotificationWidget
         delete this->_ui;
     }
 }
-
-} // namespace components
-
-} // namespace gui
-
-} // namespace cams
