@@ -29,7 +29,6 @@ public:
 
     virtual ~ConnectionWidget();
 
-public:
     void onConnectionRefused();
 
 Q_SIGNALS:

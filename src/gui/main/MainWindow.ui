@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>858</width>
     <height>600</height>
    </rect>
   </property>
@@ -31,7 +31,30 @@
      <number>0</number>
     </property>
     <item row="0" column="0">
-     <widget class="ConnectionWidget" name="Connection" native="true"/>
+     <widget class="ConnectionWidget" name="Connection" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>500</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>400</width>
+        <height>500</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="MainWidget" name="Main" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -41,6 +64,12 @@
    <class>ConnectionWidget</class>
    <extends>QWidget</extends>
    <header>connection/ConnectionWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MainWidget</class>
+   <extends>QWidget</extends>
+   <header>main/MainWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

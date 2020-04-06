@@ -30,6 +30,8 @@ MainWindow
     // Resize to fullscreen
     this->resize(QDesktopWidget().availableGeometry(this).size());
 
+    this->_ui->Main->hide();
+
     // Load stylesheet
     QFile stylesheet("cams.css");
     if (stylesheet.open(QIODevice::Text | QIODevice::ReadOnly))
@@ -87,7 +89,7 @@ MainWindow
             this->_connector->get_identity()->set_token(token->get_token());
             this->_ui->Connection->hide();
             // TODO ajouter l'user ID pour initialiser l'écran
-            //this->_ui->MainWidget->show();
+            this->_ui->Main->show();
             return;
         }
     }

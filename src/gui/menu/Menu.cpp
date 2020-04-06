@@ -11,6 +11,7 @@ Menu
     _ui(new Ui::Menu)
 {
     this->_ui->setupUi(this);
+    //this->resize(parent->size().width(), 60);
 }
 
 Menu
