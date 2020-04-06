@@ -1,5 +1,6 @@
 cams--gui--components--ValidationButton 
 { 
-    background-color: rgb(40,167,69) 
+    background-color: rgb(40,167,69);
+    color: rgb(255,255,255);
 }
 

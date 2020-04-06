@@ -20,6 +20,14 @@ ConnectionWidget
     _ui(new Ui::ConnectionWidget)
 {
     this->_ui->setupUi(this);
+
+    this->_ui->errorMessage->resize(400, 50);
+    this->_ui->login->resize(400, 50);
+    this->_ui->password->resize(400, 50);
+
+
+    this->_ui->login->set_field_label("Nom d'utilisateur");
+    this->_ui->password->set_field_label("Mot de passe");
 }
 
 ConnectionWidget
