@@ -19,9 +19,13 @@ ConnectionWidget
 
     this->connect(this->_ui->login, SIGNAL(inputFill(bool)), this, SLOT(onLoginFilled(bool)));
     this->connect(this->_ui->password, SIGNAL(inputFill(bool)), this, SLOT(onPasswordFilled(bool)));
+    this->connect(this->_ui->password, SIGNAL(requestNewPassword()), this, SLOT(onResetPasswordClicked()));
 
     this->_ui->login->set_field_label("Nom d'utilisateur");
     this->_ui->password->set_field_label("Mot de passe");
+
+    // Pas de création de compte pour le moment
+    this->_ui->newAccountButton->setVisible(false);
 }
 
 ConnectionWidget
@@ -58,9 +62,17 @@ ConnectionWidget
 
 void
 ConnectionWidget
+::onResetPasswordClicked()
+{
+    emit this->sendResetPassword(this->_ui->login->get_input());
+}
+
+void
+ConnectionWidget
 ::onLoginFilled(bool isFilled)
 {
     this->_ui->ConnectionButton->setEnabled(isFilled && !this->_ui->password->get_input().isEmpty());
+    this->_ui->password->enabled_forgetpassword_button(isFilled);
 }
 
 void

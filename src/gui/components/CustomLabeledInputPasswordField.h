@@ -26,6 +26,8 @@ public:
 
     void display_error_message(QString const & message);
 
+    void enabled_forgetpassword_button(bool is_enabled);
+
 Q_SIGNALS:
     void inputFill(bool isFilled);
 

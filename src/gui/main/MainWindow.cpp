@@ -47,6 +47,8 @@ MainWindow
     // Connect Signals
     this->connect(this->_ui->Connection, SIGNAL(sendConnection(QString const &, QString const &)),
                   this, SLOT(onConnectionSend(QString const &, QString const &)));
+    this->connect(this->_ui->Connection, SIGNAL(sendResetPassword(QString const &)),
+                  this, SLOT(onResetPasswordSend(QString const &)));
 
     // Create the connector
     this->_connector = cams::lib::connector::ConnectorFactory::instance().create(
@@ -100,6 +102,13 @@ MainWindow
     }
 
     this->_ui->Connection->onConnectionRefused();
+}
+
+void
+MainWindow
+::onResetPasswordSend(QString const & login)
+{
+    // Not implemented yet
 }
 /*
 } // namespace gui

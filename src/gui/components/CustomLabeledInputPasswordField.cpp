@@ -15,6 +15,9 @@ CustomLabeledInputPasswordField
     auto focuseventfilter = new FocusEventFilter(this->_ui->inputText);
     this->connect(focuseventfilter, &FocusEventFilter::focusChanged,
                   this, &CustomLabeledInputPasswordField::fieldlabel_focusChanged);
+
+    // Pas de reset de mot de passe pour le moment
+    this->_ui->forgetPasswordButton->setVisible(false);
 }
 
 CustomLabeledInputPasswordField
@@ -56,6 +59,13 @@ CustomLabeledInputPasswordField
 
 void
 CustomLabeledInputPasswordField
+::enabled_forgetpassword_button(bool is_enabled)
+{
+    this->_ui->forgetPasswordButton->setEnabled(is_enabled);
+}
+
+void
+CustomLabeledInputPasswordField
 ::on_inputText_textChanged(const QString &arg1)
 {
     if (!arg1.isEmpty())
@@ -84,5 +94,5 @@ void
 CustomLabeledInputPasswordField
 ::on_forgetPasswordButton_clicked()
 {
-
+    emit this->requestNewPassword();
 }
