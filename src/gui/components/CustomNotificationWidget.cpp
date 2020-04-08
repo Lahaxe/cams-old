@@ -21,3 +21,19 @@ CustomNotificationWidget
         delete this->_ui;
     }
 }
+
+void
+CustomNotificationWidget
+::showError(const QString &message)
+{
+    this->_ui->message->setText(message);
+    // TODO => background error
+    this->show();
+}
+
+void
+CustomNotificationWidget
+::on_closeButton_clicked()
+{
+    this->hide();
+}

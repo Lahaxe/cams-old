@@ -26,12 +26,6 @@
    <string>Connection</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="0">
-    <widget class="CustomLabeledInputTextField" name="login" native="true"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="CustomNotificationWidget" name="errorMessage" native="true"/>
-   </item>
    <item row="0" column="0" alignment="Qt::AlignHCenter">
     <widget class="QLabel" name="label">
      <property name="text">
@@ -55,8 +49,24 @@
      </property>
     </widget>
    </item>
+   <item row="2" column="0">
+    <widget class="CustomLabeledInputTextField" name="login" native="true"/>
+   </item>
    <item row="3" column="0">
-    <widget class="CustomLabeledInputTextField" name="password" native="true"/>
+    <widget class="CustomLabeledInputPasswordField" name="password" native="true"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="CustomNotificationWidget" name="errorMessage" native="true"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QPushButton" name="newAccountButton">
+     <property name="text">
+      <string>Créer un compte</string>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
@@ -76,6 +86,12 @@
    <class>CustomLabeledInputTextField</class>
    <extends>QWidget</extends>
    <header>components/CustomLabeledInputTextField.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CustomLabeledInputPasswordField</class>
+   <extends>QWidget</extends>
+   <header>components/CustomLabeledInputPasswordField.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

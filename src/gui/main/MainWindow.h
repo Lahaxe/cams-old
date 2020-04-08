@@ -30,6 +30,8 @@ public:
 private slots:
     void onConnectionSend(QString const &, QString const &);
 
+    void onResetPasswordSend(QString const &);
+
 private:
     Ui::MainWindow * _ui;
 

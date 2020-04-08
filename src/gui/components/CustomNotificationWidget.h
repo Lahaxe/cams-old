@@ -17,6 +17,15 @@ public:
 
     virtual ~CustomNotificationWidget();
 
+    void showError(QString const & message);
+
+    void showWarning(QString const & message);
+
+    void showInformation(QString const & message);
+
+private slots:
+    void on_closeButton_clicked();
+
 private slots:
 
 private:
