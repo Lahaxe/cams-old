@@ -34,7 +34,11 @@ public:
 Q_SIGNALS:
     void sendConnection(QString const & login, QString const & password);
 
+    void sendNewAccount(QString const & login);
+
 private slots:
+    void on_newAccountButton_clicked();
+
     void on_ConnectionButton_clicked();
 
     void onLoginFilled(bool isFilled);

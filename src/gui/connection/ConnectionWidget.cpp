@@ -20,7 +20,6 @@ ConnectionWidget
     this->connect(this->_ui->login, SIGNAL(inputFill(bool)), this, SLOT(onLoginFilled(bool)));
     this->connect(this->_ui->password, SIGNAL(inputFill(bool)), this, SLOT(onPasswordFilled(bool)));
 
-
     this->_ui->login->set_field_label("Nom d'utilisateur");
     this->_ui->password->set_field_label("Mot de passe");
 }
@@ -40,6 +39,13 @@ ConnectionWidget
 {
     // Display error
     this->_ui->errorMessage->show();
+}
+
+void
+ConnectionWidget
+::on_newAccountButton_clicked()
+{
+    emit sendNewAccount(this->_ui->login->get_input());
 }
 
 void
