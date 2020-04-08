@@ -8,32 +8,20 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>400</width>
-    <height>400</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>5000</width>
-    <height>4000</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>Main</string>
   </property>
   <widget class="Menu" name="menu" native="true">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <property name="maximumSize">
+   <property name="minimumSize">
     <size>
-     <width>16777215</width>
-     <height>60</height>
+     <width>0</width>
+     <height>50</height>
     </size>
    </property>
   </widget>
