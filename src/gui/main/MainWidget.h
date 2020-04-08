@@ -29,10 +29,13 @@ public:
 
     virtual ~MainWidget();
 
+    void initialize();
+
 private slots:
 
 private:
     Ui::MainWidget * _ui;
+
 };
 /*
 } // namespace connection

@@ -21,3 +21,10 @@ MainWidget
         delete this->_ui;
     }
 }
+
+void
+MainWidget
+::initialize()
+{
+    this->_ui->menu->setGeometry(0,0,this->size().width(), 50);
+}

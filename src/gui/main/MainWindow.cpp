@@ -11,6 +11,7 @@
 #include "model/users/Identity.h"
 #include "main/MainWindow.h"
 #include "ui_MainWindow.h"
+
 /*
 /// @brief Main namespace
 namespace cams
@@ -29,6 +30,7 @@ MainWindow
 
     // Resize to fullscreen
     this->resize(QDesktopWidget().availableGeometry(this).size());
+    this->_ui->centralwidget->setGeometry(0,0,this->size().width(), this->size().height());
 
     this->_ui->Main->hide();
     this->_ui->CreateAccount->hide();
@@ -96,6 +98,8 @@ MainWindow
             this->_connector->get_identity()->set_token(token->get_token());
             this->_ui->Connection->hide();
             // TODO ajouter l'user ID pour initialiser l'écran
+            this->_ui->Main->setGeometry(0,0,this->size().width(), this->size().height());
+            this->_ui->Main->initialize();
             this->_ui->Main->show();
             return;
         }
