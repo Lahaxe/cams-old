@@ -31,6 +31,7 @@ MainWindow
     this->resize(QDesktopWidget().availableGeometry(this).size());
 
     this->_ui->Main->hide();
+    this->_ui->CreateAccount->hide();
 
     // Load stylesheet
     QFile stylesheet("cams.css");
@@ -49,6 +50,10 @@ MainWindow
                   this, SLOT(onConnectionSend(QString const &, QString const &)));
     this->connect(this->_ui->Connection, SIGNAL(sendResetPassword(QString const &)),
                   this, SLOT(onResetPasswordSend(QString const &)));
+    this->connect(this->_ui->Connection, SIGNAL(sendNewAccount(QString const &)),
+                  this, SLOT(onNewAccountSend(QString const &)));
+    this->connect(this->_ui->CreateAccount, SIGNAL(sendBackToConnection(QString const &)),
+                  this, SLOT(onSendBackToConnectionSend(QString const &)));
 
     // Create the connector
     this->_connector = cams::lib::connector::ConnectorFactory::instance().create(
@@ -109,6 +114,24 @@ MainWindow
 ::onResetPasswordSend(QString const & login)
 {
     // Not implemented yet
+}
+
+void
+MainWindow
+::onNewAccountSend(const QString & login)
+{
+    this->_ui->Connection->hide();
+    this->_ui->CreateAccount->set_login(login);
+    this->_ui->CreateAccount->show();
+}
+
+void
+MainWindow
+::onSendBackToConnectionSend(QString const & login)
+{
+    this->_ui->CreateAccount->hide();
+    this->_ui->Connection->set_login(login);
+    this->_ui->Connection->show();
 }
 /*
 } // namespace gui

@@ -25,7 +25,7 @@ ConnectionWidget
     this->_ui->password->set_field_label("Mot de passe");
 
     // Pas de création de compte pour le moment
-    this->_ui->newAccountButton->setVisible(false);
+    //this->_ui->newAccountButton->setVisible(false);
 }
 
 ConnectionWidget
@@ -35,6 +35,13 @@ ConnectionWidget
     {
         delete this->_ui;
     }
+}
+
+void
+ConnectionWidget
+::set_login(const QString &login)
+{
+    this->_ui->login->set_input(login);
 }
 
 void
