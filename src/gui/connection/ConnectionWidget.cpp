@@ -42,7 +42,7 @@ ConnectionWidget
 ::onConnectionRefused()
 {
     // Display error
-    this->_ui->errorMessage->show();
+    this->_ui->errorMessage->showError("Nom d'utilisateur ou mot de passe invalide");
 }
 
 void
