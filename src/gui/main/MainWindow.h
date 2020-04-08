@@ -32,6 +32,8 @@ private slots:
 
     void onResetPasswordSend(QString const &);
 
+    void onNewAccountSend(QString const &);
+
 private:
     Ui::MainWindow * _ui;
 

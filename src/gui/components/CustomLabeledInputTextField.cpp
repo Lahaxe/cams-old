@@ -49,6 +49,13 @@ CustomLabeledInputTextField
 
 void
 CustomLabeledInputTextField
+::set_input(const QString &input)
+{
+    this->_ui->inputText->setText(input);
+}
+
+void
+CustomLabeledInputTextField
 ::display_error_message(QString const & message)
 {
     this->_ui->message->setText(message);

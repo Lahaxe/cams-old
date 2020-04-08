@@ -24,6 +24,8 @@ public:
 
     QString get_input() const;
 
+    void set_input(QString const & input);
+
     void display_error_message(QString const & message);
 
 Q_SIGNALS:

@@ -30,6 +30,16 @@
     <property name="spacing">
      <number>0</number>
     </property>
+    <item row="0" column="2">
+     <widget class="MainWidget" name="Main" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="ConnectionWidget" name="Connection" native="true">
       <property name="minimumSize">
@@ -47,12 +57,18 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="MainWidget" name="Main" native="true">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+     <widget class="CreateAccountWidget" name="CreateAccount" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>500</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>400</width>
+        <height>500</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -70,6 +86,12 @@
    <class>MainWidget</class>
    <extends>QWidget</extends>
    <header>main/MainWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CreateAccountWidget</class>
+   <extends>QWidget</extends>
+   <header>connection/CreateAccountWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

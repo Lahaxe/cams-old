@@ -25,7 +25,7 @@ ConnectionWidget
     this->_ui->password->set_field_label("Mot de passe");
 
     // Pas de création de compte pour le moment
-    this->_ui->newAccountButton->setVisible(false);
+    //this->_ui->newAccountButton->setVisible(false);
 }
 
 ConnectionWidget
