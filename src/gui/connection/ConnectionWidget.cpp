@@ -39,6 +39,13 @@ ConnectionWidget
 
 void
 ConnectionWidget
+::set_login(const QString &login)
+{
+    this->_ui->login->set_input(login);
+}
+
+void
+ConnectionWidget
 ::onConnectionRefused()
 {
     // Display error

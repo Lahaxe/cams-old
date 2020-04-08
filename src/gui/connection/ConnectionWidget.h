@@ -31,6 +31,8 @@ public:
 
     void onConnectionRefused();
 
+    void set_login(QString const & login);
+
 Q_SIGNALS:
     void sendConnection(QString const & login, QString const & password);
 

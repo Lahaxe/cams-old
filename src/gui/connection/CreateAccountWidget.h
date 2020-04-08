@@ -31,6 +31,12 @@ public:
 
     void set_login(QString const & login);
 
+Q_SIGNALS:
+    void sendBackToConnection(QString const & login);
+
+private slots:
+    void on_connectionButton_clicked();
+
 private:
     Ui::CreateAccountWidget * _ui;
 };

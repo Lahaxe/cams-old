@@ -34,3 +34,10 @@ CreateAccountWidget
     this->_ui->login->set_input(login);
 }
 
+
+void
+CreateAccountWidget
+::on_connectionButton_clicked()
+{
+    emit sendBackToConnection(this->_ui->login->get_input());
+}

@@ -34,6 +34,8 @@ private slots:
 
     void onNewAccountSend(QString const &);
 
+    void onSendBackToConnectionSend(QString const &);
+
 private:
     Ui::MainWindow * _ui;
 
