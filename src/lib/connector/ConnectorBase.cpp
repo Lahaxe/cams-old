@@ -38,13 +38,6 @@ ConnectorBase
     this->_identity = identity;
 }
 
-model::Token::Pointer
-ConnectorBase
-::authenticate()
-{
-    throw common::NotImplementedException();
-}
-
 } // namespace connector
 
 } // namespace lib
