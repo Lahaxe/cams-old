@@ -30,22 +30,22 @@ public:
     static ControllerFactory & instance();
 
     /**
-     * @brief Destory the instance of ControllerFactory
+     * @brief Destroy the instance of ControllerFactory
      */
     static void delete_instance();
 
     /**
-     * @brief Destroy the instance of this factory
+     * @brief Destroy the instance of ControllerFactory
      */
     virtual ~ControllerFactory();
 
 protected:
 
 private:
-    /// @brief Create an instance of this factory
+    /// @brief Create an instance of ControllerFactory
     ControllerFactory();
 
-    /// @brief Unique instance of this factory
+    /// @brief Unique instance of ControllerFactory
     static ControllerFactory* _instance;
 
     /**

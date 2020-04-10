@@ -20,8 +20,20 @@ namespace common
 namespace json
 {
 
+/**
+ * @brief Writes a given JSON in a given file
+ * @param json: JSON to write
+ * @param filename: Name of the file
+ * @return Returns true if successful, false otherwise
+ */
 bool to_file(QJsonObject const & json, std::string const & filename);
 
+/**
+ * @brief Reads a JSON from a given file
+ * @param json: Readed JSON
+ * @param filename: Name of the file
+ * @return Returns true if successful, false otherwise
+ */
 bool from_file(QJsonObject & json, std::string const & filename);
 
 } // namespace json

@@ -18,7 +18,7 @@ namespace common
 {
 
 /**
- * @brief The Logger class
+ * @brief The LoggerBase class
  */
 class LoggerBase
 {
@@ -35,7 +35,7 @@ public:
     LoggerBase();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of LoggerBase
      */
     virtual ~LoggerBase();
 

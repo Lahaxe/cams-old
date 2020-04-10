@@ -30,7 +30,7 @@ public:
     static ConnectorFactory & instance();
 
     /**
-     * @brief Destory the instance of ConnectorFactory
+     * @brief Destroy the instance of ConnectorFactory
      */
     static void delete_instance();
 

@@ -4,6 +4,7 @@
 // Include Standard library
 #include <memory>
 
+// Include Qt files
 #include <QJsonDocument>
 
 // Include Project files
@@ -22,11 +23,17 @@ namespace lib
 namespace controller
 {
 
+/// @brief Action GET
 const std::string ACTION_GET = "GET";
+/// @brief Action POST
 const std::string ACTION_POST = "POST";
+/// @brief Action PUT
 const std::string ACTION_PUT = "PUT";
+/// @brief Action PATCH
 const std::string ACTION_PATCH = "PATCH";
+/// @brief Action DELETE
 const std::string ACTION_DELETE = "DELETE";
+/// @brief Action OPTIONS
 const std::string ACTION_OPTIONS = "OPTIONS";
 
 /**
@@ -47,19 +54,19 @@ public:
     ControllerBase();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of ControllerBase
      */
     virtual ~ControllerBase();
 
     /**
-     * @brief Get connector member
-     * @return Return value of connector
+     * @brief Get the ControllerBase connector
+     * @return Return the ControllerBase connector
      */
     connector::ConnectorBase::Pointer get_connector() const;
 
     /**
-     * @brief Set connector member
-     * @param password: New value of connector
+     * @brief Set the ControllerBase connector
+     * @param connector: New ControllerBase connector
      */
     void set_connector(connector::ConnectorBase::Pointer connector);
 
@@ -73,39 +80,63 @@ public:
     /**
      * @brief Execute the given action
      * @param action: The given action name
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
-    QJsonDocument execute(std::string const & action, std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
+    QJsonDocument execute(std::string const & action,
+                          std::string const & ressource = "",
+                          QJsonDocument const & document = QJsonDocument());
 
 protected:
+    /// @brief The ControllerBase connector
     connector::ConnectorBase::Pointer _connector;
 
     /**
      * @brief Execute the GET action
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
     virtual QJsonDocument execute_get(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the POST action
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
     virtual QJsonDocument execute_post(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the PUT action
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
     virtual QJsonDocument execute_put(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the PATCH action
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
     virtual QJsonDocument execute_patch(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the DELETE action
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
     virtual QJsonDocument execute_delete(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
      * @brief Execute the OPTIONS action
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
     virtual QJsonDocument execute_options(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 

@@ -1,6 +1,7 @@
 #ifndef _82610f19_e640_4e65_bd75_049dfa0b9170
 #define _82610f19_e640_4e65_bd75_049dfa0b9170
 
+// Include Project files
 #include "common/logger/LoggerBase.h"
 
 /// @brief Main namespace
@@ -34,7 +35,7 @@ public:
     static Pointer New();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of FileLogger
      */
     virtual ~FileLogger();
 

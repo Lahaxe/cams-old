@@ -18,7 +18,7 @@ namespace common
 {
 
 /**
- * @brief The ConnectorFactory class
+ * @brief The LoggerFactory class
  */
 class LoggerFactory : public common::BaseFactory<LoggerBase>
 {
@@ -30,19 +30,19 @@ public:
     static LoggerFactory & instance();
 
     /**
-     * @brief Destory the instance of LoggerFactory
+     * @brief Destroy the unique instance of LoggerFactory
      */
     static void delete_instance();
 
     /**
-     * @brief Destroy the instance of this factory
+     * @brief Destroy the instance of LoggerFactory
      */
     virtual ~LoggerFactory();
 
 protected:
 
 private:
-    /// @brief Create an instance of this factory
+    /// @brief Create an instance of LoggerFactory
     LoggerFactory();
 
     /// @brief Unique instance of this factory

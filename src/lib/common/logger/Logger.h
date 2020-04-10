@@ -4,6 +4,7 @@
 // Include Standard library
 #include <string>
 
+// Include Projets files
 #include "common/logger/LoggerBase.h"
 
 /// @brief Main namespace
@@ -41,7 +42,7 @@ public:
     Logger();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of Logger
      */
     virtual ~Logger();
 
@@ -75,14 +76,19 @@ public:
      */
     void fatal(std::string const & message);
 
+    /**
+     * @brief Set the Logger logger_writter
+     * @param logger_writer: New Logger logger_writter
+     */
     void set_logger_writer(LoggerBase::Pointer logger_writer);
 
 protected:
 
 private:
-    /// Unique instance
+    /// Unique instance of Logger
     static Logger* _instance;
 
+    /// @brief The logger writter
     LoggerBase::Pointer _logger_writer;
 
 };

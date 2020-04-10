@@ -29,7 +29,7 @@ public:
     NotImplementedActionException(std::string const & action);
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of NotImplementedActionException
      */
     virtual ~NotImplementedActionException() noexcept;
 

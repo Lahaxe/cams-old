@@ -23,13 +23,13 @@ class UnknownActionException : public common::CamsException
 {
 public:
     /**
-     * @brief Create an isntance of UnknownActionException
+     * @brief Create an instance of UnknownActionException
      * @param action: Name of the action
      */
     UnknownActionException(std::string const & action);
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of UnknownActionException
      */
     virtual ~UnknownActionException() noexcept;
 

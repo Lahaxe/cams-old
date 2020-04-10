@@ -35,7 +35,7 @@ public:
     static Pointer New();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of ControllerToken
      */
     virtual ~ControllerToken();
 
@@ -48,6 +48,9 @@ public:
 protected:
     /**
      * @brief Execute the POST action
+     * @param ressource: Path of the ressource
+     * @param document: Input JSON document
+     * @return Returns the result of the given action as JSON
      */
     virtual QJsonDocument execute_post(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 

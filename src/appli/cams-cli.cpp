@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-// Include
+// Include Cams files
 #include "common/configuration/Configuration.h"
 #include "common/logger/Logger.h"
 #include "common/logger/LoggerFactory.h"

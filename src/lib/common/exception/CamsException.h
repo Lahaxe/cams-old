@@ -26,11 +26,12 @@ public:
     /**
      * @brief Message string constructor
      * @param message: Details of the exception
+     * @param code: Code of the exception
      */
     CamsException(std::string const & message = "", unsigned int code = 500);
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of CamsException
      */
     virtual ~CamsException() noexcept;
 
@@ -40,6 +41,10 @@ public:
      */
     virtual const char* what() const noexcept;
 
+    /**
+     * @brief Converts this exception as a JSON string
+     * @return Returns this exception as a JSON string
+     */
     std::string to_json() const noexcept;
 
 protected:
