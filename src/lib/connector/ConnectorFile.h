@@ -35,7 +35,7 @@ public:
     static Pointer New();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of ConnectorFile
      */
     virtual ~ConnectorFile();
 
@@ -45,18 +45,48 @@ public:
      */
     static std::string class_name();
 
+    /**
+     * @brief Allows to authenticate
+     * @return Returns a token if authentication was successful
+     */
     virtual model::Token::Pointer authenticate();
 
+    /**
+     * @brief Get all users
+     * @return Returns list of users
+     */
     virtual std::vector<model::User::Pointer> get_users();
 
+    /**
+     * @brief Get user by a given id
+     * @param id: User id
+     * @return Returns user corresponding to the given id
+     */
     virtual model::User::Pointer get_user_by_id(std::string const & id);
 
+    /**
+     * @brief Create a new user
+     * @param user: User to create
+     */
     virtual void post_user(model::User::Pointer user);
 
+    /**
+     * @brief Replace an user
+     * @param user: User to replace
+     */
     virtual void put_user(model::User::Pointer user);
 
+    /**
+     * @brief Modify an user
+     * @param user: User to modify
+     */
     virtual void patch_user(model::User::Pointer user);
 
+    /**
+     * @brief Deletes an user by a given id
+     * @param id: User id
+     * @return Returns the deleted user
+     */
     virtual model::User::Pointer delete_user_by_id(std::string const & id);
 
 protected:
@@ -79,8 +109,18 @@ private:
      */
     ConnectorFile& operator=(ConnectorFile const & other);
 
+    /**
+     * @brief Generates a new Token
+     * @param userid: User id
+     * @return Returns the new Token
+     */
     std::string _generate_token(std::string const & userid) const;
 
+    /**
+     * @brief Verify the token
+     * @param token: Token to verify
+     * @return Returns true if token is a good one, false otherwise
+     */
     bool _is_good_token(std::string const & token) const;
 
 };
