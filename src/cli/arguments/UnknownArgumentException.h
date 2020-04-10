@@ -19,13 +19,13 @@ class UnknownArgumentException : public lib::common::CamsException
 {
 public:
     /**
-     * @brief Constructor
-     * @param argument: Unknown argument
+     * @brief Create an instance of UnknownArgumentException
+     * @param argument: The unknown argument
      */
     UnknownArgumentException(std::string const & argument);
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of UnknownArgumentException
      */
     virtual ~UnknownArgumentException() noexcept;
 

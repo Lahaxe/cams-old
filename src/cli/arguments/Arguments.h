@@ -19,122 +19,122 @@ class Arguments
 {
 public:
     /**
-     * @brief Contructor
+     * @brief Create an instance of Arguments
      * @param argc: Number of arguments
      * @param argv: List of arguments
      */
     Arguments(int argc, char *argv[]);
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of Arguments
      */
     virtual ~Arguments();
 
     /**
-     * @brief Get diplay_help member
-     * @return Return value of display_help
+     * @brief Get the Argument display_help
+     * @return Return the Argument display_help
      */
     bool get_display_help() const;
 
     /**
-     * @brief Set display_help member
-     * @param display_help: New value of display_help
+     * @brief Set the Argument display_help
+     * @param display_help: New Argument display_help
      */
     void set_display_help(bool display_help);
 
     /**
-     * @brief Get action member
-     * @return Return value of action
+     * @brief Get the Argument action
+     * @return Return the Argument action
      */
     std::string get_action() const;
 
     /**
-     * @brief Set action member
-     * @param display_help: New value of action
+     * @brief Set the Argument action
+     * @param action: New Argument action
      */
     void set_action(std::string const & action);
 
     /**
-     * @brief Get controller member
-     * @return Return value of controller
+     * @brief Get the Argument controller
+     * @return Return the Argument controller
      */
     std::string get_controller() const;
 
     /**
-     * @brief Set controller member
-     * @param display_help: New value of controller
+     * @brief Set the Argument controller
+     * @param controller: New Argument controller
      */
     void set_controller(std::string const & controller);
 
     /**
-     * @brief Get user member
-     * @return Return value of user
+     * @brief Get the Argument user
+     * @return Return the Argument user
      */
     std::string get_user() const;
 
     /**
-     * @brief Set user member
-     * @param display_help: New value of user
+     * @brief Set the Argument user
+     * @param user: New Argument user
      */
     void set_user(std::string const & user);
 
     /**
-     * @brief Get password member
-     * @return Return value of password
+     * @brief Get the Argument password
+     * @return Return the Argument password
      */
     std::string get_password() const;
 
     /**
-     * @brief Set password member
-     * @param display_help: New value of password
+     * @brief Set the Argument password
+     * @param password: New Argument password
      */
     void set_password(std::string const & password);
 
     /**
-     * @brief Get token member
-     * @return Return value of token
+     * @brief Get the Argument token
+     * @return Return the Argument token
      */
     std::string get_token() const;
 
     /**
-     * @brief Set token member
-     * @param display_help: New value of token
+     * @brief Set the Argument token
+     * @param token: New Argument token
      */
     void set_token(std::string const & token);
 
     /**
-     * @brief Get json_file member
-     * @return Return value of json_file
+     * @brief Get the Argument json_file
+     * @return Return the Argument json_file
      */
     std::string get_json_file() const;
 
     /**
-     * @brief Set json_file member
-     * @param display_help: New value of json_file
+     * @brief Set the Argument json_file
+     * @param json_file: New Argument json_file
      */
     void set_json_file(std::string const & json_file);
 
     /**
-     * @brief Get json_string member
-     * @return Return value of json_string
+     * @brief Get the Argument json_string
+     * @return Return the Argument json_string
      */
     std::string get_json_string() const;
 
     /**
-     * @brief Set json_string member
-     * @param display_help: New value of json_string
+     * @brief Set the Argument json_string
+     * @param json_string: New Argument json_string
      */
     void set_json_string(std::string const & json_string);
 
     /**
-     * @brief Get ressource_path member
-     * @return Return value of ressource_path
+     * @brief Get the Argument ressource_path
+     * @return Return the Argument ressource_path
      */
     std::string get_ressource_path() const;
 
     /**
-     * @brief Set ressource_path member
-     * @param display_help: New value of ressource_path
+     * @brief Set the Argument ressource_path
+     * @param ressource_path: New Argument ressource_path
      */
     void set_ressource_path(std::string const & ressource_path);
 
