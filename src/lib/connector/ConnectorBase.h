@@ -56,7 +56,7 @@ public:
      */
     void set_identity(model::Identity::Pointer identity);
 
-    virtual model::Token::Pointer authenticate();
+    virtual model::Token::Pointer authenticate() = 0;
 
     virtual std::vector<model::User::Pointer> get_users() = 0;
 

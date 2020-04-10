@@ -1,18 +1,24 @@
 #define BOOST_TEST_MODULE ModuleConnectorFile
 
-// Include Boost library
-#include <boost/test/unit_test.hpp>
-
 // Include Project files
-#include "src/lib/connector/ConnectorFile.h"
+#include "tests/code/lib/connector/FixtureConnectorFile.h"
 
 /******************************** TEST Nominal ********************************/
 /**
  * @brief Nominal test case: Constructor and Destructor
  */
-BOOST_AUTO_TEST_CASE(Constructor)
+BOOST_FIXTURE_TEST_CASE(Constructor, FixtureConnectorFile)
 {
-    auto connector = cams::lib::connector::ConnectorFile::New();
-    BOOST_REQUIRE(connector != nullptr);
+    BOOST_CHECK(this->_connector != nullptr);
 }
 
+/******************************** TEST Nominal ********************************/
+/**
+ * @brief Nominal test case: Tests Getters and Setters
+ */
+BOOST_FIXTURE_TEST_CASE(Accessors, FixtureConnectorFile)
+{
+    BOOST_CHECK(this->_connector->get_identity() == nullptr);
+    this->_connector->set_identity(cams::lib::model::Identity::New());
+    BOOST_CHECK(this->_connector->get_identity() != nullptr);
+}

@@ -1,12 +1,10 @@
 #define BOOST_TEST_MODULE ModuleControllerBase
 
-// Include Boost library
-#include <boost/test/unit_test.hpp>
-
 // Include Project files
 #include "tests/code/lib/controller/FixtureControllerBase.h"
 #include "src/lib/controller/NotImplementedActionException.h"
 #include "src/lib/controller/UnknownActionException.h"
+#include "src/lib/connector/ConnectorFile.h"
 
 /******************************** TEST Nominal ********************************/
 /**
@@ -15,6 +13,17 @@
 BOOST_FIXTURE_TEST_CASE(Constructor, FixtureControllerBase)
 {
     BOOST_CHECK(this->_controller != nullptr);
+}
+
+/******************************** TEST Nominal ********************************/
+/**
+ * @brief Nominal test case: Tests Getters and Setters
+ */
+BOOST_FIXTURE_TEST_CASE(Accessors, FixtureControllerBase)
+{
+    BOOST_CHECK(this->_controller->get_connector() == nullptr);
+    this->_controller->set_connector(cams::lib::connector::ConnectorFile::New());
+    BOOST_CHECK(this->_controller->get_connector() != nullptr);
 }
 
 /******************************** TEST Nominal ********************************/
