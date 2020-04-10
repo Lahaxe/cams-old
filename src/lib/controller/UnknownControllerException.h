@@ -29,7 +29,7 @@ public:
     UnknownControllerException(std::string const & controller);
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of UnknownControllerException
      */
     virtual ~UnknownControllerException() noexcept;
 

@@ -28,7 +28,7 @@ public:
     RefusedLoginException();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of RefusedLoginException
      */
     virtual ~RefusedLoginException() noexcept;
 

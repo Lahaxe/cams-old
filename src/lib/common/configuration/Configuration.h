@@ -28,7 +28,7 @@ public:
     static Configuration & instance();
 
     /**
-     * @brief Destory the instance of Configuration
+     * @brief Destory the unique instance of Configuration
      */
     static void delete_instance();
 
@@ -37,16 +37,40 @@ public:
      */
     virtual ~Configuration();
 
+    /**
+     * @brief Get the Configuration connector_type
+     * @return Return the Configuration connector_type
+     */
     std::string get_connector_type() const;
 
+    /**
+     * @brief Set the Configuration connector_type
+     * @param name: New Configuration connector_type
+     */
     void set_connector_type(std::string const & connector_type);
 
+    /**
+     * @brief Get the Configuration logger_type
+     * @return Return the Configuration logger_type
+     */
     std::string get_logger_type() const;
 
+    /**
+     * @brief Set the Configuration logger_type
+     * @param name: New Configuration logger_type
+     */
     void set_logger_type(std::string const & logger_type);
 
+    /**
+     * @brief Get the Configuration connector_file_root_path
+     * @return Return the Configuration connector_file_root_path
+     */
     std::string get_connector_file_root_path() const;
 
+    /**
+     * @brief Set the Configuration connector_file_root_path
+     * @param name: New Configuration connector_file_root_path
+     */
     void set_connector_file_root_path(std::string const & connector_file_root_path);
 
 protected:
@@ -70,12 +94,18 @@ private:
      */
     void operator=(Configuration const & other);
 
+    /// @brief Connector type
     std::string _connector_type;
 
+    /// @brief Logger type
     std::string _logger_type;
 
+    /// @brief Root path for the file connector
     std::string _connector_file_root_path;
 
+    /**
+     * @brief Reads configuration from file
+     */
     void _load_configuration_file();
 
 };

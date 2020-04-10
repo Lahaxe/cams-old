@@ -17,19 +17,18 @@ namespace common
 {
 
 /**
- * @brief The CamsException class
+ * @brief The NotImplementedException class
  */
 class NotImplementedException : public CamsException
 {
 public:
     /**
-     * @brief Message string constructor
-     * @param message: Details of the exception
+     * @brief Create an instance of NotImplementedException
      */
     NotImplementedException();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of NotImplementedException
      */
     virtual ~NotImplementedException() noexcept;
 

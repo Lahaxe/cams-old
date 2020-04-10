@@ -28,7 +28,7 @@ public:
     MissingIdentityException();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of MissingIdentityException
      */
     virtual ~MissingIdentityException() noexcept;
 

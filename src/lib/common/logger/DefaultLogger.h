@@ -1,6 +1,7 @@
 #ifndef _365e5589_7aa8_448f_8bfd_ceae68ac3a10
 #define _365e5589_7aa8_448f_8bfd_ceae68ac3a10
 
+// Include Project files
 #include "common/logger/LoggerBase.h"
 
 /// @brief Main namespace
@@ -16,7 +17,7 @@ namespace common
 {
 
 /**
- * @brief The Logger class
+ * @brief The DefaultLogger class
  */
 class DefaultLogger : public LoggerBase
 {
@@ -34,7 +35,7 @@ public:
     static Pointer New();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of DefaultLogger
      */
     virtual ~DefaultLogger();
 

@@ -27,12 +27,12 @@ class BaseFactory
 {
 public:
     /**
-     * @brief Constructor
+     * @brief Create an instance of BaseFactory
      */
     BaseFactory();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of BaseFactory
      */
     virtual ~BaseFactory();
 
