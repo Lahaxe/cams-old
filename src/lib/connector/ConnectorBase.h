@@ -40,40 +40,70 @@ public:
     ConnectorBase();
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of ConnectorBase
      */
     virtual ~ConnectorBase();
 
     /**
-     * @brief Get identity member
-     * @return Return value of identity
+     * @brief Get the ConnectorBase identity
+     * @return Return the ConnectorBase identity
      */
     model::Identity::Pointer get_identity() const;
 
     /**
-     * @brief Set identity member
-     * @param password: New value of identity
+     * @brief Set the ConnectorBase identity
+     * @param password: New ConnectorBase identity
      */
     void set_identity(model::Identity::Pointer identity);
 
+    /**
+     * @brief Allows to authenticate
+     * @return Returns a token if authentication was successful
+     */
     virtual model::Token::Pointer authenticate() = 0;
 
+    /**
+     * @brief Get all users
+     * @return Returns list of users
+     */
     virtual std::vector<model::User::Pointer> get_users() = 0;
 
+    /**
+     * @brief Get user by a given id
+     * @param id: User id
+     * @return Returns user corresponding to the given id
+     */
     virtual model::User::Pointer get_user_by_id(std::string const & id) = 0;
 
+    /**
+     * @brief Create a new user
+     * @param user: User to create
+     */
     virtual void post_user(model::User::Pointer user) = 0;
 
+    /**
+     * @brief Replace an user
+     * @param user: User to replace
+     */
     virtual void put_user(model::User::Pointer user) = 0;
 
+    /**
+     * @brief Modify an user
+     * @param user: User to modify
+     */
     virtual void patch_user(model::User::Pointer user) = 0;
 
+    /**
+     * @brief Deletes an user by a given id
+     * @param id: User id
+     * @return Returns the deleted user
+     */
     virtual model::User::Pointer delete_user_by_id(std::string const & id) = 0;
 
 protected:
 
 private:
-    /// @brief The identity data
+    /// @brief The ConnectorBase identity
     model::Identity::Pointer _identity;
 
     /**

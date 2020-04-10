@@ -35,14 +35,14 @@ public:
     static void delete_instance();
 
     /**
-     * @brief Destroy the instance of this factory
+     * @brief Destroy the instance of ConnectorFactory
      */
     virtual ~ConnectorFactory();
 
 protected:
 
 private:
-    /// @brief Create an instance of this factory
+    /// @brief Create an instance of ConnectorFactory
     ConnectorFactory();
 
     /// @brief Unique instance of this factory

@@ -19,13 +19,13 @@ class MissingArgumentException : public lib::common::CamsException
 {
 public:
     /**
-     * @brief Constructor
+     * @brief Create an instance of MissingArgumentException
      * @param argument: The missing argument
      */
     MissingArgumentException(std::string const & argument);
 
     /**
-     * @brief Destructor
+     * @brief Destroy the instance of MissingArgumentException
      */
     virtual ~MissingArgumentException() noexcept;
 
