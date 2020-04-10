@@ -1,9 +1,9 @@
-#ifndef _1d4da5e6_5f16_4e41_bea7_da787d780f32
-#define _1d4da5e6_5f16_4e41_bea7_da787d780f32
+#ifndef _ddf16a32_f421_485b_b4ca_40550145922f
+#define _ddf16a32_f421_485b_b4ca_40550145922f
 
 // Include Project files
 #include "tests/code/FixtureBase.h"
-#include "src/lib/common/logger/Logger.h"
+#include "src/lib/common/logger/LoggerBase.h"
 
 class TestLoggerBase : public cams::lib::common::LoggerBase
 {
@@ -25,25 +25,27 @@ public:
     }
 };
 
-class FixtureLogger : public FixtureBase
+class FixtureLoggerBase : public FixtureBase
 {
 public:
-    FixtureLogger(): FixtureBase()
+    FixtureLoggerBase(): FixtureBase(), _logger(new TestLoggerBase())
     {
-        cams::lib::common::Logger::instance();
-        cams::lib::common::Logger::instance().set_logger_writer(
-                    cams::lib::common::LoggerBase::Pointer(new TestLoggerBase()));
+        // Nothing to do
     }
 
-    virtual ~FixtureLogger()
+    virtual ~FixtureLoggerBase()
     {
-        cams::lib::common::Logger::delete_instance();
+        if (this->_logger != nullptr)
+        {
+            delete this->_logger;
+        }
     }
 
 protected:
+    TestLoggerBase* _logger;
 
 private:
 
 };
 
-#endif // _1d4da5e6_5f16_4e41_bea7_da787d780f32
+#endif // _ddf16a32_f421_485b_b4ca_40550145922f
