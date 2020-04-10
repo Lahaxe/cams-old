@@ -10,7 +10,7 @@
 #include "common/configuration/Configuration.h"
 #include "common/logger/Logger.h"
 #include "common/logger/LoggerFactory.h"
-#include "main/MainWindow.h"
+#include "controller/MainWidgetController.h"
 
 int main(int argc, char *argv[])
 {
@@ -34,10 +34,11 @@ int main(int argc, char *argv[])
         QCoreApplication::setApplicationName("cams-gui");
 
         // Create main frame
-        MainWindow frame;
-        frame.show();
+        MainWidgetController::instance()->create_main_window();
 
         exit_value = a.exec();
+
+        MainWidgetController::delete_instance();
     }
     catch (std::exception & exc)
     {

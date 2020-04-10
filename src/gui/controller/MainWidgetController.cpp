@@ -1,5 +1,7 @@
 // Include Project files
 #include "controller/MainWidgetController.h"
+#include "connector/ConnectorFactory.h"
+#include "common/configuration/Configuration.h"
 
 /*
 /// @brief Main namespace
@@ -36,13 +38,37 @@ MainWidgetController
 }
 
 MainWidgetController
-::MainWidgetController()
+::MainWidgetController():
+    _main_window(nullptr), _connector(nullptr)
 {
+    // Create the connector
+    this->_connector = cams::lib::connector::ConnectorFactory::instance().create(
+                cams::lib::common::Configuration::instance().get_connector_type());
 }
 
 MainWidgetController
 ::~MainWidgetController()
 {
+    if (this->_main_window != nullptr)
+    {
+        delete this->_main_window;
+    }
+}
+
+cams::lib::connector::ConnectorBase::Pointer
+MainWidgetController
+::get_connector() const
+{
+    return this->_connector;
+}
+
+void
+MainWidgetController
+::create_main_window()
+{
+    this->_main_window = new MainWindow();
+    this->_main_window->initialize();
+    this->_main_window->show();
 }
 
 /*

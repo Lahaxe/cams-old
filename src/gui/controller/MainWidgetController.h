@@ -1,6 +1,9 @@
 #ifndef _920a7d49_582a_420b_bfba_2e76a57d8092
 #define _920a7d49_582a_420b_bfba_2e76a57d8092
 
+// Include Project files
+#include "connector/ConnectorBase.h"
+#include "main/MainWindow.h"
 /*
 /// @brief Main namespace
 namespace cams
@@ -37,6 +40,10 @@ public:
      */
     virtual ~MainWidgetController();
 
+    cams::lib::connector::ConnectorBase::Pointer get_connector() const;
+
+    void create_main_window();
+
 private:
     /// @brief Create an instance of MainWidgetController
     MainWidgetController();
@@ -55,6 +62,10 @@ private:
      * @param other: Object to copy
      */
     void operator=(MainWidgetController const & other);
+
+    MainWindow * _main_window;
+
+    cams::lib::connector::ConnectorBase::Pointer _connector;
 
 };
 /*

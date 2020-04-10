@@ -2,6 +2,10 @@
 #include <QMainWindow>
 
 // Include Project files
+#include "common/exception/CamsException.h"
+#include "controller/MainWidgetController.h"
+#include "controller/ControllerFactory.h"
+#include "controller/ControllerToken.h"
 #include "connection/ConnectionWidget.h"
 #include "ui_ConnectionWidget.h"
 
@@ -48,8 +52,6 @@ void
 ConnectionWidget
 ::onConnectionRefused()
 {
-    // Display error
-    this->_ui->errorMessage->showError("Nom d'utilisateur ou mot de passe invalide");
 }
 
 void
@@ -63,8 +65,42 @@ void
 ConnectionWidget
 ::on_ConnectionButton_clicked()
 {
-    emit sendConnection(this->_ui->login->get_input(),
-                        this->_ui->password->get_input());
+    MainWidgetController::instance()->get_connector()->set_identity(
+                cams::lib::model::Identity::New(
+                    this->_ui->login->get_input().toStdString(),
+                    this->_ui->password->get_input().toStdString(),
+                    ""));
+
+    // Create Token controller
+    auto controller = cams::lib::controller::ControllerFactory::instance().create(
+                cams::lib::controller::ControllerToken::class_name());
+    controller->set_connector(MainWidgetController::instance()->get_connector());
+
+    try
+    {
+        // Send token request
+        auto response = controller->execute(cams::lib::controller::ACTION_POST);
+
+        // Parse response
+        auto token = cams::lib::model::Token::New();
+        token->from_json(response.object());
+
+        if (!token->get_token().empty())
+        {
+            // Connection granted !!!
+            MainWidgetController::instance()->get_connector()->get_identity()->set_token(token->get_token());
+            emit connectionGranted();
+            return;
+        }
+    }
+    catch (cams::lib::common::CamsException const & exc)
+    {
+        // Nothing to do
+        // A revoir => log an error
+    }
+
+    // Display error
+    this->_ui->errorMessage->showError("Nom d'utilisateur ou mot de passe invalide");
 }
 
 void
