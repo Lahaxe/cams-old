@@ -76,7 +76,8 @@ bool
 INIFileParser
 ::contains_key(std::string const & key)
 {
-    return (this->_tree->find(key) != this->_tree->not_found());
+    auto iter = this->_tree->get_optional<std::string>(key);
+    return (iter.is_initialized());
 }
 
 std::string
