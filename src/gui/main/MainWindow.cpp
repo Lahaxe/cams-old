@@ -28,12 +28,7 @@ MainWindow
 {
     this->_ui->setupUi(this);
 
-    // Resize to fullscreen
-    this->resize(QDesktopWidget().availableGeometry(this).size());
-    this->_ui->centralwidget->setGeometry(0,0,this->size().width(), this->size().height());
-
-    this->_ui->Main->hide();
-    this->_ui->CreateAccount->hide();
+    this->initialize();
 
     // Load stylesheet
     QFile stylesheet("cams.css");
@@ -69,6 +64,18 @@ MainWindow
     {
         delete this->_ui;
     }
+}
+
+void
+MainWindow
+::initialize()
+{
+    // Resize to fullscreen
+    this->resize(QDesktopWidget().availableGeometry(this).size());
+    this->_ui->centralwidget->setGeometry(0,0,this->size().width(), this->size().height());
+
+    this->_ui->Main->hide();
+    this->_ui->CreateAccount->hide();
 }
 
 void

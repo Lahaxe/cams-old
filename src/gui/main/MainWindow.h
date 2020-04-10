@@ -27,6 +27,8 @@ public:
 
     virtual ~MainWindow();
 
+    void initialize();
+
 private slots:
     void onConnectionSend(QString const &, QString const &);
 

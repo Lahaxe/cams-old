@@ -4,6 +4,7 @@
 // Include Project files
 #include "menu/Menu.h"
 #include "ui_Menu.h"
+#include "menu/UserMenuWidget.h"
 
 Menu
 ::Menu(QWidget *parent) :
@@ -26,5 +27,7 @@ void
 Menu
 ::on_user_btn_clicked()
 {
-    // Nothing yet
+    auto usermenu = new UserMenuWidget(this);
+
+    this->_ui->gridLayout->addWidget(usermenu);
 }
