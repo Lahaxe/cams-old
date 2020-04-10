@@ -12,4 +12,6 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
+    auto logger = cams::lib::common::FileLogger::New();
+    BOOST_REQUIRE(logger != nullptr);
 }

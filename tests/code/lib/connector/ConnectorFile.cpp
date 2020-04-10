@@ -12,5 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
+    auto connector = cams::lib::connector::ConnectorFile::New();
+    BOOST_REQUIRE(connector != nullptr);
 }
 

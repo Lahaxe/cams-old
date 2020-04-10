@@ -12,5 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
+    auto fileparser = cams::lib::common::INIFileParser::New("");
+    BOOST_REQUIRE(fileparser != nullptr);
 }
 

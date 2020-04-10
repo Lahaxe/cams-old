@@ -12,5 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
+    cams::lib::common::Configuration::instance();
+    cams::lib::common::Configuration::delete_instance();
 }
 

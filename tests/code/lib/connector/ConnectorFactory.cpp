@@ -12,5 +12,7 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
+    cams::lib::connector::ConnectorFactory::instance();
+    cams::lib::connector::ConnectorFactory::delete_instance();
 }
 

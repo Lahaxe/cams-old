@@ -12,4 +12,6 @@
  */
 BOOST_AUTO_TEST_CASE(Constructor)
 {
+    cams::lib::common::LoggerFactory::instance();
+    cams::lib::common::LoggerFactory::delete_instance();
 }
