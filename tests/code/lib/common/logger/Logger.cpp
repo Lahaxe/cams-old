@@ -1,8 +1,5 @@
 #define BOOST_TEST_MODULE ModuleLogger
 
-// Include Standard library
-#include <iostream>
-
 // Include Project files
 #include "tests/code/lib/common/logger/FixtureLogger.h"
 

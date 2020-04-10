@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE ModuleControllerBase
+#define BOOST_TEST_MODULE ModuleControllerToken
 
 // Include Boost library
 #include <boost/test/unit_test.hpp>

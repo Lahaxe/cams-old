@@ -2,6 +2,7 @@
 #define _42a7bd3f_7a58_41ad_8d5f_a8044c1b6ec7
 
 // Include Standard library files
+#include <fstream>
 #include <experimental/filesystem>
 
 // Include Project files
@@ -16,12 +17,14 @@ class FixtureJsonTools : public FixtureBase
 public:
     FixtureJsonTools(): FixtureBase()
     {
-        /*QFile file(QString(filename.c_str()));
+        std::stringstream file_content;
+        file_content << "{\n";
+        file_content << "    \"field\": \"value\"\n";
+        file_content << "}\n";
 
-        if (!file.open(QIODevice::WriteOnly))
-        {
-            return false;
-        }*/
+        std::ofstream test_file(TEST_FILE_JSONTOOLS_READ);
+        test_file << file_content.str().c_str();
+        test_file.close();
     }
 
     virtual ~FixtureJsonTools()

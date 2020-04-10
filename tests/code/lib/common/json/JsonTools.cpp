@@ -1,8 +1,5 @@
 #define BOOST_TEST_MODULE ModuleJsonTools
 
-// Include Standard library files
-#include <fstream>
-
 // Include Boost library files
 #include <boost/test/unit_test.hpp>
 
@@ -13,11 +10,12 @@
 /**
  * @brief Nominal test case: Tests function to_file
  */
-BOOST_AUTO_TEST_CASE(ToJsonFile)
+BOOST_FIXTURE_TEST_CASE(ToJsonFile, FixtureJsonTools)
 {
     QJsonObject object;
     object["field"] = QString("value");
-    cams::lib::common::json::to_file(object, TEST_FILE_JSONTOOLS_WRITE);
+    auto result = cams::lib::common::json::to_file(object, TEST_FILE_JSONTOOLS_WRITE);
+    BOOST_REQUIRE_EQUAL(result, true);
 
     std::ifstream expected_file(TEST_FILE_JSONTOOLS_WRITE);
 
@@ -36,19 +34,36 @@ BOOST_AUTO_TEST_CASE(ToJsonFile)
 /**
  * @brief Nominal test case: Tests function from_file
  */
-BOOST_AUTO_TEST_CASE(FromJsonFile)
+BOOST_FIXTURE_TEST_CASE(FromJsonFile, FixtureJsonTools)
 {
-    std::stringstream file_content;
-    file_content << "{\n";
-    file_content << "    \"field\": \"value\"\n";
-    file_content << "}\n";
-
-    std::ofstream test_file(TEST_FILE_JSONTOOLS_READ);
-    test_file << file_content.str().c_str();
-    test_file.close();
-
     QJsonObject object;
-    cams::lib::common::json::from_file(object, TEST_FILE_JSONTOOLS_READ);
+    auto result = cams::lib::common::json::from_file(object, TEST_FILE_JSONTOOLS_READ);
+    BOOST_REQUIRE_EQUAL(result, true);
 
     BOOST_CHECK_EQUAL(object["field"].toString().toStdString(), std::string("value"));
+}
+
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Tests function to_file with bad filename
+ */
+BOOST_FIXTURE_TEST_CASE(ToBadJsonFile, FixtureJsonTools)
+{
+    QJsonObject object;
+    object["field"] = QString("value");
+    auto result = cams::lib::common::json::to_file(object, "unkown/directory/unknown_file.json");
+
+    BOOST_CHECK_EQUAL(result, false);
+}
+
+/******************************** TEST Error **********************************/
+/**
+ * @brief Error test case: Tests function from_file with bad filename
+ */
+BOOST_FIXTURE_TEST_CASE(FromBadJsonFile, FixtureJsonTools)
+{
+    QJsonObject object;
+    auto result = cams::lib::common::json::from_file(object, "unknown_file.json");
+
+    BOOST_CHECK_EQUAL(result, false);
 }
