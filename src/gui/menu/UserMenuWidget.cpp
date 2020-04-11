@@ -22,13 +22,12 @@ UserMenuWidget
     }
 }
 
-
 void
 UserMenuWidget
 ::on_disconnectButton_clicked()
 {
-    auto response = QMessageBox::question(this, "Log out", "Are you sure ?", QMessageBox::Yes | QMessageBox::No);
-
+    auto response = QMessageBox::question(this, "Log out", "Are you sure ?",
+                                          QMessageBox::Yes | QMessageBox::No);
     if (response == QMessageBox::Yes)
     {
         emit disconnectClick();
