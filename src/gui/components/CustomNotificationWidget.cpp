@@ -1,6 +1,3 @@
-// Include Qt files
-#include <QMainWindow>
-
 // Include Project files
 #include "components/CustomNotificationWidget.h"
 #include "ui_CustomNotificationWidget.h"

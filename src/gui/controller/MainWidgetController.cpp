@@ -39,7 +39,7 @@ MainWidgetController
 
 MainWidgetController
 ::MainWidgetController():
-    _main_window(nullptr), _connector(nullptr)
+    _connector(nullptr), _main_window(nullptr), _user_menu(nullptr)
 {
     // Create the connector
     this->_connector = cams::lib::connector::ConnectorFactory::instance().create(
@@ -69,6 +69,20 @@ MainWidgetController
     this->_main_window = new MainWindow();
     this->_main_window->initialize();
     this->_main_window->show();
+}
+
+void
+MainWidgetController
+::set_user_menu(UserMenuWidget * user_menu)
+{
+    this->_user_menu = user_menu;
+}
+
+UserMenuWidget *
+MainWidgetController
+::get_user_menu() const
+{
+    return this->_user_menu;
 }
 
 /*

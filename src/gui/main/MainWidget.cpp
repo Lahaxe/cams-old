@@ -1,9 +1,7 @@
-// Include Qt files
-#include <QMainWindow>
-
 // Include Project files
 #include "main/MainWidget.h"
 #include "ui_MainWidget.h"
+#include "controller/MainWidgetController.h"
 
 MainWidget
 ::MainWidget(QWidget *parent) :
@@ -11,6 +9,8 @@ MainWidget
     _ui(new Ui::MainWidget)
 {
     this->_ui->setupUi(this);
+
+    MainWidgetController::instance()->set_user_menu(this->_ui->menu_user);
 }
 
 MainWidget
@@ -27,4 +27,14 @@ MainWidget
 ::initialize()
 {
     this->_ui->menu->setGeometry(0,0,this->size().width(), 50);
+    this->_ui->menu_user->setGeometry(this->size().width() - 210, 48, 210, 130);
+
+    this->_ui->menu->initialize();
+
+    this->_ui->menu_user->hide();
+}
+
+void MainWidget::mousePressEvent(QMouseEvent * __attribute__((unused))event)
+{
+    MainWidgetController::instance()->get_user_menu()->hide();
 }

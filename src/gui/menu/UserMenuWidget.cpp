@@ -1,5 +1,5 @@
 // Include Qt files
-#include <QMainWindow>
+#include <QMessageBox>
 
 // Include Project files
 #include "menu/UserMenuWidget.h"
@@ -22,3 +22,15 @@ UserMenuWidget
     }
 }
 
+
+void
+UserMenuWidget
+::on_disconnectButton_clicked()
+{
+    auto response = QMessageBox::question(this, "Log out", "Are you sure ?", QMessageBox::Yes | QMessageBox::No);
+
+    if (response == QMessageBox::Yes)
+    {
+        emit disconnectClick();
+    }
+}

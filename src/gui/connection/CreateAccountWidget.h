@@ -29,6 +29,8 @@ public:
 
     virtual ~CreateAccountWidget();
 
+    void initialize();
+
     void set_login(QString const & login);
 
 Q_SIGNALS:

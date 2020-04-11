@@ -31,7 +31,8 @@ public:
 
     void initialize();
 
-private slots:
+protected:
+    virtual void mousePressEvent(QMouseEvent *event) override;
 
 private:
     Ui::MainWidget * _ui;

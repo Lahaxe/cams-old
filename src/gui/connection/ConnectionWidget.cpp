@@ -1,6 +1,3 @@
-// Include Qt files
-#include <QMainWindow>
-
 // Include Project files
 #include "common/exception/CamsException.h"
 #include "controller/MainWidgetController.h"
@@ -16,20 +13,9 @@ ConnectionWidget
 {
     this->_ui->setupUi(this);
 
-    this->_ui->errorMessage->resize(400, 50);
-    this->_ui->errorMessage->hide();
-    this->_ui->login->resize(400, 50);
-    this->_ui->password->resize(400, 50);
-
     this->connect(this->_ui->login, SIGNAL(inputFill(bool)), this, SLOT(onLoginFilled(bool)));
     this->connect(this->_ui->password, SIGNAL(inputFill(bool)), this, SLOT(onPasswordFilled(bool)));
     this->connect(this->_ui->password, SIGNAL(requestNewPassword()), this, SLOT(onResetPasswordClicked()));
-
-    this->_ui->login->set_field_label("Nom d'utilisateur");
-    this->_ui->password->set_field_label("Mot de passe");
-
-    // Pas de création de compte pour le moment
-    //this->_ui->newAccountButton->setVisible(false);
 }
 
 ConnectionWidget
@@ -39,6 +25,22 @@ ConnectionWidget
     {
         delete this->_ui;
     }
+}
+
+void
+ConnectionWidget
+::initialize()
+{
+    this->_ui->errorMessage->resize(400, 50);
+    this->_ui->errorMessage->hide();
+    this->_ui->login->resize(400, 50);
+    this->_ui->password->resize(400, 50);
+
+    this->_ui->login->set_field_label("Nom d'utilisateur");
+    this->_ui->password->set_field_label("Mot de passe");
+
+    // Pas de création de compte pour le moment
+    //this->_ui->newAccountButton->setVisible(false);
 }
 
 void

@@ -29,6 +29,12 @@ public:
 
     virtual ~UserMenuWidget();
 
+Q_SIGNALS:
+    void disconnectClick();
+
+private slots:
+    void on_disconnectButton_clicked();
+
 private:
     Ui::UserMenuWidget * _ui;
 };

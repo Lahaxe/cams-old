@@ -36,6 +36,8 @@ private slots:
 
     void onSendBackToConnectionSend(QString const &);
 
+    void onDisconnectClicked();
+
 private:
     Ui::MainWindow * _ui;
 

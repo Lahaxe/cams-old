@@ -4,6 +4,7 @@
 // Include Project files
 #include "connector/ConnectorBase.h"
 #include "main/MainWindow.h"
+#include "menu/UserMenuWidget.h"
 /*
 /// @brief Main namespace
 namespace cams
@@ -44,6 +45,10 @@ public:
 
     void create_main_window();
 
+    void set_user_menu(UserMenuWidget * user_menu);
+
+    UserMenuWidget * get_user_menu() const;
+
 private:
     /// @brief Create an instance of MainWidgetController
     MainWidgetController();
@@ -63,9 +68,11 @@ private:
      */
     void operator=(MainWidgetController const & other);
 
+    cams::lib::connector::ConnectorBase::Pointer _connector;
+
     MainWindow * _main_window;
 
-    cams::lib::connector::ConnectorBase::Pointer _connector;
+    UserMenuWidget * _user_menu;
 
 };
 /*

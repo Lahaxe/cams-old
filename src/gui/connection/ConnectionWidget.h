@@ -29,6 +29,8 @@ public:
 
     virtual ~ConnectionWidget();
 
+    void initialize();
+
     void onConnectionRefused();
 
     void set_login(QString const & login);
