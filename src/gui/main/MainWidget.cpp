@@ -26,10 +26,14 @@ void
 MainWidget
 ::initialize()
 {
-    this->_ui->menu->setGeometry(0,0,this->size().width(), 50);
+    this->_ui->menu->setGeometry(0, 0, this->size().width(), 50);
     this->_ui->menu_user->setGeometry(this->size().width() - 210, 48, 210, 130);
+    this->_ui->dashboard->setGeometry(0,50,this->size().width(), this->size().height() - 50);
 
     this->_ui->menu->initialize();
+
+    // This is the top widget
+    this->_ui->menu_user->raise();
 
     this->_ui->menu_user->hide();
 }

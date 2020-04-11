@@ -51,6 +51,16 @@
     </rect>
    </property>
   </widget>
+  <widget class="DashboardWidget" name="dashboard" native="true">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>661</width>
+     <height>321</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -63,6 +73,12 @@
    <class>UserMenuWidget</class>
    <extends>QWidget</extends>
    <header>menu/UserMenuWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DashboardWidget</class>
+   <extends>QWidget</extends>
+   <header>main/DashboardWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
