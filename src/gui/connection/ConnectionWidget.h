@@ -29,12 +29,14 @@ public:
 
     virtual ~ConnectionWidget();
 
+    void initialize();
+
     void onConnectionRefused();
 
     void set_login(QString const & login);
 
 Q_SIGNALS:
-    void sendConnection(QString const & login, QString const & password);
+    void connectionGranted();
 
     void sendNewAccount(QString const & login);
 

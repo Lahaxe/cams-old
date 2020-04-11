@@ -1,9 +1,7 @@
-// Include Qt files
-#include <QMainWindow>
-
 // Include Project files
 #include "menu/Menu.h"
 #include "ui_Menu.h"
+#include "controller/MainWidgetController.h"
 
 Menu
 ::Menu(QWidget *parent) :
@@ -24,7 +22,15 @@ Menu
 
 void
 Menu
+::initialize()
+{
+    this->_ui->menu_btn->hide();
+    this->_ui->notification_btn->hide();
+}
+
+void
+Menu
 ::on_user_btn_clicked()
 {
-    // Nothing yet
+    MainWidgetController::instance()->get_user_menu()->show();
 }

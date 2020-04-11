@@ -29,6 +29,8 @@ public:
 
     virtual ~Menu();
 
+    void initialize();
+
 private slots:
     void on_user_btn_clicked();
 

@@ -26,46 +26,67 @@
    <string>Connection</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" alignment="Qt::AlignHCenter">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Sign in to CAMS</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0">
-    <widget class="ValidationButton" name="ConnectionButton">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Connection</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="CustomLabeledInputTextField" name="login" native="true"/>
-   </item>
-   <item row="3" column="0">
-    <widget class="CustomLabeledInputPasswordField" name="password" native="true"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="CustomNotificationWidget" name="errorMessage" native="true"/>
-   </item>
-   <item row="5" column="0">
-    <widget class="QPushButton" name="newAccountButton">
-     <property name="text">
-      <string>Créer un compte</string>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="1">
+    <widget class="QWidget" name="connection_bckgrd" native="true">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0" alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Sign in to CAMS</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="CustomNotificationWidget" name="errorMessage" native="true"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="CustomLabeledInputTextField" name="login" native="true"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="CustomLabeledInputPasswordField" name="password" native="true"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="ValidationButton" name="ConnectionButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Connection</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QPushButton" name="newAccountButton">
+        <property name="text">
+         <string>Créer un compte</string>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>

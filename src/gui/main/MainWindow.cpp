@@ -1,13 +1,9 @@
 // Include Qt files
-#include <qdesktopwidget.h>
+#include <QDesktopWidget>
 #include <QFile>
 
 // Include Project files
-#include "connector/ConnectorFactory.h"
-#include "common/configuration/Configuration.h"
-#include "common/exception/CamsException.h"
-#include "controller/ControllerFactory.h"
-#include "controller/ControllerToken.h"
+#include "controller/MainWidgetController.h"
 #include "model/users/Identity.h"
 #include "main/MainWindow.h"
 #include "ui_MainWindow.h"
@@ -24,32 +20,13 @@ namespace gui
 MainWindow
 ::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    _ui(new Ui::MainWindow), _connector(nullptr)
+    _ui(new Ui::MainWindow)
 {
     this->_ui->setupUi(this);
 
-    // Resize to fullscreen
-    this->resize(QDesktopWidget().availableGeometry(this).size());
-    this->_ui->centralwidget->setGeometry(0,0,this->size().width(), this->size().height());
-
-    this->_ui->Main->hide();
-    this->_ui->CreateAccount->hide();
-
-    // Load stylesheet
-    QFile stylesheet("cams.css");
-    if (stylesheet.open(QIODevice::Text | QIODevice::ReadOnly))
-    {
-        qApp->setStyleSheet(stylesheet.readAll());
-        stylesheet.close();
-    }
-    else
-    {
-        // A revoir => Default stylesheet ???
-    }
-
     // Connect Signals
-    this->connect(this->_ui->Connection, SIGNAL(sendConnection(QString const &, QString const &)),
-                  this, SLOT(onConnectionSend(QString const &, QString const &)));
+    this->connect(this->_ui->Connection, SIGNAL(connectionGranted()),
+                  this, SLOT(onConnectionGranted()));
     this->connect(this->_ui->Connection, SIGNAL(sendResetPassword(QString const &)),
                   this, SLOT(onResetPasswordSend(QString const &)));
     this->connect(this->_ui->Connection, SIGNAL(sendNewAccount(QString const &)),
@@ -57,9 +34,8 @@ MainWindow
     this->connect(this->_ui->CreateAccount, SIGNAL(sendBackToConnection(QString const &)),
                   this, SLOT(onSendBackToConnectionSend(QString const &)));
 
-    // Create the connector
-    this->_connector = cams::lib::connector::ConnectorFactory::instance().create(
-                cams::lib::common::Configuration::instance().get_connector_type());
+    this->connect(MainWidgetController::instance()->get_user_menu(), SIGNAL(disconnectClick()),
+                  this, SLOT(onDisconnectClicked()));
 }
 
 MainWindow
@@ -73,49 +49,46 @@ MainWindow
 
 void
 MainWindow
-::onConnectionSend(const QString & login, const QString & password)
+::initialize()
 {
-    this->_connector->set_identity(cams::lib::model::Identity::New(
-                                       login.toStdString(), password.toStdString(), ""));
+    // Resize to fullscreen
+    this->resize(QDesktopWidget().availableGeometry(this).size());
+    this->_ui->centralwidget->setGeometry(0,0,this->size().width(), this->size().height());
+    this->_ui->Main->setGeometry(0,0,this->size().width(), this->size().height());
 
-    // Create Token controller
-    auto controller = cams::lib::controller::ControllerFactory::instance().create(
-                cams::lib::controller::ControllerToken::class_name());
-    controller->set_connector(this->_connector);
-
-    try
+    // Load stylesheet
+    /*QFile stylesheet("cams.css");
+    if (stylesheet.open(QIODevice::Text | QIODevice::ReadOnly))
     {
-        // Send token request
-        auto response = controller->execute(cams::lib::controller::ACTION_POST);
-
-        // Parse response
-        auto token = cams::lib::model::Token::New();
-        token->from_json(response.object());
-
-        if (!token->get_token().empty())
-        {
-            // Connection granted !!!
-            this->_connector->get_identity()->set_token(token->get_token());
-            this->_ui->Connection->hide();
-            // TODO ajouter l'user ID pour initialiser l'écran
-            this->_ui->Main->setGeometry(0,0,this->size().width(), this->size().height());
-            this->_ui->Main->initialize();
-            this->_ui->Main->show();
-            return;
-        }
+        qApp->setStyleSheet(stylesheet.readAll());
+        stylesheet.close();
     }
-    catch (cams::lib::common::CamsException const & exc)
+    else
     {
-        // Nothing to do
-        // A revoir => log an error
-    }
+        // A revoir => Default stylesheet ???
+    }*/
 
-    this->_ui->Connection->onConnectionRefused();
+    // Initialize all widget
+    this->_ui->Connection->initialize();
+    this->_ui->CreateAccount->initialize();
+    this->_ui->Main->initialize();
+
+    this->_ui->Main->hide();
+    this->_ui->CreateAccount->hide();
 }
 
 void
 MainWindow
-::onResetPasswordSend(QString const & login)
+::onConnectionGranted()
+{
+    this->_ui->Connection->hide();
+    // TODO ajouter l'user ID pour initialiser l'écran
+    this->_ui->Main->show();
+}
+
+void
+MainWindow
+::onResetPasswordSend(QString const & __attribute__((unused))login)
 {
     // Not implemented yet
 }
@@ -135,6 +108,19 @@ MainWindow
 {
     this->_ui->CreateAccount->hide();
     this->_ui->Connection->set_login(login);
+    this->_ui->Connection->show();
+}
+
+void
+MainWindow
+::onDisconnectClicked()
+{
+    this->_ui->Main->hide();
+
+    auto identity = MainWidgetController::instance()->get_connector()->get_identity();
+    identity->set_token(""); // Remove token
+    this->_ui->Connection->set_login(QString(identity->get_login().c_str()));
+
     this->_ui->Connection->show();
 }
 /*

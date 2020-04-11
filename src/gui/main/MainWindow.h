@@ -3,8 +3,6 @@
 
 // Include Qt Files
 #include <QMainWindow>
-
-#include "connector/ConnectorBase.h"
 /*
 /// @brief Main namespace
 namespace cams
@@ -27,8 +25,10 @@ public:
 
     virtual ~MainWindow();
 
+    void initialize();
+
 private slots:
-    void onConnectionSend(QString const &, QString const &);
+    void onConnectionGranted();
 
     void onResetPasswordSend(QString const &);
 
@@ -36,10 +36,10 @@ private slots:
 
     void onSendBackToConnectionSend(QString const &);
 
+    void onDisconnectClicked();
+
 private:
     Ui::MainWindow * _ui;
-
-    cams::lib::connector::ConnectorBase::Pointer _connector;
 
 };
 /*
