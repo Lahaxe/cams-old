@@ -1,6 +1,7 @@
 // Include Project files
 #include "main/DashboardItemsWidget.h"
 #include "ui_DashboardItemsWidget.h"
+#include "controller/MainWidgetController.h"
 
 DashboardItemsWidget
 ::DashboardItemsWidget(QWidget *parent) :
@@ -23,4 +24,11 @@ void
 DashboardItemsWidget
 ::initialize()
 {
+}
+
+void
+DashboardItemsWidget
+::on_createButton_clicked()
+{
+    MainWidgetController::instance()->get_dashboard()->create_add_panel();
 }

@@ -85,6 +85,20 @@ MainWidgetController
     return this->_user_menu;
 }
 
+void
+MainWidgetController
+::set_dashboard(DashboardWidget *dashboard)
+{
+    this->_dashboard = dashboard;
+}
+
+DashboardWidget *
+MainWidgetController::
+get_dashboard() const
+{
+    return this->_dashboard;
+}
+
 /*
 } // namespace gui
 

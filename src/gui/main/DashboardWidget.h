@@ -31,6 +31,8 @@ public:
 
     void initialize();
 
+    void create_add_panel();
+
 private:
     Ui::DashboardWidget * _ui;
 

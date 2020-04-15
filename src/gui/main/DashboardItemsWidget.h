@@ -31,6 +31,9 @@ public:
 
     void initialize();
 
+private slots:
+    void on_createButton_clicked();
+
 private:
     Ui::DashboardItemsWidget * _ui;
 

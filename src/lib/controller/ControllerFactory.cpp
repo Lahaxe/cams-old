@@ -1,5 +1,6 @@
 // Include Project files
 #include "controller/ControllerFactory.h"
+#include "controller/ControllerStamps.h"
 #include "controller/ControllerUsers.h"
 #include "controller/ControllerToken.h"
 
@@ -40,6 +41,7 @@ ControllerFactory
 ::ControllerFactory():
     common::BaseFactory<ControllerBase>()
 {
+    this->register_<ControllerStamps>();
     this->register_<ControllerUsers>();
     this->register_<ControllerToken>();
 }

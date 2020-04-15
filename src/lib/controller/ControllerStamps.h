@@ -63,30 +63,6 @@ protected:
     virtual QJsonDocument execute_post(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
 
     /**
-     * @brief Execute the PUT action
-     * @param ressource: Path of the ressource
-     * @param document: Input JSON document
-     * @return Returns the result of the given action as JSON
-     */
-    virtual QJsonDocument execute_put(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
-
-    /**
-     * @brief Execute the PATCH action
-     * @param ressource: Path of the ressource
-     * @param document: Input JSON document
-     * @return Returns the result of the given action as JSON
-     */
-    virtual QJsonDocument execute_patch(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
-
-    /**
-     * @brief Execute the DELETE action
-     * @param ressource: Path of the ressource
-     * @param document: Input JSON document
-     * @return Returns the result of the given action as JSON
-     */
-    virtual QJsonDocument execute_delete(std::string const & ressource = "", QJsonDocument const & document = QJsonDocument());
-
-    /**
      * @brief Execute the OPTIONS action
      * @param ressource: Path of the ressource
      * @param document: Input JSON document
