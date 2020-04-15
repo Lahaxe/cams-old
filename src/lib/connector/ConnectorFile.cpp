@@ -282,6 +282,41 @@ ConnectorFile
     return user;
 }
 
+void
+ConnectorFile
+::post_stamp(model::Stamp::Pointer stamp)
+{
+    if (!_is_good_token(this->get_identity()->get_token()))
+    {
+        // A revoir => BadTokenException
+        throw std::exception();
+    }
+
+    std::stringstream filepath;
+    std::string uuid;
+    do
+    {
+        uuid = QUuid::createUuid().toString().toStdString();
+        boost::erase_all(uuid, "{");
+        boost::erase_all(uuid, "}");
+
+        filepath << common::Configuration::instance().get_connector_file_root_path()
+                 << "/stamps/" << uuid << ".json";
+    }
+    while (std::experimental::filesystem::v1::is_regular_file(std::experimental::filesystem::v1::path(filepath.str())));
+
+    stamp->set_id(uuid);
+
+    QJsonObject json_stamp;
+    stamp->to_json(json_stamp);
+
+    if (!common::json::to_file(json_stamp, filepath.str()))
+    {
+        // A revoir
+        throw std::exception();
+    }
+}
+
 std::string
 ConnectorFile
 ::_generate_token(std::string const & userid) const

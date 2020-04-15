@@ -6,6 +6,7 @@
 #include <vector>
 
 // Include Project files
+#include "model/stamps/Stamp.h"
 #include "model/users/Identity.h"
 #include "model/users/Token.h"
 #include "model/users/User.h"
@@ -99,6 +100,12 @@ public:
      * @return Returns the deleted user
      */
     virtual model::User::Pointer delete_user_by_id(std::string const & id) = 0;
+
+    /**
+     * @brief Create a new stamp
+     * @param stamp: Stamp to create
+     */
+    virtual void post_stamp(model::Stamp::Pointer stamp) = 0;
 
 protected:
 
