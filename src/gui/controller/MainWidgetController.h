@@ -5,6 +5,7 @@
 #include "connector/ConnectorBase.h"
 #include "main/MainWindow.h"
 #include "menu/UserMenuWidget.h"
+#include "main/DashboardWidget.h"
 /*
 /// @brief Main namespace
 namespace cams
@@ -49,6 +50,10 @@ public:
 
     UserMenuWidget * get_user_menu() const;
 
+    void set_dashboard(DashboardWidget * dashboard);
+
+    DashboardWidget * get_dashboard() const;
+
 private:
     /// @brief Create an instance of MainWidgetController
     MainWidgetController();
@@ -73,6 +78,8 @@ private:
     MainWindow * _main_window;
 
     UserMenuWidget * _user_menu;
+
+    DashboardWidget * _dashboard;
 
 };
 /*

@@ -11,6 +11,7 @@ MainWidget
     this->_ui->setupUi(this);
 
     MainWidgetController::instance()->set_user_menu(this->_ui->menu_user);
+    MainWidgetController::instance()->set_dashboard(this->_ui->dashboard);
 }
 
 MainWidget
@@ -31,6 +32,7 @@ MainWidget
     this->_ui->dashboard->setGeometry(0,50,this->size().width(), this->size().height() - 50);
 
     this->_ui->menu->initialize();
+    this->_ui->dashboard->initialize();
 
     // This is the top widget
     this->_ui->menu_user->raise();

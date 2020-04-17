@@ -70,18 +70,18 @@ public:
 
     /**
      * @brief Set the User password
-     * @param name: New User password
+     * @param password: New User password
      */
     void set_password(std::string const & password);
 
     /**
-     * @brief Convert a JSON object into this EntityBase
+     * @brief Convert a JSON object into this User
      * @param json: JSON object in which the entity is readed
      */
     virtual void from_json(QJsonObject const & json);
 
     /**
-     * @brief Convert this EntityBase as JSON attribute
+     * @brief Convert this User as JSON attribute
      * @param json: JSON object in which the entity is added
      */
     virtual void to_json(QJsonObject & json) const;

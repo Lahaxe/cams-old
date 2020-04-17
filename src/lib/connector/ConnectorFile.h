@@ -89,6 +89,12 @@ public:
      */
     virtual model::User::Pointer delete_user_by_id(std::string const & id);
 
+    /**
+     * @brief Create a new stamp
+     * @param stamp: Stamp to create
+     */
+    virtual void post_stamp(model::Stamp::Pointer stamp);
+
 protected:
 
 private:
